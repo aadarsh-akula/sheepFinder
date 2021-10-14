@@ -1,56 +1,45 @@
-import "./App.css";
+import "./pages/style.css";
+import "./pages/nav.css";
 import React, { useState } from "react";
-import LoginForm from "./components/LoginForm";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Container from "react-bootstrap/Container";
+
+import Dashboard from "./pages/Dashboard";
+import LoginForm from "./pages/LoginForm";
+import Test from "./pages/Test";
+import Profile from "./pages/Profile";
+
+const history = createBrowserHistory();
 
 function App() {
-  const adminUser = {
-    email: "yor@admin.com",
-    password: "admin123",
-  };
-
-  const [user, setUser] = useState({ name: "", email: "" });
-  const [error, setError] = useState(""); // catch if detail are correct
-
-  const Login = (details) => {
-    console.log(details);
-
-    if (
-      details.email == adminUser.email &&
-      details.password == adminUser.password
-    ) {
-      console.log("Logged in");
-      setUser({
-        name: details.name,
-        email: details.email,
-      });
-    } else {
-      console.log("Details do not match!");
-      setError("incorrect email or password");
-    }
-  };
-
-  const Logout = () => {
-    setUser({
-      name: "",
-      email: "",
-    });
-  };
-
   return (
-    <div className="App">
-      {user.email != "" ? ( //if user and email does not match then we render welcome screen
-        <div className="body">
-          <div className="nav">
-            <h2>
-              Welcome, <span>{user.name}</span>
-            </h2>
-            <button onClick={Logout}>Logout</button>
-          </div>
-        </div>
-      ) : (
-        <LoginForm Login={Login} error={error} />
-      )}
-    </div>
+    <Router history={history}>
+      <div className="App">
+        <Switch>
+          <Route exact path="/loginform">
+            <Container className="container_login">
+              <LoginForm />
+            </Container>
+          </Route>
+          <Route exact path="/dashboard">
+            <Container className="container_dashboard">
+              <Dashboard />
+            </Container>
+          </Route>
+          <Route exact path="/test">
+            <Container className="container_dashboard">
+              <Test />
+            </Container>
+          </Route>
+          <Route exact path="/profile">
+            <Container className="container_dashboard">
+              <Profile />
+            </Container>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -1,0 +1,89 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+  height: 100%;
+  width: 350px;
+  background-color: #e7dfc6;
+}
+
+.nav-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.logout {
+  width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+a {
+  padding: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+a > b {
+  font-size: 25px;
+}
+
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.container_dashboard {
+  display: flex;
+}
+
+.tabs:hover {
+  background-color: darkgray;
+  text-decoration: none;
+}
+.button_logout:hover {
+  background-color: darkgray;
+  text-decoration: none;
+}
+.button_logout {
+  margin-top: 545px;
+  text-align: center;
+}
+
+.dashboard_component {
+  background-color: #e9f1f7;
+  width: 100%;
+}
+
+.joblist {
+  background-color: #cccccc;
+  width: 50%;
+  height: 250px;
+}
+
+.test_box {
+  margin-left: 30%;
+}
+.test_box2 {
+  margin-left: 10%;
+}
+
+.example {
+  text-align: right;
+  padding: 6px;
+}
+
+.joblist2 {
+  background-color: #cccccc;
+  width: 800px;
+  height: 800px;
+}
+
+.profile_title {
+  font-size: 30px;
+}
