@@ -4,7 +4,7 @@ import LoginForm from "./components/LoginForm";
 
 function App() {
   const adminUser = {
-    email: "admin@admin.com",
+    email: "yor_her@hotmail.com",
     password: "admin123",
   };
 
@@ -39,11 +39,13 @@ function App() {
   return (
     <div className="App">
       {user.email != "" ? ( //if user and email does not match then we render welcome screen
-        <div className="welcome">
-          <h2>
-            Welcome, <span>{user.name}</span>
-          </h2>
-          <button onClick={Logout}>Logout</button>
+        <div className="body">
+          <div className="nav">
+            <h2>
+              Welcome, <span>{user.name}</span>
+            </h2>
+            <button onClick={Logout}>Logout</button>
+          </div>
         </div>
       ) : (
         <LoginForm Login={Login} error={error} />

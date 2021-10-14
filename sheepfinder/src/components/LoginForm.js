@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import "./index.css";
 
 function LoginForm({ Login, error }) {
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
+  const [details, setDetails] = useState({
+    name: "Yor Her",
+    email: "",
+    password: "",
+  });
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -23,17 +27,6 @@ function LoginForm({ Login, error }) {
           <img src="https://cdn1.iconfinder.com/data/icons/follow-the-herd/512/blank_left-128.png" />
         </div>
         <div className="middle-sheep-body">
-          {/* <div>
-            <p className="asterik">Name</p>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              value={details.name}
-            />
-         </div> */}
-
           <div>
             <p className="asterik">Email</p>
             <input
