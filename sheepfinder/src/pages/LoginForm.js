@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { Link, BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({
@@ -10,7 +10,6 @@ function LoginForm({ Login, error }) {
   });
 
   return (
-    <BrowserRouter>
     <form>
       <div className="error-message">
         {error != "" ? <div className="error">{error}</div> : ""}
@@ -63,7 +62,6 @@ function LoginForm({ Login, error }) {
         <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
-    </BrowserRouter>
   );
 }
 
