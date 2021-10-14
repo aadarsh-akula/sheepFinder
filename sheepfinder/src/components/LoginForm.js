@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./index.css";
+import "./style.css";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({ name: "", email: "", password: "" });
@@ -23,17 +23,6 @@ function LoginForm({ Login, error }) {
           <img src="https://cdn1.iconfinder.com/data/icons/follow-the-herd/512/blank_left-128.png" />
         </div>
         <div className="middle-sheep-body">
-          {/* <div>
-            <p className="asterik">Name</p>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              value={details.name}
-            />
-         </div> */}
-
           <div>
             <p className="asterik">Email</p>
             <input
@@ -60,7 +49,9 @@ function LoginForm({ Login, error }) {
             />
           </div>
           <input className="login" type="submit" value="Login" />
-        </div>{" "}
+          <input className="login" type="submit" value="Login" />
+          <input className="login" type="submit" value="Login" />
+        </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
