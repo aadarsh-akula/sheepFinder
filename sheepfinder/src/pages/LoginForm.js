@@ -68,6 +68,7 @@ function LoginForm({ Login, error }) {
         <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
+    </BrowserRouter>
   );
 }
 
