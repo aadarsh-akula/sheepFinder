@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import { Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({
@@ -9,13 +9,8 @@ function LoginForm({ Login, error }) {
     password: "",
   });
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    Login(details); //pass in details
-  };
-
   return (
+    <BrowserRouter>
     <form>
       <div className="error-message">
         {error != "" ? <div className="error">{error}</div> : ""}
