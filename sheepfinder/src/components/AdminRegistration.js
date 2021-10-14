@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import "./style.css";
 
-
-function RegisterForm({ Register, error }) {
-    const [details, setDetails] = useState({ name: "", email: "", password: "" });
+function AdminRegisterForm({ AdminRegister, error }) {
+    const [details, setDetails] = useState({ name: "", email: "", password: "", company: "" });
   
     const submitHandler = (e) => {
       e.preventDefault();
   
-      Register(details); //pass in details
+      AdminRegister(details); //pass in details
     };
   
     return (
@@ -52,6 +51,18 @@ function RegisterForm({ Register, error }) {
             <div>
               <p className="asterik">Confirm Password</p>
               <input
+                type="text"
+                name="company"
+                id="company"
+                onChange={(e) =>
+                  setDetails({ ...details, company: e.target.value })
+                }
+                value={details.company}
+              />
+            </div>
+            <div>
+              <p className="asterik">Company you work for</p>
+              <input
                 type="password"
                 name="password"
                 id="password"
@@ -63,8 +74,8 @@ function RegisterForm({ Register, error }) {
             </div>
             <input className="button" type="submit" value="Register" />
             <div>
-              <input className="button" type="submit" value="Login" />
-              <input className="button" type="submit" value="Login" />
+              <input className="button" type="submit" value="Already a user?" />
+              <input className="button" type="submit" value="Register as a user" />
             </div>
           </div>
           <footer>&copy;Copyright 2021</footer>

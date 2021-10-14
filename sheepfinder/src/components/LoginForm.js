@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
+import { Link, BrowserRouter, Router, Route } from "react-router-dom";
 
 function LoginForm({ Login, error }) {
   const [details, setDetails] = useState({
@@ -15,6 +16,7 @@ function LoginForm({ Login, error }) {
   };
 
   return (
+    <BrowserRouter>
     <form onSubmit={submitHandler}>
       <div className="error-message">
         {error != "" ? <div className="error">{error}</div> : ""}
@@ -52,15 +54,17 @@ function LoginForm({ Login, error }) {
               value={details.password}
             />
           </div>
+          <input className="uploadRes" type="button" value="Upload Resume"/>
           <input className="button" type="submit" value="Login" />
           <div>
-          <input className="button" type="submit" value="Don't have an account? Click here to register" />    
-          <input className="button" type="submit" value="Login" />
+            <input className="button" type="button" value="Register as a user" />
+            <input className="button" type="button" value="Register as an admin" />
           </div>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
+    </BrowserRouter>
   );
 }
 

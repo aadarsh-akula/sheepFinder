@@ -52,7 +52,20 @@ footer {
 .button {
   width: 200px;
   height: 80px;
+  text-align: center;
   margin-top: 80px;
   border-radius: 6px;
   background-color: #1f8fff;
+  padding: 0px 10px;
+  justify-content: center;
+  display:inline;
+}
+
+.uploadRes {
+  text-align: center;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  padding: 0px 10px;
+  justify-content: center;
+  display:inline;
 }
