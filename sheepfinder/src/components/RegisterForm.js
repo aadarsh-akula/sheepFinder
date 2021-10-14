@@ -61,10 +61,10 @@ function RegisterForm({ Register, error }) {
                 value={details.password}
               />
             </div>
-            <input className="login" type="submit" value="Login" />
+            <input className="button" type="submit" value="Login" />
             <p></p>
-            <input className="login" type="submit" value="Login" />
-            <input className="login" type="submit" value="Login" />
+            <input className="button" type="submit" value="Login" />
+            <input className="button" type="submit" value="Login" />
           </div>
           <footer>&copy;Copyright 2021</footer>
         </div>

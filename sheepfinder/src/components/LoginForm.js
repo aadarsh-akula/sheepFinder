@@ -48,9 +48,11 @@ function LoginForm({ Login, error }) {
               value={details.password}
             />
           </div>
-          <input className="login" type="submit" value="Login" />
-          <input className="login" type="submit" value="Login" />
-          <input className="login" type="submit" value="Login" />
+          <input className="button" type="submit" value="Login" />
+          <div>
+          <input className="button" type="submit" value="Don't have an account? Click here to register" />    
+          <input className="button" type="submit" value="Login" />
+          </div>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
