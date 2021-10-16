@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function LoginForm({ Login, error }) {
+function Home({ Login, error }) {
   const [details, setDetails] = useState({
     name: "Yor Her",
     email: "",
@@ -71,4 +71,4 @@ function LoginForm({ Login, error }) {
   );
 }
 
-export default LoginForm;
+export default Home;
