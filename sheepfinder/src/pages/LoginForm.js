@@ -9,12 +9,6 @@ function LoginForm({ Login, error }) {
     password: "",
   });
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    Login(details); //pass in details
-  };
-
   return (
     <form>
       <div className="error-message">
