@@ -2,7 +2,6 @@
   font-size: 45px;
   text-align: center;
   margin: 0;
-  background-color: #e7dfc6;
 }
 
 img {
@@ -12,7 +11,7 @@ img {
 }
 
 .sheep-body {
-  background-color: #e7dfc6;
+  background-image: url("../cloud.png");
 }
 
 .middle-sheep-body {
@@ -47,6 +46,8 @@ footer {
   font-size: 10px;
   margin-top: 386px;
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
 .button {
@@ -58,7 +59,7 @@ footer {
   background-color: #1f8fff;
   padding: 0px 10px;
   justify-content: center;
-  display:inline;
+  display: inline;
 }
 
 .uploadRes {
@@ -67,13 +68,30 @@ footer {
   background-color: #1f8fff;
   padding: 0px 10px;
   justify-content: center;
-  display:inline;
+  display: inline;
 }
 
-.button_login {
-  width: 200px;
-  height: 80px;
+.button_login1 {
+  width: 60px;
+  height: 20px;
   margin-top: 80px;
   border-radius: 6px;
   background-color: #1f8fff;
+  margin-right: 10px;
+  text-align: center;
+}
+.button_login2 {
+  width: 60px;
+  height: 20px;
+  margin-top: 80px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.register_button {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }
