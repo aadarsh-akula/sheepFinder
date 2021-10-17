@@ -95,3 +95,40 @@ footer {
   display: flex;
   justify-content: center;
 }
+
+.dashboard_component {
+  position: relative; 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.dashboard_component::before {
+  content: "";
+  background-image: url("../cloud.png");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 60%;
+
+}
+
+.joblist {
+  background-color: black;
+  width: 50%;
+  position: relative; 
+  height: 600px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px; 
+  color: white;
+  opacity: 70%;
+}

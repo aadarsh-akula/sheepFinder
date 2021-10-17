@@ -14,9 +14,7 @@ function LoginForm({ Login, error }) {
       <div className="sheep-body">
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
         <h1 className="welcome-text">Login</h1>
-        <div>
-          <img src="https://cdn1.iconfinder.com/data/icons/follow-the-herd/512/blank_left-128.png" />
-        </div>
+        
         <div className="middle-sheep-body">
           <div>
             <p className="asterik">Email</p>
