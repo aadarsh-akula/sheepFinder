@@ -10,6 +10,7 @@ import LoginForm from "./pages/LoginForm";
 import Test from "./pages/Test";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
+import RegisterForm from "./pages/RegisterForm";
 
 const history = createBrowserHistory();
 
@@ -41,6 +42,11 @@ function App() {
           <Route exact path="/profile">
             <Container className="container_dashboard">
               <Profile />
+            </Container>
+          </Route>
+          <Route exact path="/registerform">
+            <Container className="container_login">
+              <RegisterForm />
             </Container>
           </Route>
         </Switch>
