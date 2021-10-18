@@ -2,6 +2,8 @@
   font-size: 45px;
   text-align: center;
   margin: 0;
+  text-shadow: 5px 5px hsla(197, 23%, 55%, 0.979);
+  
 }
 
 img {
@@ -19,7 +21,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 50px;
+  margin-top: 125px;
 }
 
 input {
@@ -44,10 +46,10 @@ input {
 
 footer {
   font-size: 10px;
-  margin-top: 386px;
+  margin-top: 220px;
   text-align: center;
-  background-color: black;
-  color: white;
+ 
+  color:transparent;
 }
 
 .button {
@@ -120,15 +122,18 @@ footer {
 }
 
 .joblist {
-  background-color: black;
-  width: 50%;
+
   position: relative; 
   height: 600px;
   width: 1000px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 25px; 
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
   color: white;
-  opacity: 70%;
+  
 }
+
+
+

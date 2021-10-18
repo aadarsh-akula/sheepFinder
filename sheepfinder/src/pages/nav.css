@@ -56,15 +56,9 @@ a > b {
   text-align: center;
 }
 
-.dashboard_component {
-  background-color: #e9f1f7;
-  width: 100%;
-}
 
 
-.test_box {
-  margin-left: 30%;
-}
+
 .test_box2 {
   margin-left: 10%;
 }
@@ -80,6 +74,3 @@ a > b {
   height: 800px;
 }
 
-.profile_title {
-  font-size: 30px;
-}

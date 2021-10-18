@@ -15,8 +15,9 @@ function DashboardComponent(props) {
   return (
     <div className="dashboard_component">
       <div>
-        <h3>Job List</h3>
+        <h2>Job List</h2>
         <div className="joblist">
+    
           {
             <ol>
               {jobList.map((joblist) => (

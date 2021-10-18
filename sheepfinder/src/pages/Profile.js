@@ -20,12 +20,12 @@ function Test() {
       <div className="dashboard_component">
         <div className="test_box2">
           <div className="profile_title">
-            <h3 className="profile_h3">Profile</h3>
+            <h2 className="profile_h3">Profile</h2>
           </div>
-          <div className="joblist2">
-            <h3 className="profile_h3">Applied Jobs</h3>
+          <div className="joblist">
+            
             {
-              <ol>
+              <ol><h3 className="profile_h3">Applied Jobs</h3>
                 {jobList.map((joblist) => (
                   <li key={joblist.key}>{joblist.description}</li>
                 ))}

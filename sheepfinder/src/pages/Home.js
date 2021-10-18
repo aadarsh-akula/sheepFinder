@@ -9,24 +9,12 @@ function Home({ Login, error }) {
     password: "",
   });
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    Login(details); //pass in details
-  };
-
   return (
     <form>
-      <div className="error-message">
-        {error != "" ? <div className="error">{error}</div> : ""}
-      </div>
       <div className="sheep-body">
-        {" "}
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
         <h1 className="welcome-text">Login</h1>
-        <div>
-          <img src="https://cdn1.iconfinder.com/data/icons/follow-the-herd/512/blank_left-128.png" />
-        </div>
+        
         <div className="middle-sheep-body">
           <div>
             <p className="asterik">Email</p>
@@ -53,17 +41,15 @@ function Home({ Login, error }) {
               value={details.password}
             />
           </div>
+        </div>
+        <div className="register_button">
+          <Link className="button_login1" to="/dashboard" value="Login">
+            Register
+          </Link>
 
-          <div>
-            <input
-              className="button"
-              type="submit"
-              value="Don't have an account? Click here to register"
-            />
-            <Link className="button_login" to="/dashboard" value="Login">
-              Login
-            </Link>
-          </div>
+          <Link className="button_login2" to="/dashboard" value="Login">
+            Login
+          </Link>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
