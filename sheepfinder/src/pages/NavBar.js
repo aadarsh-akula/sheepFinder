@@ -21,13 +21,13 @@ function NavBar(props) {
         {" "}
         <div className="bar">
           <h2>Welcome Yor Her</h2>
-          <NavLink className="tabs" to="/dashboard" value="Login" activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
+          <NavLink className="tabs" to="/dashboard" value="Login" activeStyle={{backgroundColor: "rgba(116,151,168,.5)"}}>
             <h3>Dashboard</h3>
           </NavLink>
-          <NavLink className="tabs" to="/test" value="Login" activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
+          <NavLink className="tabs" to="/test" value="Login" activeStyle={{backgroundColor: "rgba(116,151,168,.5)"}}>
             <h3>Test</h3>
           </NavLink>
-          <NavLink className="tabs" to="/profile" value="Login " activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
+          <NavLink className="tabs" to="/profile" value="Login " activeStyle={{backgroundColor: "rgba(116,151,168,.5)"}}>
             <h3> Profile</h3>
           </NavLink>
         </div>
