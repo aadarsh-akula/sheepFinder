@@ -1,7 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 //import { startLoggingOutUser } from "../actions";
+
+
+
 
 function NavBar(props) {
   /* const dispatch = useDispatch();
@@ -18,15 +21,15 @@ function NavBar(props) {
         {" "}
         <div className="bar">
           <h2>Welcome Yor Her</h2>
-          <Link className="tabs" to="/dashboard" value="Login">
+          <NavLink className="tabs" to="/dashboard" value="Login" activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
             <h3>Dashboard</h3>
-          </Link>
-          <Link className="tabs" to="/test" value="Login">
+          </NavLink>
+          <NavLink className="tabs" to="/test" value="Login" activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
             <h3>Test</h3>
-          </Link>
-          <Link className="tabs" to="/profile" value="Login">
+          </NavLink>
+          <NavLink className="tabs" to="/profile" value="Login " activeStyle={{backgroundColor: "rgb(116,151,168)"}}>
             <h3> Profile</h3>
-          </Link>
+          </NavLink>
         </div>
       </div>
       <Link className="button_logout" to="/loginform" value="Login">
