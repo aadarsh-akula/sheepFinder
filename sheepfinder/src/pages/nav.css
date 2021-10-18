@@ -60,7 +60,7 @@ a > b {
 
 
 .test_box2 {
-  margin-left: 10%;
+  margin: 0;
 }
 
 .example {

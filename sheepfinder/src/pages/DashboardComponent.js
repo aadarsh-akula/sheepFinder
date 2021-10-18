@@ -6,9 +6,10 @@ function DashboardComponent(props) {
 
   return (
     <div className="dashboard_component">
+      
       <div className="dashboard_jobbox">
-        <h2>Job List</h2>
-        <div className="joblist">
+      <h1 className="title">Job List</h1>
+        <div className="joblist_user">
           <div>
           <ol>
           <li>
