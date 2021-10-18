@@ -11,6 +11,9 @@ import Test from "./pages/Test";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import RegisterForm from "./pages/RegisterForm";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminTestEditor from "./pages/AdminTestEditor";
+import AdminProfile from "./pages/AdminProfile";
 
 const history = createBrowserHistory();
 
@@ -47,6 +50,21 @@ function App() {
           <Route exact path="/registerform">
             <Container className="container_login">
               <RegisterForm />
+            </Container>
+          </Route>
+          <Route exact path="/admindashboard">
+            <Container className="container_dashboard">
+              <AdminDashboard />
+            </Container>
+          </Route>
+          <Route exact path="/adminprofile">
+            <Container className="container_dashboard">
+              <AdminProfile />
+            </Container>
+          </Route>
+          <Route exact path="/admintesteditor">
+            <Container className="container_dashboard">
+              <AdminTestEditor />
             </Container>
           </Route>
         </Switch>

@@ -128,8 +128,8 @@ footer {
   height: 600px;
   width: 1000px;
   display: flex;
-  align-items: left;
-  justify-content: left;
+  align-items: center;
+  justify-content: center;
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
@@ -144,8 +144,19 @@ footer {
   text-align: center;
   font-size: 15px;
   padding: 4px;
-  
 }
+  
+.admin_joblist {
+  position: relative; 
+  height: 600px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
 
 ol > li {
   font-size: 25px;

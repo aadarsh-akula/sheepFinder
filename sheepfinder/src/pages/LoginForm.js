@@ -50,6 +50,10 @@ function LoginForm({ Login, error }) {
           <Link className="button_login2" to="/dashboard" value="Login">
             Login
           </Link>
+
+          <Link className="button_login2" to="/admindashboard">
+            Admin
+          </Link>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
