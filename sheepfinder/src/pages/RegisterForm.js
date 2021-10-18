@@ -1,32 +1,40 @@
 import React, { useState } from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function RegisterForm({ Register, error }) {
-  const [details, setDetails] = useState({ name: "", email: "", password: "" });
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    Register(details); //pass in details
-  };
+  const [details, setDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    cPassword: "",
+  });
 
   return (
-    <form onSubmit={submitHandler}>
-      <div className="error-message">
-        {error != "" ? <div className="error">{error}</div> : ""}
-      </div>
+    <form>
       <div className="sheep-body">
-        {" "}
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
         <h1 className="welcome-text">Login</h1>
-        <div>
-          <img src="https://cdn1.iconfinder.com/data/icons/follow-the-herd/512/blank_left-128.png" />
-        </div>
+        
         <div className="middle-sheep-body">
+        <div>
+            <p className="asterik">First and Last Name</p>
+            <input
+              type="name"
+              name="name"
+              id="name"
+              onChange={(e) =>
+                setDetails({ ...details, name: e.target.value })
+              }
+              value={details.password}
+            />
+          </div>
+
+
           <div>
             <p className="asterik">Email</p>
             <input
-              type="text"
+              type="email"
               name="email"
               id="email"
               onChange={(e) =>
@@ -53,17 +61,23 @@ function RegisterForm({ Register, error }) {
             <input
               type="password"
               name="password"
-              id="password"
+              id="cPassword"
               onChange={(e) =>
-                setDetails({ ...details, password: e.target.value })
+                setDetails({ ...details, cPassword: e.target.value })
               }
               value={details.password}
             />
           </div>
-          <input className="button" type="submit" value="Login" />
-          <p></p>
-          <input className="button" type="submit" value="Login" />
-          <input className="button" type="submit" value="Login" />
+
+        </div>
+        <div className="register_button">
+          <Link className="button_login1" to="/dashboard" value="Register">
+            Register
+          </Link>
+
+          <Link className="button_login2" to="/loginform" value="Login">
+            Return
+          </Link>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>

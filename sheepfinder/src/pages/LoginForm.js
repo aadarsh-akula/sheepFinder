@@ -43,7 +43,7 @@ function LoginForm({ Login, error }) {
           </div>
         </div>
         <div className="register_button">
-          <Link className="button_login1" to="/dashboard" value="Login">
+          <Link className="button_login1" to="/registerform">
             Register
           </Link>
 
