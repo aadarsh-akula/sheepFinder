@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import RegisterForm from "./pages/RegisterForm";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminTestEditor from "./pages/AdminTestEditor";
+import AdminAdministeredJob from "./pages/AdminAdministeredJob";
 import AdminProfile from "./pages/AdminProfile";
 
 const history = createBrowserHistory();
@@ -57,14 +58,19 @@ function App() {
               <AdminDashboard />
             </Container>
           </Route>
-          <Route exact path="/adminprofile">
+          <Route exact path="/adminadministeredjob">
             <Container className="container_dashboard">
-              <AdminProfile />
+              <AdminAdministeredJob />
             </Container>
           </Route>
           <Route exact path="/admintesteditor">
             <Container className="container_dashboard">
               <AdminTestEditor />
+            </Container>
+          </Route>
+          <Route exact path="/adminprofile">
+            <Container className="container_dashboard">
+              <AdminProfile />
             </Container>
           </Route>
         </Switch>

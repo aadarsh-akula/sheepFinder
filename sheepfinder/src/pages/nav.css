@@ -8,7 +8,6 @@
   background-color: #e7dfc6;
 }
 
-
 .nav-content {
   width: 100%;
   display: flex;
@@ -52,15 +51,7 @@ a > b {
   text-decoration: none;
 }
 .button_logout {
-  
   text-align: center;
-}
-
-
-
-
-.test_box2 {
-  margin: 0;
 }
 
 .example {
@@ -73,4 +64,3 @@ a > b {
   width: 800px;
   height: 800px;
 }
-

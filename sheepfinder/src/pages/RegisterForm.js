@@ -14,22 +14,19 @@ function RegisterForm({ Register, error }) {
     <form>
       <div className="sheep-body">
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
-        <h1 className="welcome-text">Login</h1>
-        
+        <h1 className="welcome-text">Register</h1>
+
         <div className="middle-sheep-body">
-        <div>
+          <div>
             <p className="asterik">First and Last Name</p>
             <input
               type="name"
               name="name"
               id="name"
-              onChange={(e) =>
-                setDetails({ ...details, name: e.target.value })
-              }
+              onChange={(e) => setDetails({ ...details, name: e.target.value })}
               value={details.password}
             />
           </div>
-
 
           <div>
             <p className="asterik">Email</p>
@@ -68,7 +65,6 @@ function RegisterForm({ Register, error }) {
               value={details.password}
             />
           </div>
-
         </div>
         <div className="register_button">
           <Link className="button_login1" to="/dashboard" value="Register">

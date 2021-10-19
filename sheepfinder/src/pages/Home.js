@@ -14,7 +14,7 @@ function Home({ Login, error }) {
       <div className="sheep-body">
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
         <h1 className="welcome-text">Login</h1>
-        
+
         <div className="middle-sheep-body">
           <div>
             <p className="asterik">Email</p>
@@ -43,12 +43,16 @@ function Home({ Login, error }) {
           </div>
         </div>
         <div className="register_button">
-          <Link className="button_login1" to="/dashboard" value="Login">
+          <Link className="button_login1" to="/registerform">
             Register
           </Link>
 
           <Link className="button_login2" to="/dashboard" value="Login">
             Login
+          </Link>
+
+          <Link className="button_login2" to="/admindashboard">
+            Admin
           </Link>
         </div>
         <footer>&copy;Copyright 2021</footer>

@@ -3,8 +3,6 @@
   text-align: center;
   margin: 0;
   text-shadow: 5px 5px hsla(197, 23%, 55%, 0.979);
-  
-
 }
 
 img {
@@ -49,8 +47,8 @@ footer {
   font-size: 10px;
   margin-top: 220px;
   text-align: center;
- 
-  color:transparent;
+
+  color: transparent;
 }
 
 .button {
@@ -100,13 +98,12 @@ footer {
 }
 
 .dashboard_component {
-  position: relative; 
-    height: 100vh;
-    width: 100%;
-    display: flex;
-   
-    justify-content: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
 
+  justify-content: center;
 }
 
 .dashboard_component::before {
@@ -119,12 +116,10 @@ footer {
   bottom: 0px;
   left: 0px;
   opacity: 60%;
-
 }
 
 .joblist {
-
-  position: relative; 
+  position: relative;
   height: 600px;
   width: 1000px;
   display: flex;
@@ -133,25 +128,55 @@ footer {
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
-  
+}
+
+.joblist_admin_profile {
+  position: relative;
+  height: 600px;
+  width: 1000px;
+  display: flex;
+
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.seccond_ol > li {
+  font-size: 20px;
+  padding: 15px;
+}
+.first_ol > li {
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+}
+
+.active_job {
+  background-color: rgba(116, 151, 168, 0.5);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.adminster_job_button {
+  background-color: #1f8fff;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
 }
 
 .joblist_user {
-
-  position: relative; 
+  position: relative;
   height: 300px;
-  width: 500px;
+  width: 550px;
   display: flex;
   justify-content: center;
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
-  
 }
 
 .joblist_admin {
-
-  position: relative; 
+  position: relative;
   height: 300px;
   width: 600px;
   display: flex;
@@ -159,11 +184,10 @@ footer {
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
-  
 }
 
 .joblist_admin_add {
-  position: relative; 
+  position: relative;
   display: flex;
   justify-content: center;
   border-radius: 25px;
@@ -171,13 +195,13 @@ footer {
   margin-top: 20px;
 }
 .test_admin_title {
-  position: relative; 
+  position: relative;
   color: Black;
 }
 
-.joblist_user_profile {
-  position: relative; 
-  height: 500px;
+.joblist_user_profile2 {
+  position: relative;
+  height: 521px;
   width: 500px;
   display: flex;
   justify-content: center;
@@ -186,11 +210,33 @@ footer {
   color: white;
 }
 
+.joblist_user_profile1 {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+  padding: 10px;
+  justify-content: space-between;
+}
+
 .button_apply {
   width: 100%;
   height: 100%;
   border-radius: 6px;
   background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+}
+
+.button_apply_applied {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: lightgreen;
   text-align: center;
   font-size: 15px;
   padding: 4px;
@@ -205,9 +251,9 @@ footer {
   font-size: 15px;
   padding: 4px;
 }
-  
+
 .admin_joblist {
-  position: relative; 
+  position: relative;
   height: 600px;
   width: 300px;
   align-items: center;
@@ -216,7 +262,6 @@ footer {
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
 }
-
 
 ol > li {
   font-size: 25px;
@@ -228,8 +273,7 @@ ol > li {
 }
 
 .job_test {
-
-  position: relative; 
+  position: relative;
   height: 300px;
   width: 400px;
   display: flex;
@@ -238,5 +282,61 @@ ol > li {
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
-  
+}
+
+.test_box2 {
+  margin: 0;
+  padding: 50px;
+}
+
+.example_account {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 480px;
+  padding: 5px;
+}
+
+.example_account2 {
+  color: rgba(255, 253, 208, 1);
+}
+
+.user_profile_button {
+  padding: 10px;
+  text-align: center;
+}
+
+.button_manage {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: gray;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+}
+
+.joblist_scroll > ol {
+  overflow-y: scroll;
+  height: 200px;
+  width: 300px;
+  overflow: auto;
+}
+
+.test_li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.test_li > div {
+  margin-right: 10px;
+}
+
+.adminster_job {
+  margin-top: 288px;
+  text-align: center;
+}
+
+.adminster_job_description {
+  text-align: center;
 }

@@ -6,39 +6,37 @@ function Profile() {
     <>
       <NavBar />
       <div className="dashboard_component">
-      
-      <div className="dashboard_jobbox">
-            <h1 className="title">Test</h1>
-        <div className="joblist_user">
-          <div>
-          <ol>
-          <li>
-          Cociane Dealer - Personality Test
-          </li>
-          <li>
-          Cociane Dealer - Aptitude Test
-          </li>
-          </ol>
-          </div>
+        <div className="dashboard_jobbox">
+          <h1 className="test_admin_title">Test</h1>
+          <div className="joblist_user">
+            <div>
+              <ol>
+                <li>Cociane Dealer - Personality Test</li>
+                <li>Cociane Dealer - Aptitude Test</li>
+              </ol>
+            </div>
 
-          <div>
-          <ol className="apply_button_ol">
-          <li>
-          <Link className="button_apply" to="/dashboard" value="Login">
-            Start
-          </Link>
-          </li>
-          <li>
-          <Link className="button_apply" to="/dashboard" value="Login">
-            Start
-          </Link>
-          </li>
-          </ol>
+            <div>
+              <ol className="apply_button_ol">
+                <li>
+                  <Link
+                    className="button_apply_applied"
+                    to="/dashboard"
+                    value="Login"
+                  >
+                    Complete
+                  </Link>
+                </li>
+                <li>
+                  <Link className="button_apply" to="/dashboard" value="Login">
+                    Start
+                  </Link>
+                </li>
+              </ol>
+            </div>
           </div>
         </div>
-        
       </div>
-    </div>
     </>
   );
 }
