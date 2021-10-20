@@ -24,7 +24,7 @@ function RegisterForm({ Register, error }) {
               name="name"
               id="name"
               onChange={(e) => setDetails({ ...details, name: e.target.value })}
-              value={details.password}
+              value={details.name}
             />
           </div>
 
@@ -62,7 +62,7 @@ function RegisterForm({ Register, error }) {
               onChange={(e) =>
                 setDetails({ ...details, cPassword: e.target.value })
               }
-              value={details.password}
+              value={details.cpassword}
             />
           </div>
         </div>
