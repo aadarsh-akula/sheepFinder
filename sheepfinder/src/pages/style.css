@@ -73,6 +73,16 @@ footer {
   display: inline;
 }
 
+.button_recover {
+  width: 180px;
+  height: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-right: 0px;
+  text-align: center;
+}
+
 .button_login1 {
   width: 60px;
   height: 20px;
