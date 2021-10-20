@@ -25,6 +25,7 @@ function RecoverAccountForm({ recover, error }) {
               value={details.email}
             />
           </div>
+          <Link className="button_recover" to="/RecoverAccountPrompt">Submit Request</Link>
         </div>
         <footer>&copy;Copyright 2021</footer>
         </div>
