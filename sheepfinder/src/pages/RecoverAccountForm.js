@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function recoverAccountForm({ recover, error }) {
+function RecoverAccountForm({ recover, error }) {
     const [details, setDetails] = useState({
         email: "",
     });
@@ -31,3 +31,4 @@ function recoverAccountForm({ recover, error }) {
         </form>
     );
 }
+export default RecoverAccountForm;
