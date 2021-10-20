@@ -13,6 +13,7 @@ img {
 
 .sheep-body {
   background-image: url("../cloud.png");
+  height: 947px;
 }
 
 .middle-sheep-body {
@@ -230,6 +231,7 @@ footer {
   text-align: center;
   font-size: 15px;
   padding: 4px;
+  color: black;
 }
 
 .button_apply_applied {
