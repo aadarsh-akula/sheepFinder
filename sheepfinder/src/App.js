@@ -16,7 +16,7 @@ import AdminTestEditor from "./pages/AdminTestEditor";
 import AdminAdministeredJob from "./pages/AdminAdministeredJob";
 import AdminProfile from "./pages/AdminProfile";
 import RecoverAccountForm from "./pages/RecoverAccountForm";
-import RecoverAccountPrompt from "./pages/RecoverAccountForm";
+import RecoverAccountPrompt from "./pages/RecoverAccountPrompt";
 
 const history = createBrowserHistory();
 
