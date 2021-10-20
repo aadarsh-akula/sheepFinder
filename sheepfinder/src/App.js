@@ -16,6 +16,7 @@ import AdminTestEditor from "./pages/AdminTestEditor";
 import AdminAdministeredJob from "./pages/AdminAdministeredJob";
 import AdminProfile from "./pages/AdminProfile";
 import RecoverAccountForm from "./pages/RecoverAccountForm";
+import RecoverAccountPrompt from "./pages/RecoverAccountForm";
 
 const history = createBrowserHistory();
 
@@ -77,6 +78,11 @@ function App() {
           <Route exact path="/recoveraccountform">
             <Container className="container_login">
               <RecoverAccountForm />
+            </Container>
+          </Route>
+          <Route exact path="/recoveraccountprompt">
+            <Container className="container_login">
+            <RecoverAccountPrompt />
             </Container>
           </Route>
         </Switch>

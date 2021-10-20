@@ -9,8 +9,8 @@ function RecoverAccountForm({ recover, error }) {
     return (
         <form>
             <div className="sheep-body">
-            <h1 className="welcome-text">Welcome to SheepFinder</h1>
-        <h1 className="welcome-text">Login</h1>
+            <h1 className="welcome-text">SheepFinder</h1>
+        <h1 className="welcome-text">Recover Password</h1>
         
         <div className="middle-sheep-body">
           <div>

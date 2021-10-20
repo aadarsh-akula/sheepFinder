@@ -42,7 +42,7 @@ function LoginForm({ Login, error }) {
             />
           </div>
           <div>
-            <p className="recoverPassword">Lost Password? Click<Link className="button_recover" to="/recoveraccountform">here</Link></p>
+            <p className="recoverPassword">Lost Password? Click<Link className="button_recover1" to="/recoveraccountform">here</Link></p>
             </div>
         </div>
         <div className="register_button">
