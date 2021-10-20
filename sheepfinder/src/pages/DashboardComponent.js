@@ -22,21 +22,22 @@ class DashboardComponent extends Component {
     super(props);
     this.state = {
       onChange_color: "",
-      apply_button: "",
+      // apply_button: "",
     };
   }
 
   apply_onClick = (e) => {
     this.setState({
       onChange_color: "lightgreen",
-    });
-  };
-
-  name_onClick = (e) => {
-    this.setState({
       onChange_name: "Applied",
     });
   };
+
+  // name_onClick = (e) => {
+  //   this.setState({
+  //     onChange_name: "Applied",
+  //   });
+  // };
 
   render() {
     return (

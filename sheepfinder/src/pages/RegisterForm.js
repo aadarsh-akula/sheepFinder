@@ -75,7 +75,7 @@ function RegisterForm({ Register, error }) {
             Return
           </Link>
         </div>
-        <footer>&copy;Copyright 2021</footer>
+        <footer>&copy;Copyright 2022</footer>
       </div>
     </form>
   );
