@@ -13,6 +13,7 @@ function RecoverAccountForm({ recover, error }) {
         <h1 className="welcome-text">Recover Password</h1>
         
         <div className="middle-sheep-body">
+            <div className="recover_form_background">
           <div>
             <p className="asterik">Email</p>
             <input
@@ -26,6 +27,7 @@ function RecoverAccountForm({ recover, error }) {
             />
           </div>
           <Link className="button_recover" to="/RecoverAccountPrompt">Recover Password</Link>
+        </div>
         </div>
         <footer>&copy;Copyright 2021</footer>
         </div>

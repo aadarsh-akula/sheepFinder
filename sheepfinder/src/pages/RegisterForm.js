@@ -17,6 +17,7 @@ function RegisterForm({ Register, error }) {
         <h1 className="welcome-text">Register</h1>
 
         <div className="middle-sheep-body">
+          <div className="register_background">
           <div>
             <p className="asterik">First and Last Name</p>
             <input
@@ -65,7 +66,7 @@ function RegisterForm({ Register, error }) {
               value={details.cpassword}
             />
           </div>
-        </div>
+        
         <div className="register_button">
           <Link className="button_login1" to="/dashboard" value="Register">
             Register
@@ -75,7 +76,9 @@ function RegisterForm({ Register, error }) {
             Return
           </Link>
         </div>
-        <footer>&copy;Copyright 2022</footer>
+        </div>
+        </div>
+        <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
   );

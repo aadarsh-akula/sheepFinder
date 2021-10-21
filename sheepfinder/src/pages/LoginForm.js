@@ -16,6 +16,7 @@ function LoginForm({ Login, error }) {
         <h1 className="welcome-text">Login</h1>
         
         <div className="middle-sheep-body">
+        <div className="login_background">
           <div>
             <p className="asterik">Email</p>
             <input
@@ -44,7 +45,6 @@ function LoginForm({ Login, error }) {
           <div>
             <p className="recoverPassword">Lost Password? Click<Link className="button_recover1" to="/recoveraccountform">here</Link></p>
             </div>
-        </div>
         <div className="register_button">
           <Link className="button_login1" to="/registerform">
             Register
@@ -57,6 +57,8 @@ function LoginForm({ Login, error }) {
           <Link className="button_login2" to="/admindashboard">
             Admin
           </Link>
+          </div>
+        </div>
         </div>
         <footer>&copy;Copyright 2021</footer>
       </div>
