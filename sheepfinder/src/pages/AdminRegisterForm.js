@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function RegisterForm({ Register, error }) {
+function AdminRegisterForm({ Register, error }) {
   const [details, setDetails] = useState({
     fName: "",
     lName: "",
+    companyName: "",
     email: "",
     password: "",
     cPassword: "",
@@ -26,7 +27,7 @@ function RegisterForm({ Register, error }) {
               name="name"
               id="name"
               onChange={(e) => setDetails({ ...details, fName: e.target.value })}
-              value={details.fname}
+              value={details.fName}
             />
           </div>
 
@@ -37,7 +38,18 @@ function RegisterForm({ Register, error }) {
               name="name"
               id="name"
               onChange={(e) => setDetails({ ...details, lName: e.target.value })}
-              value={details.lname}
+              value={details.lName}
+            />
+          </div>
+
+          <div>
+            <p className="asterik">Company Name</p>
+            <input
+              type="name"
+              name="name"
+              id="name"
+              onChange={(e) => setDetails({ ...details, companyName: e.target.value })}
+              value={details.companyName}
             />
           </div>
 
@@ -78,17 +90,13 @@ function RegisterForm({ Register, error }) {
               value={details.cpassword}
             />
           </div>
-
-          <div>
-            <p className="recoverPassword">Want to register as an admin? Click<Link className="button_recover1" to="/adminregisterform">here</Link></p>
-            </div>
         
         <div className="register_button">
-          <Link className="button_login1" to="/dashboard" value="Register">
+          <Link className="button_login1" to="/admindashboard" value="Register">
             Register
           </Link>
 
-          <Link className="button_login2" to="/loginform" value="Login">
+          <Link className="button_login2" to="/registerform">
             Return
           </Link>
         </div>
@@ -100,4 +108,4 @@ function RegisterForm({ Register, error }) {
   );
 }
 
-export default RegisterForm;
+export default AdminRegisterForm;

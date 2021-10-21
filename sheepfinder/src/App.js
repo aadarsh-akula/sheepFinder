@@ -21,6 +21,7 @@ import ManageUserProfile from "./pages/ManageUserProfile";
 import ManageAdminProfile from "./pages/ManageAdminProfile";
 import BusDriver from "./pages/BusDriver";
 import WeedSeller from "./pages/WeedSeller";
+import AdminRegisterForm from "./pages/AdminRegisterForm";
 
 const history = createBrowserHistory();
 
@@ -107,6 +108,11 @@ function App() {
           <Route exact path="/weedseller">
             <Container className="container_dashboard">
               <WeedSeller />
+            </Container>
+          </Route>
+          <Route exact path="/adminregisterform">
+            <Container className="container_login">
+              <AdminRegisterForm />
             </Container>
           </Route>
         </Switch>
