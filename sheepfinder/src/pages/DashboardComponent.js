@@ -22,6 +22,7 @@ class DashboardComponent extends Component {
     super(props);
     this.state = {
       onChange_color: "",
+      onChange_name: "",
       // apply_button: "",
     };
   }
