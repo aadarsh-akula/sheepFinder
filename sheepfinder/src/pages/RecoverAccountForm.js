@@ -26,7 +26,10 @@ function RecoverAccountForm({ recover, error }) {
               value={details.email}
             />
           </div>
-          <Link className="button_recover" to="/RecoverAccountPrompt">Recover Password</Link>
+          <div className="recovering">
+          <Link className="button_recov" to="/RecoverAccountPrompt">Recover</Link>
+          <Link className="button_return" to="/LoginForm">Return</Link>
+          </div>
         </div>
         </div>
         <footer>&copy;Copyright 2021</footer>
