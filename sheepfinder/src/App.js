@@ -17,6 +17,10 @@ import AdminAdministeredJob from "./pages/AdminAdministeredJob";
 import AdminProfile from "./pages/AdminProfile";
 import RecoverAccountForm from "./pages/RecoverAccountForm";
 import RecoverAccountPrompt from "./pages/RecoverAccountPrompt";
+import ManageUserProfile from "./pages/ManageUserProfile";
+import ManageAdminProfile from "./pages/ManageAdminProfile";
+import BusDriver from "./pages/BusDriver";
+import WeedSeller from "./pages/WeedSeller";
 
 const history = createBrowserHistory();
 
@@ -82,7 +86,27 @@ function App() {
           </Route>
           <Route exact path="/recoveraccountprompt">
             <Container className="container_login">
-            <RecoverAccountPrompt />
+              <RecoverAccountPrompt />
+            </Container>
+          </Route>
+          <Route exact path="/manageuserprofile">
+            <Container className="container_dashboard">
+              <ManageUserProfile />
+            </Container>
+          </Route>
+          <Route exact path="/manageadminprofile">
+            <Container className="container_dashboard">
+              <ManageAdminProfile />
+            </Container>
+          </Route>
+          <Route exact path="/busdriver">
+            <Container className="container_dashboard">
+              <BusDriver />
+            </Container>
+          </Route>
+          <Route exact path="/weedseller">
+            <Container className="container_dashboard">
+              <WeedSeller />
             </Container>
           </Route>
         </Switch>

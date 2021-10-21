@@ -22,15 +22,15 @@ class DashboardComponent extends Component {
     super(props);
     this.state = {
       onChange_color: "",
-      onChange_name: "",
-      // apply_button: "",
+      msg: "Apply",
     };
+    this.apply_onClick = this.apply_onClick.bind(this);
   }
 
   apply_onClick = (e) => {
     this.setState({
       onChange_color: "lightgreen",
-      onChange_name: "Applied",
+      msg: "Applied",
     });
   };
 
@@ -58,7 +58,7 @@ class DashboardComponent extends Component {
                       style={{ backgroundColor: this.state.onChange_color }}
                       onClick={this.apply_onClick}
                     >
-                      Apply
+                      {this.state.msg}
                     </Link>{" "}
                   </div>
                 </li>

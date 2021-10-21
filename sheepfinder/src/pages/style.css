@@ -73,8 +73,8 @@ footer {
   display: inline;
 }
 .button_recover1 {
-text-decoration: underline;
-color:#1f8fff
+  text-decoration: underline;
+  color: #1f8fff;
 }
 .button_recover {
   width: 180px;
@@ -165,8 +165,13 @@ color:#1f8fff
   width: 200px;
 }
 
-.active_job {
+.active_job1 {
   background-color: rgba(116, 151, 168, 0.5);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.active_job2 {
   padding: 5px;
   border-radius: 10px;
 }
@@ -178,9 +183,9 @@ color:#1f8fff
   color: black;
 }
 .recover_button {
-text-align: center;
-margin-top: 10px;
-margin-bottom: 20px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .recover_form_background {
@@ -307,16 +312,6 @@ margin-bottom: 20px;
   color: black;
 }
 
-.button_apply_applied {
-  width: 100%;
-  height: 100%;
-  border-radius: 6px;
-  background-color: lightgreen;
-  text-align: center;
-  font-size: 15px;
-  padding: 4px;
-}
-
 .button_add {
   width: 45px;
   height: 20px;
@@ -379,16 +374,36 @@ ol > li {
 .user_profile_button {
   padding: 10px;
   text-align: center;
+  margin-top: 50px;
+}
+
+.user_profile_button1 {
+  padding: 10px;
+  text-align: center;
 }
 
 .button_manage {
   width: 100%;
   height: 100%;
   border-radius: 6px;
-  background-color: gray;
+  background-color: #1f8fff;
   text-align: center;
   font-size: 15px;
   padding: 4px;
+  color: black;
+  font-size: 17px;
+}
+
+.button_edit {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 8px;
+  color: black;
 }
 
 .joblist_scroll > ol {
@@ -410,6 +425,11 @@ ol > li {
 .adminster_job {
   margin-top: 288px;
   text-align: center;
+}
+
+.adminster_job_description_weed {
+  text-align: center;
+  margin-top: 270px;
 }
 
 .adminster_job_description {

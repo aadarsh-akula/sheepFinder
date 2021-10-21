@@ -1,7 +1,7 @@
 import NavBar from "./AdminNavBar";
 import { Link } from "react-router-dom";
 
-function AdminAdministeredJob() {
+function BusDriver() {
   return (
     <>
       <NavBar />
@@ -78,4 +78,4 @@ function AdminAdministeredJob() {
   );
 }
 
-export default AdminAdministeredJob;
+export default BusDriver;

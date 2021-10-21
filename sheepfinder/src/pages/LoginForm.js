@@ -14,7 +14,7 @@ function LoginForm({ Login, error }) {
       <div className="sheep-body">
         <h1 className="welcome-text">Welcome to SheepFinder</h1>
         <h1 className="welcome-text">Login</h1>
-        
+
         <div className="middle-sheep-body">
         <div className="login_background">
           <div>
@@ -46,7 +46,7 @@ function LoginForm({ Login, error }) {
             <p className="recoverPassword">Lost Password? Click<Link className="button_recover1" to="/recoveraccountform">here</Link></p>
             </div>
         <div className="register_button">
-          <Link className="button_login1" to="/registerform">
+          <Link className="button_login2" to="/registerform">
             Register
           </Link>
 

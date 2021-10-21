@@ -1,67 +1,70 @@
-import NavBar from "./AdminNavBar";
+import NavBar from "./NavBar";
 import { Link } from "react-router-dom";
-import React from "react";
 
-function AdminProfile(props) {
+function ManageUserProfile() {
   const jobList = [{ description: "Bus Driver", key: 0 }];
-
-  const hiddenFileInput = React.useRef(null);
-
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
-  };
-
-  const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
-  };
-
   return (
     <>
       <NavBar />
       <div className="dashboard_component">
         <div className="test_box2">
           <div className="profile_title">
-            <h1 className="test_admin_title">Account</h1>
+            <h1 className="test_admin_title">User's Account</h1>
           </div>
           <div className="joblist_user_profile1">
             <div>
               {" "}
               <div className="example_account">
                 <div>Name</div>
-                <div>Admin</div>
+                <div>
+                  Yor Her
+                  <Link className="button_edit" to="/dashboard" value="Login">
+                    Edit
+                  </Link>
+                </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Email</div>
-                <div>Admin@uwec.edu</div>
+                <div>
+                  HERY2507@uwec.edu
+                  <Link className="button_edit" to="/dashboard" value="Login">
+                    Edit
+                  </Link>
+                </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
-                <div>Company</div>
-                <div>Weed Dango</div>
+                <div>Age</div>
+                <div>
+                  25{" "}
+                  <Link className="button_edit" to="/dashboard" value="Login">
+                    Edit
+                  </Link>
+                </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
-                <div>Primary Contact</div>
-                <div>(715)-828-****</div>
+                <div>Phone Number</div>
+                <div>
+                  (715)-828-****{" "}
+                  <Link className="button_edit" to="/dashboard" value="Login">
+                    Edit
+                  </Link>
+                </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="user_profile_button">
-                <Link
-                  className="button_manage"
-                  to="/manageadminprofile"
-                  value="Login"
-                >
-                  Manage
+                <Link className="button_manage" to="/profile" value="Login">
+                  Return
                 </Link>
               </div>
             </div>
@@ -72,4 +75,4 @@ function AdminProfile(props) {
   );
 }
 
-export default AdminProfile;
+export default ManageUserProfile;
