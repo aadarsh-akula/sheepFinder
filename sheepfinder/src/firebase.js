@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+ const database = firebase.database();
 
 export const auth = app.auth();
 
@@ -61,6 +61,7 @@ export const registerWithEmailAndPassword = async (name, email, password) => {
       name,
       authProvider: "local",
       email,
+      
     });
   } catch (err) {
     console.error(err);
@@ -82,4 +83,4 @@ export const logout = () => {
   auth.signOut();
 };
 
-export default { database };
+export default {};

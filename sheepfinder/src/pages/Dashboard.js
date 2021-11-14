@@ -6,14 +6,7 @@ import "./nav.css";
 import DashboardComponent from "./DashboardComponent";
 
 function Dashboard({ history }) {
-  /* const authenticated = useSelector((state) => state.authenticated);
-
-  useEffect(() => {
-    if (!authenticated) {
-      history.push("/");
-    }
-  });
-*/
+ 
   return (
     <>
       <NavBar history={history} active="dashboard" />

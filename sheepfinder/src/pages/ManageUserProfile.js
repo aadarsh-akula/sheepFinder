@@ -1,7 +1,37 @@
 import NavBar from "./NavBar";
-import { Link } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db} from "../firebase";
+import { Link, useHistory} from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 function ManageUserProfile() {
+
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const history = useHistory();
+  
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setName(data.name);
+      setEmail(data.email);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+    fetchUserName();
+  }, [user, loading]);
+
+
   const jobList = [{ description: "Bus Driver", key: 0 }];
   return (
     <>
@@ -17,7 +47,7 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Name</div>
                 <div>
-                  Yor Her
+                  {name}
                   <Link className="button_edit" to="/dashboard" value="Login">
                     Edit
                   </Link>
@@ -29,7 +59,7 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Email</div>
                 <div>
-                  HERY2507@uwec.edu
+                  {email}
                   <Link className="button_edit" to="/dashboard" value="Login">
                     Edit
                   </Link>
@@ -42,7 +72,7 @@ function ManageUserProfile() {
                 <div>Age</div>
                 <div>
                   25{" "}
-                  <Link className="button_edit" to="/dashboard" value="Login">
+                  <Link className="button_edit" onClick="{}">
                     Edit
                   </Link>
                 </div>

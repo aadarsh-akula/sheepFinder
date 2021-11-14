@@ -1,6 +1,8 @@
 import NavBar from "./NavBar";
-import { Link } from "react-router-dom";
-import React from "react";
+import { Link, useHistory} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db} from "../firebase";
 
 function Test(props) {
   const jobList = [{ description: "Bus Driver", key: 0 }];
@@ -16,6 +18,34 @@ function Test(props) {
     props.handleFile(fileUploaded);
   };
 
+
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const history = useHistory();
+  
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setName(data.name);
+      setEmail(data.email);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+    fetchUserName();
+  }, [user, loading]);
+  
+  
+
   return (
     <>
       <NavBar />
@@ -29,14 +59,15 @@ function Test(props) {
               {" "}
               <div className="example_account">
                 <div>Name</div>
-                <div>Yor Her</div>
+                <div>{name}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
-              <div className="example_account">
-                <div>Email</div>
-                <div>HERY2507@uwec.edu</div>
+              <div className="example_account">  
+              <div>Email</div>
+                <div>{email}</div>
+              
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________

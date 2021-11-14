@@ -21,7 +21,7 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 115px;
 }
 
 input {
@@ -47,6 +47,14 @@ input {
 footer {
   font-size: 10px;
   margin-top: 220px;
+  text-align: center;
+
+  color: transparent;
+}
+
+.footer_register {
+  font-size: 10px;
+  margin-top: 150px;
   text-align: center;
 
   color: transparent;
@@ -105,10 +113,49 @@ footer {
   text-align: center;
 }
 
+.button_login4 {
+  width: 150px;
+  height: 20px;
+
+  border-end-end-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #1f8fff;
+
+  text-align: center;
+
+}
+
+.google_div {
+  margin-top: 5px;
+  display: flex;
+}
+
+.google_icon {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 3px;
+  height: 35px;
+  width: 35px;
+  
+}
+
+.google_icon_div {
+  width: 38px;
+  height: 40px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  
+  
+  
+}
+
 .register_button {
   margin-top: 0px;
   display: flex;
   justify-content: center;
+  width: 400px;
 }
 
 .dashboard_component {
@@ -222,7 +269,7 @@ footer {
 
 .register_background {
   position: relative;
-  height: 400px;
+  height: 500px;
   width: 450px;
   display: flex;
   justify-content: center;

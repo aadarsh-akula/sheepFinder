@@ -8,7 +8,7 @@ import {
   signInWithGoogle,
 } from "../firebase";
 
-function RegisterForm() {
+function RegisterForm() {   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -22,6 +22,8 @@ function RegisterForm() {
     if (loading) return;
     if (user) history.replace("/dashboard");
   }, [user, loading]);
+
+  
 
   return (
     <form>
@@ -110,18 +112,12 @@ function RegisterForm() {
               <Link className="button_login2" to="/loginform" value="Login">
                 Return
               </Link>
-              <Link
-                className="button_login1"
-                to="/dashboard"
-                value="Register"
-                onClick={signInWithGoogle}
-              >
-                Register with Google
-              </Link>
+              
             </div>
+           
           </div>
         </div>
-        <footer>&copy;Copyright 2021</footer>
+        <footer className="footer_register">&copy;Copyright 2021</footer>
       </div>
     </form>
   );

@@ -30,7 +30,7 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/" >
             <Container className="container_login">
               <Home />
             </Container>
