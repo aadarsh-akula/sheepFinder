@@ -1,21 +1,5 @@
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
-/*
-function replaceButtonText(buttonId, text) {
-  if (document.getElementById) {
-    var button = document.getElementById(buttonId);
-    if (button) {
-      if (button.childNodes[0]) {
-        button.childNodes[0].nodeValue = text;
-      } else if (button.value) {
-        button.value = text;
-      } //if (button.innerHTML)
-      else {
-        button.innerHTML = text;
-      }
-    }
-  }
-}*/
 
 class DashboardComponent extends Component {
   constructor(props) {
