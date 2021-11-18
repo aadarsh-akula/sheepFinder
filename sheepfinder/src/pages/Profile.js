@@ -58,7 +58,7 @@ function Test(props) {
 
   const onChange = (e) => {
     const file = e.target.files[0];
-    const storageRef = app.storage().ref("images");
+    const storageRef = app.storage().ref("Resumes");
     const fileRef = storageRef.child(file.name);
     console.log(fileRef);
     fileRef.put(file);
