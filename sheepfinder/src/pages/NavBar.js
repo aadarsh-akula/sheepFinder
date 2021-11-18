@@ -4,12 +4,12 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useHistory } from "react-router";
 import { auth, db, logout } from "../firebase";
 
-
 function NavBar() {
   const [user, loading, error] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const history = useHistory();
-  
+
   const fetchUserName = async () => {
     try {
       const query = await db
@@ -17,7 +17,7 @@ function NavBar() {
         .where("uid", "==", user?.uid)
         .get();
       const data = await query.docs[0].data();
-      setName(data.name);
+      setFirstName(data.firstname);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -29,15 +29,12 @@ function NavBar() {
     fetchUserName();
   }, [user, loading]);
 
-
-  
-
   return (
     <div className="nav">
       <div className="nav-content">
         {" "}
         <div className="bar">
-          <h3>Welcome {name}</h3>
+          <h3>Welcome {firstname},</h3>
           <NavLink
             className="tabs"
             to="/dashboard"

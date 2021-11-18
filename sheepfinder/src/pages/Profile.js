@@ -1,8 +1,8 @@
 import NavBar from "./NavBar";
-import { Link, useHistory} from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db} from "../firebase";
+import { auth, db, app } from "../firebase";
 
 function Test(props) {
   const jobList = [{ description: "Bus Driver", key: 0 }];
@@ -18,12 +18,15 @@ function Test(props) {
     props.handleFile(fileUploaded);
   };
 
-
   const [user, loading, error] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [YOB, setYOB] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
+
   const history = useHistory();
-  
+
   const fetchUserName = async () => {
     try {
       const query = await db
@@ -31,8 +34,11 @@ function Test(props) {
         .where("uid", "==", user?.uid)
         .get();
       const data = await query.docs[0].data();
-      setName(data.name);
+      setFirstName(data.firstname);
+      setLastName(data.lastname);
       setEmail(data.email);
+      setYOB(data.YOB);
+      setPhoneNumber(data.phonenumber);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -43,8 +49,20 @@ function Test(props) {
     if (!user) return history.replace("/");
     fetchUserName();
   }, [user, loading]);
-  
-  
+
+  const currentYear = new Date().getFullYear();
+
+  const userYOB = YOB;
+
+  const correctYear = currentYear - userYOB;
+
+  const onChange = (e) => {
+    const file = e.target.files[0];
+    const storageRef = app.storage().ref("images");
+    const fileRef = storageRef.child(file.name);
+    console.log(fileRef);
+    fileRef.put(file);
+  };
 
   return (
     <>
@@ -59,29 +77,31 @@ function Test(props) {
               {" "}
               <div className="example_account">
                 <div>Name</div>
-                <div>{name}</div>
+                <div>
+                  {firstname + " "}
+                  {lastname}
+                </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
-              <div className="example_account">  
-              <div>Email</div>
+              <div className="example_account">
+                <div>Email</div>
                 <div>{email}</div>
-              
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Age</div>
-                <div>25</div>
+                <div>{correctYear}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Phone Number</div>
-                <div>(715)-828-****</div>
+                <div>{phonenumber}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
@@ -96,19 +116,10 @@ function Test(props) {
                 </Link>
               </div>
               <div className="user_profile_button1">
-                <Link
-                  className="button_manage"
-                  to="/profile"
-                  value="Login"
-                  onClick={handleClick}
-                >
-                  Upload Resume
-                </Link>
                 <input
+                  className="button_upload"
                   type="file"
-                  ref={hiddenFileInput}
-                  onChange={handleChange}
-                  style={{ display: "none" }}
+                  onChange={onChange}
                 />
               </div>
             </div>

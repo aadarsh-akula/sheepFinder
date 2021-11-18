@@ -2,28 +2,41 @@ import "./style.css";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useHistory } from "react-router-dom";
-import {
-  auth,
-  registerWithEmailAndPassword,
-  signInWithGoogle,
-} from "../firebase";
+import { auth, registerWithEmailAndPassword } from "../firebase";
 
-function RegisterForm() {   
+function RegisterForm() {
+  const [user, loading, error] = useAuthState(auth);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+  const [cpassword, setCPassword] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [YOB, setYOB] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
+
   const history = useHistory();
   const register = () => {
-    if (!name) alert("Please enter name");
-    registerWithEmailAndPassword(name, email, password);
+    if (!firstname) alert("Please enter your first name");
+    if (!lastname) alert("Please enter your last name");
+    if (!email) alert("Please enter your first name");
+    if (!password) alert("Please enter your last name");
+    if (!cpassword) alert("Please enter your first name");
+    if (!phonenumber) alert("Please enter your last name");
+
+    registerWithEmailAndPassword(
+      firstname,
+      lastname,
+      email,
+      password,
+      cpassword,
+      YOB,
+      phonenumber
+    );
   };
   useEffect(() => {
     if (loading) return;
     if (user) history.replace("/dashboard");
   }, [user, loading]);
-
-  
 
   return (
     <form>
@@ -36,23 +49,24 @@ function RegisterForm() {
             <div>
               <p className="asterik">First Name</p>
               <input
-                //value={firstname}
+                value={firstname}
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Full Name"
-                onChange={(e) => setName(e.target.value)}
+                placeholder="First Name"
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
 
             <div>
               <p className="asterik">Last Name</p>
               <input
-                //value={lastname}
+                value={lastname}
                 type="name"
                 name="name"
                 id="name"
-                //onChange={(e) => setLastName(e.target.value)}
+                placeholder="Last Name"
+                onChange={(e) => setLastName(e.target.value)}
               />
             </div>
 
@@ -85,8 +99,31 @@ function RegisterForm() {
                 type="password"
                 name="password"
                 id="cPassword"
-                // onChange={(e) => setCPassword(e.target.value)}
-                // value={cpassword}
+                placeholder="Conform Password"
+                onChange={(e) => setCPassword(e.target.value)}
+                value={cpassword}
+              />
+            </div>
+            <div>
+              <p className="asterik">Year Of Birth</p>
+              <input
+                type="number"
+                name="age"
+                id="number"
+                placeholder="Year of Birth"
+                onChange={(e) => setYOB(e.target.value)}
+                value={YOB}
+              />
+            </div>
+            <div>
+              <p className="asterik">Phone Number</p>
+              <input
+                type="phonenumber"
+                name="phonenumber"
+                id="phonenumber"
+                placeholder="phone #"
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phonenumber}
               />
             </div>
 
@@ -112,9 +149,7 @@ function RegisterForm() {
               <Link className="button_login2" to="/loginform" value="Login">
                 Return
               </Link>
-              
             </div>
-           
           </div>
         </div>
         <footer className="footer_register">&copy;Copyright 2021</footer>

@@ -12,8 +12,9 @@ const firebaseConfig = {
   measurementId: "G-MG6KE5TM9D",
 };
 
-const app = firebase.initializeApp(firebaseConfig);
- const database = firebase.database();
+export const app = firebase.initializeApp(firebaseConfig);
+
+export const storage = app.storage();
 
 export const auth = app.auth();
 
@@ -52,16 +53,26 @@ export const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-export const registerWithEmailAndPassword = async (name, email, password) => {
+export const registerWithEmailAndPassword = async (
+  firstname,
+  lastname,
+  email,
+  password,
+  cpassword,
+  YOB,
+  phonenumber
+) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
     await db.collection("users").add({
       uid: user.uid,
-      name,
+      firstname,
+      lastname,
       authProvider: "local",
       email,
-      
+      YOB,
+      phonenumber,
     });
   } catch (err) {
     console.error(err);

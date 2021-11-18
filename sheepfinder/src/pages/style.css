@@ -122,7 +122,6 @@ footer {
   background-color: #1f8fff;
 
   text-align: center;
-
 }
 
 .google_div {
@@ -136,7 +135,6 @@ footer {
   margin-top: 3px;
   height: 35px;
   width: 35px;
-  
 }
 
 .google_icon_div {
@@ -146,9 +144,6 @@ footer {
   border-bottom-left-radius: 6px;
   background-color: #1f8fff;
   text-align: center;
-  
-  
-  
 }
 
 .register_button {
@@ -457,6 +452,16 @@ ol > li {
   padding: 4px;
   color: black;
   font-size: 17px;
+}
+
+.button_upload {
+  width: 50%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  padding: 4px;
+  color: black;
 }
 
 .button_edit {

@@ -1,16 +1,18 @@
 import NavBar from "./NavBar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db} from "../firebase";
-import { Link, useHistory} from "react-router-dom";
+import { auth, db } from "../firebase";
+import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 function ManageUserProfile() {
-
   const [user, loading, error] = useAuthState(auth);
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [YOB, setYOB] = useState("");
+  const [phonenumber, setPhoneNumber] = useState("");
   const history = useHistory();
-  
+
   const fetchUserName = async () => {
     try {
       const query = await db
@@ -18,8 +20,11 @@ function ManageUserProfile() {
         .where("uid", "==", user?.uid)
         .get();
       const data = await query.docs[0].data();
-      setName(data.name);
+      setFirstName(data.firstname);
+      setLastName(data.lastname);
       setEmail(data.email);
+      setYOB(data.YOB);
+      setPhoneNumber(data.phonenumber);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -31,8 +36,12 @@ function ManageUserProfile() {
     fetchUserName();
   }, [user, loading]);
 
+  const currentYear = new Date().getFullYear();
 
-  const jobList = [{ description: "Bus Driver", key: 0 }];
+  const userYOB = YOB;
+
+  const correctYear = currentYear - userYOB;
+
   return (
     <>
       <NavBar />
@@ -47,7 +56,7 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Name</div>
                 <div>
-                  {name}
+                  {firstname + " " + lastname}
                   <Link className="button_edit" to="/dashboard" value="Login">
                     Edit
                   </Link>
@@ -71,7 +80,7 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Age</div>
                 <div>
-                  25{" "}
+                  {correctYear}
                   <Link className="button_edit" onClick="{}">
                     Edit
                   </Link>
@@ -83,7 +92,7 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Phone Number</div>
                 <div>
-                  (715)-828-****{" "}
+                  {phonenumber}
                   <Link className="button_edit" to="/dashboard" value="Login">
                     Edit
                   </Link>

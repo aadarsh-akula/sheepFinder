@@ -30,9 +30,14 @@ function App() {
     <Router history={history}>
       <div className="App">
         <Switch>
-          <Route exact path="/" >
+          <Route exact path="/">
             <Container className="container_login">
               <Home />
+            </Container>
+          </Route>
+          <Route exact path="/registerform">
+            <Container className="container_login">
+              <RegisterForm />
             </Container>
           </Route>
           <Route exact path="/loginform">
@@ -55,11 +60,7 @@ function App() {
               <Profile />
             </Container>
           </Route>
-          <Route exact path="/registerform">
-            <Container className="container_login">
-              <RegisterForm />
-            </Container>
-          </Route>
+
           <Route exact path="/admindashboard">
             <Container className="container_dashboard">
               <AdminDashboard />
