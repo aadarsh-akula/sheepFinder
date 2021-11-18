@@ -29,8 +29,8 @@ class Profile extends Component {
             <div className="joblist_user">
               <div>
                 <ol>
-                  <li>Cociane Dealer - Personality Test</li>
-                  <li>Cociane Dealer - Aptitude Test</li>
+                  <li>DevOps - Personality Test</li>
+                  <li>DevOps - Aptitude Test</li>
                 </ol>
               </div>
 

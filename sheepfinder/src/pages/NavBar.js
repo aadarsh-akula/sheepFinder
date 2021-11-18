@@ -18,6 +18,7 @@ function NavBar() {
         .get();
       const data = await query.docs[0].data();
       setFirstName(data.firstname);
+
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
