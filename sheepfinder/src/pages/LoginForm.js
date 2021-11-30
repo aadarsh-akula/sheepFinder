@@ -10,7 +10,7 @@ import {
 import { useAuthState } from "react-firebase-hooks/auth";
 import "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
-import {IconContext} from "react-icons"
+import { IconContext } from "react-icons";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -24,8 +24,6 @@ function LoginForm() {
     }
     if (user) history.replace("/dashboard");
   }, [user, loading]);
-
-  
 
   return (
     <form>
@@ -45,7 +43,6 @@ function LoginForm() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-
             <div>
               <p className="asterik">Password</p>
               <input
@@ -69,33 +66,29 @@ function LoginForm() {
                 Register
               </Link>
 
-              <Link className="button_login2" value="Login" onClick={() => signInWithEmailAndPassword(email, password)}> 
+              <Link
+                className="button_login2"
+                value="Login"
+                onClick={() => signInWithEmailAndPassword(email, password)}
+              >
                 Login
               </Link>
-              
             </div>
             or
             <div className="google_div">
               <div className="google_icon_div">
-              <IconContext.Provider  value={{ style: {fontSize: '30px'}}}>
-               
-                  <FcGoogle className="google_icon"/>
-                
-              </IconContext.Provider>
+                <IconContext.Provider value={{ style: { fontSize: "30px" } }}>
+                  <FcGoogle className="google_icon" />
+                </IconContext.Provider>
               </div>
-             
-              <Link 
-                
+
+              <Link
                 className="button_login4"
                 value="Login"
                 onClick={signInWithGoogle}
               >
-              
-                
-              
                 Login with Google
               </Link>
-              
             </div>
           </div>
         </div>
