@@ -12,6 +12,7 @@ function EditProfile() {
   const [email, setEmail] = useState("");
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
+  const [oldemail, setOldemail] = useState("");
   const history = useHistory();
   const updateProfile = () => {
     if (!firstname) alert("Please enter your first name");
@@ -24,7 +25,8 @@ function EditProfile() {
       lastname,
       email,
       YOB,
-      phonenumber
+      phonenumber,
+      oldemail
     );
   };
   const fetchUserName = async () => {
@@ -39,6 +41,7 @@ function EditProfile() {
       setEmail(data.email);
       setYOB(data.YOB);
       setPhoneNumber(data.phonenumber);
+      setOldemail(data.oldemail);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");

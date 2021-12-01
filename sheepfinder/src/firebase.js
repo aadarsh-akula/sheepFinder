@@ -1,6 +1,7 @@
 import firebase from "firebase";
 import "firebase/auth";
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyABj2IOgPpJGHxUrUyNXtD-IqnzQYT9HiM",
   authDomain: "sheepfinder-001.firebaseapp.com",
@@ -53,31 +54,6 @@ export const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-export const adminRegisterWithEmailAndPassword = async (
-  firstname1,
-  lastname1,
-  email1,
-  password1,
-  cpassword1,
-  phonenumber1
-) => {
-  try {
-    const res = await auth.createUserWithEmailAndPassword(email1, password1);
-    const admin = res.admin;
-    await db.collection("admins").add({
-      uid: admin.uid,
-      firstname1,
-      lastname1,
-      authProvider: "local",
-      email1,
-      phonenumber1,
-    });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-
 export const registerWithEmailAndPassword = async (
   firstname,
   lastname,
@@ -105,24 +81,53 @@ export const registerWithEmailAndPassword = async (
   }
 };
 
+export const adminRegisterWithEmailAndPassword = async (
+  firstname1,
+  lastname1,
+  email1,
+  password1,
+  cpassword1,
+  phonenumber1
+) => {
+  try {
+    const res = await auth.createUserWithEmailAndPassword(email1, password1);
+    const admin = res.admin;
+    await db.collection("admins").add({
+      uid: admin.uid,
+      firstname1,
+      lastname1,
+      authProvider: "local",
+      email1,
+      phonenumber1,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
 export const changeProfileParts = async (
-firstname,
-lastname,
-email,
-YOB,
-phonenumber,
+firstname2,
+lastname2,
+email2,
+YOB2,
+phonenumber2,
 oldphonenumber
  ) => {
   try {
-    const query = db.collection("users");
-    const docquer = query.where('phonenumber', '==', phonenumber);
-      await db.collection("users").doc(docquer).update({
-        firstname: firstname,
-        lastname: lastname,
-        email: email,
-        YOB: YOB,
-        phonenumber: phonenumber
-      });
+    const res = await auth.currentUser;
+    const query = await db
+        .collection("users")
+        .where("uid", "==", res.uid)
+        .get();
+      const data = await query.docs[0].id;
+    await db.collection("users").doc(data).update({
+      firstname: firstname2,
+      lastname: lastname2,
+      email: email2,
+      YOB: YOB2,
+      phonenumber: phonenumber2
+    });
   } catch (err) {
     console.error(err);
     alert(err.message);
