@@ -18,10 +18,10 @@ function RegisterForm() {
   const register = () => {
     if (!firstname) alert("Please enter your first name");
     if (!lastname) alert("Please enter your last name");
-    if (!email) alert("Please enter your first name");
-    if (!password) alert("Please enter your last name");
-    if (!cpassword) alert("Please enter your first name");
-    if (!phonenumber) alert("Please enter your last name");
+    if (!email) alert("Please enter your email");
+    if (!password) alert("Please enter your password");
+    if (!cpassword) alert("Please enter your duplicate password");
+    if (!phonenumber) alert("Please enter your phone number");
 
     registerWithEmailAndPassword(
       firstname,

@@ -105,6 +105,30 @@ export const registerWithEmailAndPassword = async (
   }
 };
 
+export const changeProfileParts = async (
+firstname,
+lastname,
+email,
+YOB,
+phonenumber,
+oldphonenumber
+ ) => {
+  try {
+    const query = db.collection("users");
+    const docquer = query.where('phonenumber', '==', phonenumber);
+      await db.collection("users").doc(docquer).update({
+        firstname: firstname,
+        lastname: lastname,
+        email: email,
+        YOB: YOB,
+        phonenumber: phonenumber
+      });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+}
+
 export const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);

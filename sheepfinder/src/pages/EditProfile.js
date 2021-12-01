@@ -3,8 +3,9 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
+import { changeProfileParts } from "../firebase";
 
-function ManageUserProfile() {
+function EditProfile() {
   const [user, loading, error] = useAuthState(auth);
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
@@ -12,7 +13,20 @@ function ManageUserProfile() {
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const history = useHistory();
+  const updateProfile = () => {
+    if (!firstname) alert("Please enter your first name");
+    if (!lastname) alert("Please enter your last name");
+    if (!email) alert("Please enter your first name");
+    if (!phonenumber) alert("Please enter your last name");
 
+    changeProfileParts(
+      firstname,
+      lastname,
+      email,
+      YOB,
+      phonenumber
+    );
+  };
   const fetchUserName = async () => {
     try {
       const query = await db
@@ -54,13 +68,35 @@ function ManageUserProfile() {
             <div>
               {" "}
               <div className="example_account">
-                <div>Name</div>
+                <div>Last Name</div>
                 <div>
-                  {firstname + " " + lastname}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
-                </div>
+              <p className="asterik">First Name</p>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder={firstname}
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstname}
+              />
+            </div>
+              </div>
+              <div className="example_account2">
+                ___________________________________________________________________________
+              </div>
+              <div className="example_account">
+                <div>Last Name</div>
+                <div>
+              <p className="asterik">Last Name</p>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+                value={lastname}
+              />
+            </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
@@ -68,11 +104,16 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Email</div>
                 <div>
-                  {email}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
-                </div>
+              <p className="asterik">Email</p>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder={email}
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
@@ -80,11 +121,16 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Age</div>
                 <div>
-                  {correctYear}
-                  <Link className="button_edit" to="/editprofile" vlaue="Login">
-                    Edit
-                  </Link>
-                </div>
+              <p className="asterik">Age</p>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder={correctYear}
+                onChange={(e) => setYOB(e.target.value)}
+                value={YOB}
+              />
+            </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
@@ -92,16 +138,24 @@ function ManageUserProfile() {
               <div className="example_account">
                 <div>Phone Number</div>
                 <div>
-                  {phonenumber}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
-                </div>
+              <p className="asterik">Phone Number</p>
+              <input
+                type="name"
+                name="name"
+                id="name"
+                placeholder={phonenumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                value={phonenumber}
+              />
+            </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="user_profile_button">
+                <Link className="button_login1" to="/profile" value="Change" onClick={updateProfile}>
+                    Change
+                    </Link> 
                 <Link className="button_manage" to="/profile" value="Login">
                   Return
                 </Link>
@@ -114,4 +168,4 @@ function ManageUserProfile() {
   );
 }
 
-export default ManageUserProfile;
+export default EditProfile;

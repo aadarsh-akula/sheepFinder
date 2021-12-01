@@ -22,6 +22,7 @@ import ManageAdminProfile from "./pages/ManageAdminProfile";
 import BusDriver from "./pages/BusDriver";
 import WeedSeller from "./pages/WeedSeller";
 import AdminRegisterForm from "./pages/AdminRegisterForm";
+import EditProfile from "./pages/EditProfile"
 
 const history = createBrowserHistory();
 
@@ -60,7 +61,11 @@ function App() {
               <Profile />
             </Container>
           </Route>
-
+          <Route exact path="/editprofile">
+            <Container className="container_dashboard">
+              <EditProfile />
+            </Container>
+          </Route>
           <Route exact path="/admindashboard">
             <Container className="container_dashboard">
               <AdminDashboard />
