@@ -2,40 +2,40 @@ import React, { useEffect, useState } from "react";
 import "./style.css";
 import { Link, useHistory } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-//import { auth, adminRegisterWithEmailAndPassword } from "../firebase";
+import { auth, adminRegisterWithEmailAndPassword } from "../firebase";
 
 function AdminRegisterForm() {
-  /*
-  const [user, loading, error] = useAuthState(auth);
-  const [email1, setEmail] = useState("");
-  const [password1, setPassword] = useState("");
-  const [cpassword, setCPassword] = useState("");
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
-  const [phonenumber, setPhoneNumber] = useState("");
+  
+  const [admin, loading, error] = useAuthState(auth);
+  const [email1, setEmail1] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [cpassword1, setCPassword1] = useState("");
+  const [firstname1, setFirstName1] = useState("");
+  const [lastname1, setLastName1] = useState("");
+  const [phonenumber1, setPhoneNumber1] = useState("");
 
   const history = useHistory();
   const register = () => {
-    if (!firstname) alert("Please enter your first name");
-    if (!lastname) alert("Please enter your last name");
+    if (!firstname1) alert("Please enter your first name");
+    if (!lastname1) alert("Please enter your last name");
     if (!email1) alert("Please enter your first name");
     if (!password1) alert("Please enter your last name");
-    if (!cpassword) alert("Please enter your first name");
-    if (!phonenumber) alert("Please enter your last name");
+    if (!cpassword1) alert("Please enter your first name");
+    if (!phonenumber1) alert("Please enter your last name");
 
     adminRegisterWithEmailAndPassword(
-      firstname,
-      lastname,
+      firstname1,
+      lastname1,
       email1,
       password1,
-      cpassword,
-      phonenumber
+      cpassword1,
+      phonenumber1
     );
   };
   useEffect(() => {
     if (loading) return;
-    if (user) history.replace("/admindashboard");
-  }, [user, loading]);
+    if (admin) history.replace("/admindashboard");
+  }, [admin, loading]);
 
   return (
     <form>
@@ -52,8 +52,8 @@ function AdminRegisterForm() {
                 name="name"
                 id="name"
                 placeholder="First Name"
-                onChange={(e) => setFirstName(e.target.value)}
-                value={firstname}
+                onChange={(e) => setFirstName1(e.target.value)}
+                value={firstname1}
               />
             </div>
 
@@ -64,8 +64,8 @@ function AdminRegisterForm() {
                 name="name"
                 id="name"
                 placeholder="Last Name"
-                onChange={(e) => setLastName(e.target.value)}
-                value={lastname}
+                onChange={(e) => setLastName1(e.target.value)}
+                value={lastname1}
               />
             </div>
             <div>
@@ -74,7 +74,7 @@ function AdminRegisterForm() {
                 type="email"
                 name="email"
                 id="email"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail1(e.target.value)}
                 value={email1}
                 placeholder="E-mail Address"
               />
@@ -85,7 +85,7 @@ function AdminRegisterForm() {
                 type="password"
                 name="password"
                 id="password"
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword1(e.target.value)}
                 value={password1}
               />
             </div>
@@ -95,8 +95,8 @@ function AdminRegisterForm() {
                 type="password"
                 name="password"
                 id="cPassword"
-                onChange={(e) => setCPassword(e.target.value)}
-                value={cpassword}
+                onChange={(e) => setCPassword1(e.target.value)}
+                value={cpassword1}
               />
             </div>
 
@@ -107,8 +107,8 @@ function AdminRegisterForm() {
                 name="phonenumber1"
                 id="phonenumber1"
                 placeholder="phone #"
-                onChange={(e) => setPhoneNumber(e.target.value)}
-                value={phonenumber}
+                onChange={(e) => setPhoneNumber1(e.target.value)}
+                value={phonenumber1}
               />
             </div>
 
@@ -131,7 +131,7 @@ function AdminRegisterForm() {
         <footer>&copy;Copyright 2021</footer>
       </div>
     </form>
-  );*/
+  );
 }
 
 export default AdminRegisterForm;

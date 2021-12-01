@@ -53,6 +53,32 @@ export const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
+
+export const adminRegisterWithEmailAndPassword = async (
+  firstname1,
+  lastname1,
+  email1,
+  password1,
+  cpassword1,
+  phonenumber1
+) => {
+  try {
+    const res = await auth.createUserWithEmailAndPassword(email1, password1);
+    const admin = res.admin;
+    await db.collection("admins").add({
+      uid: admin.uid,
+      firstname1,
+      lastname1,
+      authProvider: "local",
+      email1,
+      phonenumber1,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
 export const registerWithEmailAndPassword = async (
   firstname,
   lastname,
