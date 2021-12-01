@@ -119,7 +119,7 @@ function App() {
           </Route>
           <Route exact path="/job">
             <Container className="container_job">
-              <AdminRegisterForm />
+              <Job />
             </Container>
           </Route>
         </Switch>

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {  auth, db, app } from "../firebase";
 
-function Test(props) {
+function Job(props) {
   const jobList = [{ description: "DevOps", key: 0 }];
 
   const hiddenFileInput = React.useRef(null);
@@ -65,7 +65,7 @@ function Test(props) {
 
     var score = 0; //score
     var resume; //this is the string representation of the resume
-    var reqs = []; //the requirements the admin set up for the job
+    var reqs = ["Java"]; //the requirements the admin set up for the job
               
     var fr=new FileReader();
     fr.onload=function(){
@@ -78,16 +78,18 @@ function Test(props) {
 
                 
                 score += 5; //increment score
+                
 
             }
             
         }
+
+        alert(score);
+
         
     }
             
-     fr.readAsText(this.files[0]);//Not entirly sure what this does but DO NOT REMOVE THIS LINE
-
-     //Send score to db
+     fr.readAsText(file);//Not entirly sure what this does but DO NOT REMOVE THIS LINE
 
   };
 
@@ -129,4 +131,4 @@ function Test(props) {
       );
 }
 
-export default Test;
+export default Job;
