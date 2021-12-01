@@ -5,8 +5,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, app } from "../firebase";
 
 function Test(props) {
-  const jobList = [{ description: "DevOps", key: 0 }];
-
   const hiddenFileInput = React.useRef(null);
 
   const handleClick = (event) => {
@@ -24,6 +22,7 @@ function Test(props) {
   const [email, setEmail] = useState("");
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
+  const [jobList, setJobList] = useState([]);
 
   const history = useHistory();
 
@@ -44,10 +43,31 @@ function Test(props) {
       alert("An error occured while fetching user data");
     }
   };
+
+  const fetchJob = async () => {
+    try {
+      const query = await db.collection("joblist").get();
+      const data = await query.docs.map((doc) => {
+        console.log(doc.data());
+        return doc.data().jobName;
+
+        /*
+        setJobList((old) => ({
+          jobList: [...old.jobList, doc.data().jobName],
+        }));*/
+      });
+      setJobList(data);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+
   useEffect(() => {
     if (loading) return;
     if (!user) return history.replace("/");
     fetchUserName();
+    fetchJob();
   }, [user, loading]);
 
   const currentYear = new Date().getFullYear();
@@ -129,14 +149,11 @@ function Test(props) {
           <div className="profile_title">
             <h1 className="test_admin_title">Jobs Applied</h1>
           </div>
+
           <div className="joblist_user_profile2">
-            {
-              <ol>
-                {jobList.map((joblist) => (
-                  <li key={joblist.key}>{joblist.description}</li>
-                ))}
-              </ol>
-            }
+            {jobList.map((jobName) => (
+              <div className="job_name">{jobName + " "}</div>
+            ))}
           </div>
         </div>
       </div>

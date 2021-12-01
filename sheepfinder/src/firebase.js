@@ -53,7 +53,6 @@ export const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-
 export const adminRegisterWithEmailAndPassword = async (
   firstname1,
   lastname1,

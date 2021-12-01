@@ -5,7 +5,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, adminRegisterWithEmailAndPassword } from "../firebase";
 
 function AdminRegisterForm() {
-  
   const [admin, loading, error] = useAuthState(auth);
   const [email1, setEmail1] = useState("");
   const [password1, setPassword1] = useState("");

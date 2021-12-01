@@ -113,6 +113,16 @@ footer {
   text-align: center;
 }
 
+.button_login3 {
+  width: 125px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-left: 10px;
+  text-align: center;
+}
+
 .button_login4 {
   width: 150px;
   height: 20px;
@@ -150,7 +160,7 @@ footer {
   margin-top: 0px;
   display: flex;
   justify-content: center;
-  width: 400px;
+  width: 750px;
 }
 
 .dashboard_component {
@@ -343,10 +353,16 @@ footer {
   height: 521px;
   width: 500px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   border-radius: 25px;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
+  flex-direction: column;
+}
+
+.job_name {
+  font-size: 20px;
+  text-align: center;
 }
 
 .joblist_user_profile1 {
