@@ -1,0 +1,507 @@
+.welcome-text {
+  font-size: 45px;
+  text-align: center;
+  margin: 0;
+  text-shadow: 5px 5px hsla(197, 23%, 55%, 0.979);
+}
+
+img {
+  margin-left: 1500px;
+  width: 150px;
+  height: 150px;
+}
+
+.sheep-body {
+  background-image: url("../cloud.png");
+  height: 947px;
+}
+
+.middle-sheep-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 115px;
+}
+
+input {
+  margin-bottom: 5px;
+  background-color: #dae8fc;
+}
+
+.asterik {
+  margin: 0;
+}
+
+.asterik::after {
+  content: "*";
+  color: red;
+}
+
+.error-message {
+  background-color: #ffdcdc;
+  font-size: 15px;
+  text-align: center;
+}
+
+footer {
+  font-size: 10px;
+  margin-top: 220px;
+  text-align: center;
+
+  color: transparent;
+}
+
+.footer_register {
+  font-size: 10px;
+  margin-top: 150px;
+  text-align: center;
+
+  color: transparent;
+}
+
+.button {
+  width: 200px;
+  height: 80px;
+  text-align: center;
+  margin-top: 80px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  padding: 0px 10px;
+  justify-content: center;
+  display: inline;
+}
+
+.uploadRes {
+  text-align: center;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  padding: 0px 10px;
+  justify-content: center;
+  display: inline;
+}
+.button_recover1 {
+  text-decoration: underline;
+  color: #1f8fff;
+}
+.button_recover {
+  width: 180px;
+  height: 20px;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-right: 0px;
+  text-align: center;
+}
+
+.button_login1 {
+  width: 60px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-right: 10px;
+  text-align: center;
+}
+.button_login2 {
+  width: 60px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.button_login4 {
+  width: 150px;
+  height: 20px;
+
+  border-end-end-radius: 6px;
+  border-top-right-radius: 6px;
+  background-color: #1f8fff;
+
+  text-align: center;
+}
+
+.google_div {
+  margin-top: 5px;
+  display: flex;
+}
+
+.google_icon {
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 3px;
+  height: 35px;
+  width: 35px;
+}
+
+.google_icon_div {
+  width: 38px;
+  height: 40px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+}
+
+.register_button {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 400px;
+}
+
+.dashboard_component {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+
+  justify-content: center;
+}
+
+.dashboard_component::before {
+  content: "";
+  background-image: url("../cloud.png");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 60%;
+}
+
+.joblist {
+  position: relative;
+  height: 600px;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.joblist_admin_profile {
+  position: relative;
+  height: 600px;
+  width: 1000px;
+  display: flex;
+
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.seccond_ol > li {
+  font-size: 20px;
+  padding: 15px;
+}
+.first_ol > li {
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+}
+
+.active_job1 {
+  background-color: rgba(116, 151, 168, 0.5);
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.active_job2 {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.adminster_job_button {
+  background-color: #1f8fff;
+  padding: 5px;
+  border-radius: 10px;
+  color: black;
+}
+.recover_button {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.button_recov {
+  width: 100px;
+  height: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  background-color: #1f8fff;
+  margin-right: 10px;
+  text-align: center;
+}
+.button_return {
+  height: 30px;
+  background-color: #1f8fff;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.recovering {
+  margin-top: 10px;
+}
+.recover_form_background {
+  position: relative;
+  height: 200px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.register_background {
+  position: relative;
+  height: 500px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.login_background {
+  position: relative;
+  height: 300px;
+  width: 450px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.promptbackground {
+  position: relative;
+  height: 130px;
+  width: 550px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.joblist_user {
+  position: relative;
+  height: 550px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.joblist_admin {
+  position: relative;
+  height: 300px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.joblist_admin_add {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  color: black;
+  margin-top: 20px;
+}
+.test_admin_title {
+  position: relative;
+  color: Black;
+}
+
+.joblist_user_profile2 {
+  position: relative;
+  height: 521px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.joblist_user_profile1 {
+  position: relative;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.button_apply {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+  color: black;
+}
+
+.button_add {
+  width: 45px;
+  height: 20px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+}
+
+.admin_joblist {
+  position: relative;
+  height: 600px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+ol > li {
+  font-size: 25px;
+}
+
+.apply_button_ol > li {
+  list-style: none;
+  color: black;
+}
+
+.job_test {
+  position: relative;
+  height: 300px;
+  width: 400px;
+  display: flex;
+
+  justify-content: center;
+  border-radius: 25px;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+
+.test_box2 {
+  margin: 0;
+  padding: 50px;
+}
+
+.example_account {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  width: 480px;
+  padding: 5px;
+}
+
+.example_account2 {
+  color: rgba(255, 253, 208, 1);
+}
+
+.user_profile_button {
+  padding: 10px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.user_profile_button1 {
+  padding: 10px;
+  text-align: center;
+}
+
+.button_manage {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+  color: black;
+  font-size: 17px;
+}
+
+.button_upload {
+  width: 50%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  padding: 4px;
+  color: black;
+}
+
+.button_edit {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 8px;
+  color: black;
+}
+
+.joblist_scroll > ol {
+  overflow-y: scroll;
+  height: 200px;
+  width: 300px;
+  overflow: auto;
+}
+
+.test_li {
+  display: flex;
+  justify-content: space-between;
+}
+
+.test_li > div {
+  margin-right: 10px;
+}
+
+.adminster_job {
+  margin-top: 288px;
+  text-align: center;
+}
+
+.adminster_job_description_weed {
+  text-align: center;
+  margin-top: 270px;
+}
+
+.adminster_job_description {
+  text-align: center;
+}
