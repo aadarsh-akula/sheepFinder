@@ -46,7 +46,7 @@ function Test(props) {
 
   const fetchJob = async () => {
     try {
-      const query = await db.collection("joblist").get();
+      const query = await db.collection("users").get();
       const data = await query.docs.map((doc) => {
         console.log(doc.data());
         return doc.data().jobName;
@@ -152,7 +152,7 @@ function Test(props) {
 
           <div className="joblist_user_profile2">
             {jobList.map((jobName) => (
-              <div className="job_name">{jobName + " "}</div>
+              <div className="job_name">{jobName}</div>
             ))}
           </div>
         </div>
