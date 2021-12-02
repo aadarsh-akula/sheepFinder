@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {  auth, db, app, sendApplication } from "../firebase";
+import {  auth, db, app, sendApplication, appliedJobs } from "../firebase";
 
 function Job(props) {
 
@@ -83,8 +83,8 @@ function Job(props) {
             
         }
 
-        sendApplication(email, score, resume, 0);
-
+        sendApplication(email, score, resume, "QA Inter");
+        appliedJobs(email, "QA Intern");
         
     }
             

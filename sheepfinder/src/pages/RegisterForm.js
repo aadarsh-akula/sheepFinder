@@ -14,6 +14,7 @@ function RegisterForm() {
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
 
+
   const history = useHistory();
   const register = () => {
     if (!firstname) alert("Please enter your first name");

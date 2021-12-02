@@ -5,7 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, app } from "../firebase";
 
 function Test(props) {
-  const jobList = [{ description: "DevOps", key: 0 }];
+  //const jobList = [{ description: "DevOps", key: 0 }];
 
   const hiddenFileInput = React.useRef(null);
 
@@ -25,7 +25,27 @@ function Test(props) {
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
 
+  const [jobs, setJobs] = useState("");
+
   const history = useHistory();
+
+  const fetchAppliedJobs = async() => {
+
+    try {
+
+      const query = await db.collection("userAppliedJobs").where("email", "==", user?.email).get();
+      const data = await query.docs[0].data();
+      setJobs(data.jobId);
+
+
+    } catch (err) {
+
+      console.error(err);
+      alert("An error occured while fetching user data");
+
+    }
+
+  };
 
   const fetchUserName = async () => {
     try {
@@ -48,6 +68,7 @@ function Test(props) {
     if (loading) return;
     if (!user) return history.replace("/");
     fetchUserName();
+    fetchAppliedJobs();
   }, [user, loading]);
 
   const currentYear = new Date().getFullYear();
@@ -55,14 +76,6 @@ function Test(props) {
   const userYOB = YOB;
 
   const correctYear = currentYear - userYOB;
-
-  const onChange = (e) => {
-    const file = e.target.files[0];
-    const storageRef = app.storage().ref("Resumes");
-    const fileRef = storageRef.child(file.name);
-    console.log(fileRef);
-    fileRef.put(file);
-  };
 
   return (
     <>
@@ -115,13 +128,6 @@ function Test(props) {
                   Manage
                 </Link>
               </div>
-              <div className="user_profile_button1">
-                <input
-                  className="button_upload"
-                  type="file"
-                  onChange={onChange}
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -131,11 +137,17 @@ function Test(props) {
           </div>
           <div className="joblist_user_profile2">
             {
-              <ol>
+              /*<ol>
                 {jobList.map((joblist) => (
                   <li key={joblist.key}>{joblist.description}</li>
                 ))}
-              </ol>
+              </ol>*/
+
+              <ol>{jobs.map((jobs) => (
+
+                <li key={jobs.key}></li>
+
+              ))}</ol>
             }
           </div>
         </div>

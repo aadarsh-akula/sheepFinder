@@ -60,7 +60,8 @@ export const registerWithEmailAndPassword = async (
   password,
   cpassword,
   YOB,
-  phonenumber
+  phonenumber,
+
 ) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
@@ -112,6 +113,26 @@ export const sendApplication = async (email, score, resume, jobId) => {
   }
 
 };
+
+export const appliedJobs = async (email, jobId) => {
+
+  try {
+
+    await db.collection("userAppliedJobs").add({
+
+      email,
+      jobId,
+
+    });
+
+  } catch (err) {
+
+    console.error(err);
+    alert(err.message);
+
+  }
+
+}
 
 export const logout = () => {
   auth.signOut();
