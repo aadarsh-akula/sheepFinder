@@ -90,7 +90,7 @@ export const sendPasswordResetEmail = async (email) => {
   }
 };
 
-export const sendApplication = async (email, score, jobId) => {
+export const sendApplication = async (email, score, resume, jobId) => {
 
   try {
 
@@ -98,6 +98,7 @@ export const sendApplication = async (email, score, jobId) => {
 
       email,
       score,
+      resume,
       jobId,
 
 

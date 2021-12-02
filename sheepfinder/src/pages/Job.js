@@ -83,7 +83,7 @@ function Job(props) {
             
         }
 
-        sendApplication(email, score, 0);
+        sendApplication(email, score, resume, 0);
 
         
     }
