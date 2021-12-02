@@ -90,6 +90,28 @@ export const sendPasswordResetEmail = async (email) => {
   }
 };
 
+export const sendApplication = async (email, score, jobId) => {
+
+  try {
+
+    await db.collection("applicationList").add({
+
+      email,
+      score,
+      jobId,
+
+
+    });
+
+  } catch (err) {
+
+    console.error(err);
+    alert(err.message);
+
+  }
+
+};
+
 export const logout = () => {
   auth.signOut();
 };

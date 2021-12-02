@@ -2,10 +2,9 @@ import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {  auth, db, app } from "../firebase";
+import {  auth, db, app, sendApplication } from "../firebase";
 
 function Job(props) {
-  const jobList = [{ description: "DevOps", key: 0 }];
 
   const hiddenFileInput = React.useRef(null);
 
@@ -84,7 +83,7 @@ function Job(props) {
             
         }
 
-        alert(score);
+        sendApplication(email, score, 0);
 
         
     }
@@ -94,20 +93,22 @@ function Job(props) {
   };
 
   return (
-        <div className="dashboard_component">
-          <div className="dashboard_jobbox">
-            <h1 className="test_admin_title">!!!!!!!JOBTITLE!!!!!!!</h1>
+    <>
+       <NavBar/>
+        <div className="job_component">
+          <div className="job_jobbox">
+            <h1 className="job_title">!!!!!!!JOBTITLE!!!!!!!</h1>
             <div className="joblist_user">
               <div className="joblist_scroll">
                 <ol>
 
-                    <li>
+                    <p>
                         !!!!!!!!!!!!!!!!JOBDESCRIPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    </li>  
+                    </p>  
                     
                     <li className="test_li">
 
-                        <div className="user_profile_button1">
+                        <div className="resume_upload">
                             <input
                                 className="button_upload"
                                 type="file"
@@ -128,6 +129,7 @@ function Job(props) {
             </div>
           </div>
         </div>
+      </>
       );
 }
 
