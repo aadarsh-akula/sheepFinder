@@ -32,6 +32,7 @@ function Home() {
         <h1 className="welcome-text">Login</h1>
 
         <div className="middle-sheep-body">
+          <h2>User Login</h2>
           <div className="login_background">
             <div>
               <p className="asterik">Email</p>

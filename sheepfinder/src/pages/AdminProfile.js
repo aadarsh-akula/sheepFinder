@@ -39,10 +39,14 @@ function AdminProfile(props) {
 
   var phonenumber = phonenumber1;
 
-  if (phonenumber != null) {
-  }
+  phonenumber = phonenumber.replace(/\D/g, "");
 
-  console.log(phonenumber.length);
+  phonenumber =
+    phonenumber.slice(0, 3) +
+    "-" +
+    phonenumber.slice(3, 6) +
+    "-" +
+    phonenumber.slice(6, 15);
 
   return (
     <>

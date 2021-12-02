@@ -86,6 +86,16 @@ function Test(props) {
     console.log(fileRef);
     fileRef.put(file);
   };
+  var phoneNumber = phonenumber;
+
+  phoneNumber = phonenumber.replace(/\D/g, "");
+
+  phoneNumber =
+    phoneNumber.slice(0, 3) +
+    "-" +
+    phoneNumber.slice(3, 6) +
+    "-" +
+    phoneNumber.slice(6, 15);
 
   return (
     <>
@@ -124,7 +134,7 @@ function Test(props) {
               </div>
               <div className="example_account">
                 <div>Phone Number</div>
-                <div>{phonenumber}</div>
+                <div>{phoneNumber}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
@@ -155,7 +165,7 @@ function Test(props) {
 
           <div className="joblist_user_profile2">
             {jobList.map((jobName) => (
-              <div className="job_name">{jobName}</div>
+              <li className="job_name">{jobName}</li>
             ))}
           </div>
         </div>
