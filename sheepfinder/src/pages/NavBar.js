@@ -16,9 +16,8 @@ function NavBar() {
         .collection("users")
         .where("uid", "==", user?.uid)
         .get();
-      const data = query.docs[0].data();
+      const data = await query.docs[0].data();
       setFirstName(data.firstname);
-      setLastName(data.lastname);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -35,7 +34,7 @@ function NavBar() {
       <div className="nav-content">
         {" "}
         <div className="bar">
-          <h3>Welcome,</h3>
+          <h3>Welcome {firstname},</h3>
           <NavLink
             className="tabs"
             to="/dashboard"
