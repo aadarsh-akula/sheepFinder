@@ -81,7 +81,7 @@ function Test(props) {
       setJobList(data);
     } catch (err) {
       console.error(err);
-      alert("Error 001: You havent applied to any jobs ye");// Error 001 = An error occured while fetching user data
+      alert("Error 001: You haven't applied to any jobs yet !");// Error 001 = An error occured while fetching user data
     }
   };
 
