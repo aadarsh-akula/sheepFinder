@@ -31,7 +31,7 @@ function RegisterForm() {
       password,
       cpassword,
       YOB,
-      phonenumber
+      phonenumber,
     );
   };
   useEffect(() => {

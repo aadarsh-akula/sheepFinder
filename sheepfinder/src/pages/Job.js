@@ -83,9 +83,9 @@ function Job(props) {
             
         }
 
-        sendApplication(email, score, resume, "QA Inter");
+        sendApplication(email, score, resume, "QA Intern");
         appliedJobs(email, "QA Intern");
-        
+   
     }
             
      fr.readAsText(file);//Not entirly sure what this does but DO NOT REMOVE THIS LINE

@@ -37,6 +37,8 @@ function Test(props) {
       const data = await query.docs[0].data();
       setJobs(data.jobId);
 
+      //alert(data.jobId);
+
 
     } catch (err) {
 
@@ -143,11 +145,7 @@ function Test(props) {
                 ))}
               </ol>*/
 
-              <ol>{jobs.map((jobs) => (
-
-                <li key={jobs.key}></li>
-
-              ))}</ol>
+              <ol>{jobs}</ol>
             }
           </div>
         </div>
