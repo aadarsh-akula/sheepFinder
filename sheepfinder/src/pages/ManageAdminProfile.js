@@ -1,8 +1,52 @@
 import NavBar from "./AdminNavBar";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
+import { auth, db, logout } from "../firebase";
 
-function ManageAdminProfile() {
-  const jobList = [{ description: "Bus Driver", key: 0 }];
+function ManageAdminProfile(props) {
+  const [admin, loading1, error1] = useAuthState(auth);
+  const [firstname1, setFirstName1] = useState("");
+  const [lastname1, setLastName1] = useState("");
+  const [email1, setEmail1] = useState("");
+  const [phonenumber1, setPhoneNumber1] = useState("");
+  const [companyname, setCompanyName] = useState("");
+  const history = useHistory();
+
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("admins")
+        .where("uid", "==", admin?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setFirstName1(data.firstname1);
+      setLastName1(data.lastname1);
+      setEmail1(data.email1);
+      setPhoneNumber1(data.phonenumber1);
+      setCompanyName(data.companyname);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+  useEffect(() => {
+    if (loading1) return;
+    if (!admin) return history.replace("/");
+    fetchUserName();
+  }, [admin, loading1]);
+
+  var phonenumber = phonenumber1;
+
+  phonenumber = phonenumber.replace(/\D/g, "");
+
+  phonenumber =
+    phonenumber.slice(0, 3) +
+    "-" +
+    phonenumber.slice(3, 6) +
+    "-" +
+    phonenumber.slice(6, 15);
   return (
     <>
       <NavBar />
@@ -17,8 +61,8 @@ function ManageAdminProfile() {
               <div className="example_account">
                 <div>Name</div>
                 <div>
-                  Admin{" "}
-                  <Link className="button_edit" to="/dashboard" value="Login">
+                  {firstname1 + " " + lastname1}
+                  <Link className="button_edit" to="/editadminprofile" value="Login">
                     Edit
                   </Link>
                 </div>
@@ -29,8 +73,8 @@ function ManageAdminProfile() {
               <div className="example_account">
                 <div>Email</div>
                 <div>
-                  Admin@uwec.edu{" "}
-                  <Link className="button_edit" to="/dashboard" value="Login">
+                  {email1}
+                  <Link className="button_edit" to="/editadminprofile" value="Login">
                     Edit
                   </Link>
                 </div>
@@ -41,8 +85,8 @@ function ManageAdminProfile() {
               <div className="example_account">
                 <div>Company</div>
                 <div>
-                  Weed Dango{" "}
-                  <Link className="button_edit" to="/dashboard" value="Login">
+                  {companyname}
+                  <Link className="button_edit" to="/editadminprofile" value="Login">
                     Edit
                   </Link>
                 </div>
@@ -51,10 +95,10 @@ function ManageAdminProfile() {
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
-                <div>Primary Contact</div>
+                <div>Phone Number</div>
                 <div>
-                  (715)-828-****{" "}
-                  <Link className="button_edit" to="/dashboard" value="Login">
+                  {phonenumber1}
+                  <Link className="button_edit" to="/editadminprofile" value="Login">
                     Edit
                   </Link>
                 </div>

@@ -122,7 +122,6 @@ export const changeProfileParts = async (
   email2,
   YOB2,
   phonenumber2,
-  oldphonenumber
 ) => {
   try {
     const res = await auth.currentUser;
@@ -143,6 +142,33 @@ export const changeProfileParts = async (
     alert(err.message);
   }
 };
+
+export const changeAdminProfileParts = async (
+  firstname3,
+  lastname3,
+  email3,
+  companyname,
+  phonenumber3,
+   ) => {
+    try {
+      const res = await auth.currentUser;
+      const query = await db
+          .collection("admins")
+          .where("uid", "==", res.uid)
+          .get();
+        const data = await query.docs[0].id;
+      await db.collection("admins").doc(data).update({
+        firstname1: firstname3,
+        lastname1: lastname3,
+        email1: email3,
+        companyname: companyname,
+        phonenumber1: phonenumber3
+      });
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+    }
+  }
 
 export const sendPasswordResetEmail = async (email) => {
   try {

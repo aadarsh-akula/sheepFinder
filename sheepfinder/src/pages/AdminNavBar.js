@@ -37,7 +37,7 @@ function AdminNavBar(props) {
       <div className="nav-content">
         {" "}
         <div className="bar">
-          <h2>Welcome {firstname1},</h2>
+          <h2>Welcome {firstname1} {lastname1},</h2>
           <NavLink
             className="tabs"
             to="/admindashboard"

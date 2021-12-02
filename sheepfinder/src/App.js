@@ -24,6 +24,8 @@ import WeedSeller from "./pages/WeedSeller";
 import AdminRegisterForm from "./pages/AdminRegisterForm";
 import EditProfile from "./pages/EditProfile";
 import AdminLoginForm from "./pages/AdminLoginForm";
+import EditAdminProfile from "./pages/editAdminProfile";
+
 
 const history = createBrowserHistory();
 
@@ -75,6 +77,11 @@ function App() {
           <Route exact path="/adminadministeredjob">
             <Container className="container_dashboard">
               <AdminAdministeredJob />
+            </Container>
+          </Route>
+          <Route exact path="/editadminprofile">
+            <Container className="container_dashboard">
+              <EditAdminProfile />
             </Container>
           </Route>
           <Route exact path="/admintesteditor">
