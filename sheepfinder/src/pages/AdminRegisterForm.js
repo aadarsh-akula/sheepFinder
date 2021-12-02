@@ -129,7 +129,6 @@ function AdminRegisterForm() {
             <div className="register_button">
               <Link
                 className="button_login1"
-                to="/admindashboard"
                 value="RegisterAdmin"
                 onClick={register1}
               >

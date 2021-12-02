@@ -23,7 +23,6 @@ function Test(props) {
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
   const [jobList, setJobList] = useState("");
-  const [jobId, setJobId] = useState("");
 
   const history = useHistory();
 
@@ -182,7 +181,9 @@ function Test(props) {
             <h1 className="test_admin_title">Jobs Applied</h1>
           </div>
 
-          <div className="joblist_user_profile2">{jobList}</div>
+          <div className="joblist_user_profile2">
+            <div className="job_name">{jobList}</div>
+          </div>
         </div>
       </div>
     </>

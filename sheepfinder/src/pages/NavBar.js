@@ -35,7 +35,7 @@ function NavBar() {
       <div className="nav-content">
         {" "}
         <div className="bar">
-          <h3>Welcome {firstname},</h3>
+          <h3>Welcome,</h3>
           <NavLink
             className="tabs"
             to="/dashboard"
