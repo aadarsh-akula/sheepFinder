@@ -123,13 +123,15 @@ function ManageAdminProfile(props) {
                 ___________________________________________________________________________
               </div>
               <div className="user_profile_button">
-                <Link
-                  className="button_manage"
-                  to="/AdminProfile"
-                  value="Login"
-                >
-                  Return
-                </Link>
+                <div>
+                  <Link
+                    className="button_manage"
+                    to="/AdminProfile"
+                    value="Login"
+                  >
+                    Return
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

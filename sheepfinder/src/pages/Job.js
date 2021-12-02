@@ -1,17 +1,16 @@
 /*
-*
-*derrik branch file added
-*
-*/
+ *
+ *derrik branch file added
+ *
+ */
 
 import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import {  auth, db, app, sendApplication, appliedJobs } from "../firebase";
+import { auth, db, app, sendApplication, appliedJobs } from "../firebase";
 
 function Job(props) {
-
   const hiddenFileInput = React.useRef(null);
 
   const handleClick = (event) => {
@@ -71,72 +70,62 @@ function Job(props) {
     var score = 0; //score
     var resume; //this is the string representation of the resume
     var reqs = ["Java"]; //the requirements the admin set up for the job
-              
-    var fr=new FileReader();
-    fr.onload=function(){
 
-        resume = fr.result;
-                
-        for (var i = 0; i < reqs.length; i++) {
-                
-            if (resume.includes(reqs[i])) {//go through requirements for jobs
+    var fr = new FileReader();
+    fr.onload = function () {
+      resume = fr.result;
 
-                
-                score += 5; //increment score
-                
+      for (var i = 0; i < reqs.length; i++) {
+        if (resume.includes(reqs[i])) {
+          //go through requirements for jobs
 
-            }
-            
+          score += 5; //increment score
         }
+      }
 
-        sendApplication(email, score, resume, "QA Intern");
-        appliedJobs(email, "QA Intern");
-   
-    }
-            
-     fr.readAsText(file);//Not entirly sure what this does but DO NOT REMOVE THIS LINE
+      sendApplication(email, score, resume, "QA Intern");
+      appliedJobs(email, "QA Intern");
+    };
 
+    fr.readAsText(file); //Not entirly sure what this does but DO NOT REMOVE THIS LINE
   };
 
   return (
     <>
-       <NavBar/>
-        <div className="job_component">
-          <div className="job_jobbox">
-            <h1 className="job_title">!!!!!!!JOBTITLE!!!!!!!</h1>
-            <div className="joblist_user">
-              <div className="joblist_scroll">
-                <ol>
+      <div className="job_component">
+        <div className="job_jobbox">
+          <h1 className="job_title">Upload Resume to Apply</h1>
+          <div className="joblist_user">
+            <div className="joblist_scroll">
+              <ol>
+                <p>Please choose file to upload</p>
 
-                    <p>
-                        !!!!!!!!!!!!!!!!JOBDESCRIPTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    </p>  
-                    
-                    <li className="test_li">
-
-                        <div className="resume_upload">
-                            <input
-                                className="button_upload"
-                                type="file"
-                                onChange={onChange}
-                             />
-                        </div>
-                    </li>
-
-                    <li className="test_li">
-                         <div>
-                            <Link className="button_apply" to="/dashboard" value="Login">
-                                Apply
-                            </Link>
-                        </div>
-                    </li>  
-                </ol>
-              </div>
+                <div className="test_li">
+                  <div className="resume_upload">
+                    <input
+                      className="button_upload"
+                      type="file"
+                      onChange={onChange}
+                    />
+                  </div>
+                </div>
+                <div className="return_button_div">
+                  <Link className="button_apply" to="/dashboard" value="Login">
+                    Apply
+                  </Link>
+                </div>
+                <div className="return_button_div">
+                  <Link className="return_button" to="/dashboard" value="Login">
+                    Return
+                  </Link>
+                </div>
+              </ol>
             </div>
           </div>
         </div>
-      </>
-      );
+      </div>
+    </>
+  );
 }
 
 export default Job;

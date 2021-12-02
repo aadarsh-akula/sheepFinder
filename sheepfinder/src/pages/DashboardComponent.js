@@ -31,97 +31,21 @@ function DashboardComponent(props) {
         <h1 className="test_admin_title">Job List</h1>
         <div className="joblist_user">
           <div className="joblist_scroll">
-            <ol>
-              <li className="test_li">
-                1. DevOps
-                job
-                <div>
-                  <Link className="button_apply" to="/job" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                2. QA Analysis
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                3. Coordinator
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                4. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                5. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                6. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                7. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                8. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                9. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                10. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-              <li className="test_li">
-                11. Job title
-                <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
-                    Apply
-                  </Link>
-                </div>
-              </li>
-            </ol>
+            <li className="jobs">
+              <span
+                class="hovertext"
+                data-hover="Student responsibility of transporting the
+                  world's most precious cargo seriously."
+              >
+                QA Analysis
+              </span>
+
+              <div className="serouesly">
+                <Link className="button_apply" to="/job" value="Login">
+                  Apply
+                </Link>
+              </div>
+            </li>
           </div>
         </div>
       </div>

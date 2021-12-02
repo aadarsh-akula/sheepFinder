@@ -38,7 +38,7 @@ const res =  db.collection('applicationList').set(data);
                 =<h3>Jobs you administrate</h3>
                 <li>
                   <Link className="active_job1" to="/busdriver" value="Login">
-                    {jobName}
+                    {jobName}QA Part Timer
                   </Link>
                 </li>
                 <li>
@@ -90,11 +90,7 @@ const res =  db.collection('applicationList').set(data);
                   unloading passengers.{" "}
                 </li>
                 <div className="adminster_job_description">
-                  <Link
-                    className="adminster_job_button"
-                    to="/dashboard"
-                    value="Login"
-                  >
+                  <Link className="adminster_job_button" value="Login">
                     Add description
                   </Link>
                 </div>
