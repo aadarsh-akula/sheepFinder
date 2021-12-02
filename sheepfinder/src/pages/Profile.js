@@ -22,7 +22,7 @@ function Test(props) {
   const [email, setEmail] = useState("");
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
-  const [jobList, setJobList] = useState([]);
+  const [jobList, setJobList] = useState("");
 
   const history = useHistory();
 
@@ -43,23 +43,38 @@ function Test(props) {
       alert("An error occured while fetching user data");
     }
   };
-
+  /*
   const fetchJob = async () => {
     try {
       const query = await db
-        .collection("users")
-        .where("uid", "==", user?.uid)
+        .collection("userAppliedJobs")
+        .where("email", "==", user?.email)
         .get();
       const data = await query.docs.map((doc) => {
         console.log(doc.data());
-        return doc.data().jobName;
+        return doc.data().jobId;
 
         /*
         setJobList((old) => ({
           jobList: [...old.jobList, doc.data().jobName],
-        }));*/
+        }));
       });
+      
       setJobList(data);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };*/
+
+  const fetchJob = async () => {
+    try {
+      const query = await db
+        .collection("userAppliedJobs")
+        .where("email", "==", user?.email)
+        .get();
+      const data = await query.docs[0].data();
+      setJobList(data.jobId);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -96,6 +111,9 @@ function Test(props) {
     phoneNumber.slice(3, 6) +
     "-" +
     phoneNumber.slice(6, 15);
+
+  var i = 0;
+  var counter = 0;
 
   return (
     <>
@@ -164,9 +182,7 @@ function Test(props) {
           </div>
 
           <div className="joblist_user_profile2">
-            {jobList.map((jobName) => (
-              <li className="job_name">{jobName}</li>
-            ))}
+            <div className="job_name">{jobList}</div>
           </div>
         </div>
       </div>

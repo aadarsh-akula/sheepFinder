@@ -72,12 +72,7 @@ function AdminNavBar(props) {
           </NavLink>
         </div>
       </div>
-      <Link
-        className="button_logout"
-        to="/loginform"
-        value="Login"
-        onClick={logout}
-      >
+      <Link className="button_logout" value="Login" onClick={logout}>
         <h3> Logout</h3>
       </Link>
     </div>
