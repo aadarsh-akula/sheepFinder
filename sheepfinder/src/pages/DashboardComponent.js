@@ -4,6 +4,27 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../firebase";
 
 function DashboardComponent(props) {
+  /*
+  const fetchAdminJob = async () => {
+    try {
+      const query = await db
+        .collection("userAppliedJobs")
+        .where("email", "==", user?.email)
+        .get();
+      const data = await query.docs[0].data();
+      setJobList(data.jobId);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+    fetchAdminJob();
+  }, [user, loading]);*/
+
   return (
     <div className="dashboard_component">
       <div className="dashboard_jobbox">

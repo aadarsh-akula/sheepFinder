@@ -2,7 +2,7 @@ import NavBar from "./NavBar";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, app } from "../firebase";
+import { auth, db, app, doc, arrayUnion, testingAdding } from "../firebase";
 
 function Test(props) {
   const hiddenFileInput = React.useRef(null);
@@ -22,7 +22,8 @@ function Test(props) {
   const [email, setEmail] = useState("");
   const [YOB, setYOB] = useState("");
   const [phonenumber, setPhoneNumber] = useState("");
-  const [jobList, setJobList] = useState("");
+  const [jobList, setJobList] = useState([]);
+  const [testingadd, setTestingAdd] = useState([]);
 
   const history = useHistory();
 
@@ -43,29 +44,24 @@ function Test(props) {
       alert("An error occured while fetching user data");
     }
   };
-  /*
-  const fetchJob = async () => {
+
+  const fetchJobList = async () => {
     try {
       const query = await db
-        .collection("userAppliedJobs")
+        .collection("users")
         .where("email", "==", user?.email)
         .get();
       const data = await query.docs.map((doc) => {
         console.log(doc.data());
-        return doc.data().jobId;
-
-        /*
-        setJobList((old) => ({
-          jobList: [...old.jobList, doc.data().jobName],
-        }));
+        return doc.data().jobName;
       });
-      
+
       setJobList(data);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
     }
-  };*/
+  };
 
   const fetchJob = async () => {
     try {
@@ -74,7 +70,7 @@ function Test(props) {
         .where("email", "==", user?.email)
         .get();
       const data = await query.docs[0].data();
-      setJobList(data.jobId);
+      //setJobList(data.jobId);
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -86,6 +82,7 @@ function Test(props) {
     if (!user) return history.replace("/");
     fetchUserName();
     fetchJob();
+    fetchJobList();
   }, [user, loading]);
 
   const currentYear = new Date().getFullYear();
@@ -98,7 +95,7 @@ function Test(props) {
     const file = e.target.files[0];
     const storageRef = app.storage().ref("Resumes");
     const fileRef = storageRef.child(file.name);
-    console.log(fileRef);
+
     fileRef.put(file);
   };
   var phoneNumber = phonenumber;
@@ -112,8 +109,16 @@ function Test(props) {
     "-" +
     phoneNumber.slice(6, 15);
 
-  var i = 0;
-  var counter = 0;
+  console.log(jobList.toString());
+
+  /*
+  doc.update({
+    jobName: arrayUnion(testingadd),
+  });
+
+  const testing = () => {
+    testingAdding(testingadd);
+  };*/
 
   return (
     <>
@@ -157,14 +162,16 @@ function Test(props) {
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
-              <div className="user_profile_button">
-                <Link
-                  className="button_manage"
-                  to="/manageuserprofile"
-                  value="Login"
-                >
-                  Manage
-                </Link>
+              <div className="user_profile_button4">
+                <div>
+                  <Link
+                    className="button_manage"
+                    to="/manageuserprofile"
+                    value="Login"
+                  >
+                    Manage
+                  </Link>
+                </div>
               </div>
               <div className="user_profile_button1">
                 <input
@@ -182,7 +189,23 @@ function Test(props) {
           </div>
 
           <div className="joblist_user_profile2">
-            <div className="job_name">{jobList}</div>
+            <div className="job_name">
+              {" "}
+              {jobList.map((jobName) => (
+                <ul>
+                  <li> {jobName[0]}</li>
+                  <li> {jobName[1]}</li>
+                  <li> {jobName[2]}</li>
+                  <li> {jobName[3]}</li>
+                  <li> {jobName[4]}</li>
+                  <li> {jobName[5]}</li>
+                  <li> {jobName[6]}</li>
+                  <li> {jobName[7]}</li>
+                  <li> {jobName[8]}</li>
+                  <li> {jobName[9]}</li>
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -191,3 +214,16 @@ function Test(props) {
 }
 
 export default Test;
+
+/*<div>
+                <p className="asterik">Job's name</p>
+                <input
+                  value={testingadd}
+                  type="name"
+                  placeholder="Enter Job's Name"
+                  onChange={(e) => setTestingAdd(e.target.value)}
+                />
+              </div>
+              <Link className="button_login1" onClick={testing}>
+                add job name
+              </Link>*/

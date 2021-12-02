@@ -87,14 +87,16 @@ function AdminProfile(props) {
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
-              <div className="user_profile_button">
-                <Link
-                  className="button_manage"
-                  to="/manageadminprofile"
-                  value="Login"
-                >
-                  Manage
-                </Link>
+              <div className="user_profile_button2">
+                <div>
+                  <Link
+                    className="button_manage1"
+                    to="/manageadminprofile"
+                    value="Login"
+                  >
+                    Manage
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

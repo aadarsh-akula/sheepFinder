@@ -62,7 +62,11 @@ function ManageAdminProfile(props) {
                 <div>Name</div>
                 <div>
                   {firstname1 + " " + lastname1}
-                  <Link className="button_edit" to="/editadminprofile" value="Login">
+                  <Link
+                    className="button_edit"
+                    to="/editadminprofile"
+                    value="Login"
+                  >
                     Edit
                   </Link>
                 </div>
@@ -74,7 +78,11 @@ function ManageAdminProfile(props) {
                 <div>Email</div>
                 <div>
                   {email1}
-                  <Link className="button_edit" to="/editadminprofile" value="Login">
+                  <Link
+                    className="button_edit"
+                    to="/editadminprofile"
+                    value="Login"
+                  >
                     Edit
                   </Link>
                 </div>
@@ -86,7 +94,11 @@ function ManageAdminProfile(props) {
                 <div>Company</div>
                 <div>
                   {companyname}
-                  <Link className="button_edit" to="/editadminprofile" value="Login">
+                  <Link
+                    className="button_edit"
+                    to="/editadminprofile"
+                    value="Login"
+                  >
                     Edit
                   </Link>
                 </div>
@@ -98,7 +110,11 @@ function ManageAdminProfile(props) {
                 <div>Phone Number</div>
                 <div>
                   {phonenumber1}
-                  <Link className="button_edit" to="/editadminprofile" value="Login">
+                  <Link
+                    className="button_edit"
+                    to="/editadminprofile"
+                    value="Login"
+                  >
                     Edit
                   </Link>
                 </div>

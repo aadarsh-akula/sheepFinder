@@ -449,8 +449,31 @@ ol > li {
 
 .user_profile_button {
   padding: 10px;
+  margin-top: 10px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: space-between;
+}
+
+.user_profile_button2 {
+  padding: 10px;
   margin-top: 50px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+}
+.user_profile_button4 {
+  padding: 10px;
+  margin-top: 50px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .user_profile_button1 {
@@ -459,6 +482,17 @@ ol > li {
 }
 
 .button_manage {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  text-align: center;
+  font-size: 15px;
+  padding: 4px;
+  color: black;
+  font-size: 17px;
+}
+.button_manage1 {
   width: 100%;
   height: 100%;
   border-radius: 6px;
@@ -520,4 +554,8 @@ ol > li {
 
 .adminster_job_description {
   text-align: center;
+}
+
+ul > li {
+  list-style: none;
 }
