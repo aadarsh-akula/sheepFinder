@@ -73,6 +73,13 @@ function Home() {
               >
                 Login
               </Link>
+              <Link
+                className="button_login2"
+                value="adminLogin"
+                to="/adminloginform"
+              >
+                Admin
+              </Link>
             </div>
             or
             <div className="google_div">

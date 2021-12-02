@@ -6,24 +6,25 @@ import {
   auth,
   signInWithEmailAndPassword,
   signInWithGoogle,
+  adminSignInWithEmailAndPassword,
 } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "firebase/auth";
 import { FcGoogle } from "react-icons/fc";
 import { IconContext } from "react-icons";
 
-function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
+function AdminLoginForm() {
+  const [email1, setEmail1] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [admin, loading1, error1] = useAuthState(auth);
   const history = useHistory();
 
   useEffect(() => {
-    if (loading) {
+    if (loading1) {
       return;
     }
-    if (user) history.replace("/dashboard");
-  }, [user, loading]);
+    if (admin) history.replace("/admindashboard");
+  }, [admin, loading1]);
 
   return (
     <form>
@@ -39,8 +40,8 @@ function LoginForm() {
                 type="email"
                 name="email"
                 id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={email1}
+                onChange={(e) => setEmail1(e.target.value)}
               />
             </div>
             <div>
@@ -49,8 +50,8 @@ function LoginForm() {
                 type="password"
                 name="password"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={password1}
+                onChange={(e) => setPassword1(e.target.value)}
               />
             </div>
             <div>
@@ -69,16 +70,11 @@ function LoginForm() {
               <Link
                 className="button_login2"
                 value="Login"
-                onClick={() => signInWithEmailAndPassword(email, password)}
+                onClick={() =>
+                  adminSignInWithEmailAndPassword(email1, password1)
+                }
               >
                 Login
-              </Link>
-              <Link
-                className="button_login2"
-                value="adminLogin"
-                to="/adminloginform"
-              >
-                Admin
               </Link>
             </div>
             or
@@ -105,4 +101,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default AdminLoginForm;

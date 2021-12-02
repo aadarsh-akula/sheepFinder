@@ -6,10 +6,10 @@ import "./nav.css";
 import DashboardComponent from "./DashboardComponent";
 
 function Dashboard({ history }) {
- 
   return (
     <>
       <NavBar history={history} active="dashboard" />
+
       <DashboardComponent />
     </>
   );

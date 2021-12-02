@@ -46,7 +46,10 @@ function Test(props) {
 
   const fetchJob = async () => {
     try {
-      const query = await db.collection("users").where("uid", "==", user?.uid).get();
+      const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
       const data = await query.docs.map((doc) => {
         console.log(doc.data());
         return doc.data().jobName;

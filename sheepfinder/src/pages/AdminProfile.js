@@ -1,20 +1,48 @@
 import NavBar from "./AdminNavBar";
-import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useHistory } from "react-router";
+import { auth, db, logout } from "../firebase";
 
 function AdminProfile(props) {
-  const jobList = [{ description: "Bus Driver", key: 0 }];
+  const [admin, loading1, error1] = useAuthState(auth);
+  const [firstname1, setFirstName1] = useState("");
+  const [lastname1, setLastName1] = useState("");
+  const [email1, setEmail1] = useState("");
+  const [phonenumber1, setPhoneNumber1] = useState("");
+  const [companyname, setCompanyName] = useState("");
+  const history = useHistory();
 
-  const hiddenFileInput = React.useRef(null);
-
-  const handleClick = (event) => {
-    hiddenFileInput.current.click();
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("admins")
+        .where("uid", "==", admin?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setFirstName1(data.firstname1);
+      setLastName1(data.lastname1);
+      setEmail1(data.email1);
+      setPhoneNumber1(data.phonenumber1);
+      setCompanyName(data.companyname);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
   };
+  useEffect(() => {
+    if (loading1) return;
+    if (!admin) return history.replace("/");
+    fetchUserName();
+  }, [admin, loading1]);
 
-  const handleChange = (event) => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
-  };
+  var phonenumber = phonenumber1;
+
+  if (phonenumber != null) {
+  }
+
+  console.log(phonenumber.length);
 
   return (
     <>
@@ -29,28 +57,28 @@ function AdminProfile(props) {
               {" "}
               <div className="example_account">
                 <div>Name</div>
-                <div>Admin</div>
+                <div>{firstname1 + " " + lastname1}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Email</div>
-                <div>Admin@uwec.edu</div>
+                <div>{email1}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Company</div>
-                <div>Weed Dango</div>
+                <div>{companyname}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="example_account">
                 <div>Primary Contact</div>
-                <div>(715)-828-****</div>
+                <div>{phonenumber}</div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________

@@ -1,7 +1,6 @@
 import firebase from "firebase";
 import "firebase/auth";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyABj2IOgPpJGHxUrUyNXtD-IqnzQYT9HiM",
   authDomain: "sheepfinder-001.firebaseapp.com",
@@ -54,6 +53,15 @@ export const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
+export const adminSignInWithEmailAndPassword = async (email1, password1) => {
+  try {
+    await auth.signInWithEmailAndPassword(email1, password1);
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
 export const registerWithEmailAndPassword = async (
   firstname,
   lastname,
@@ -87,11 +95,12 @@ export const adminRegisterWithEmailAndPassword = async (
   email1,
   password1,
   cpassword1,
-  phonenumber1
+  phonenumber1,
+  companyname
 ) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email1, password1);
-    const admin = res.admin;
+    const admin = res.user;
     await db.collection("admins").add({
       uid: admin.uid,
       firstname1,
@@ -99,6 +108,7 @@ export const adminRegisterWithEmailAndPassword = async (
       authProvider: "local",
       email1,
       phonenumber1,
+      companyname,
     });
   } catch (err) {
     console.error(err);
@@ -107,32 +117,32 @@ export const adminRegisterWithEmailAndPassword = async (
 };
 
 export const changeProfileParts = async (
-firstname2,
-lastname2,
-email2,
-YOB2,
-phonenumber2,
-oldphonenumber
- ) => {
+  firstname2,
+  lastname2,
+  email2,
+  YOB2,
+  phonenumber2,
+  oldphonenumber
+) => {
   try {
     const res = await auth.currentUser;
     const query = await db
-        .collection("users")
-        .where("uid", "==", res.uid)
-        .get();
-      const data = await query.docs[0].id;
+      .collection("users")
+      .where("uid", "==", res.uid)
+      .get();
+    const data = await query.docs[0].id;
     await db.collection("users").doc(data).update({
       firstname: firstname2,
       lastname: lastname2,
       email: email2,
       YOB: YOB2,
-      phonenumber: phonenumber2
+      phonenumber: phonenumber2,
     });
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
-}
+};
 
 export const sendPasswordResetEmail = async (email) => {
   try {

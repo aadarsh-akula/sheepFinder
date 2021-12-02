@@ -5,13 +5,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, adminRegisterWithEmailAndPassword } from "../firebase";
 
 function AdminRegisterForm() {
-  const [admin, loading, error] = useAuthState(auth);
+  const [admin, loading1, error] = useAuthState(auth);
   const [email1, setEmail1] = useState("");
   const [password1, setPassword1] = useState("");
   const [cpassword1, setCPassword1] = useState("");
   const [firstname1, setFirstName1] = useState("");
   const [lastname1, setLastName1] = useState("");
   const [phonenumber1, setPhoneNumber1] = useState("");
+  const [companyname, setCompanyName] = useState("");
 
   const history = useHistory();
   const register = () => {
@@ -28,13 +29,14 @@ function AdminRegisterForm() {
       email1,
       password1,
       cpassword1,
-      phonenumber1
+      phonenumber1,
+      companyname
     );
   };
   useEffect(() => {
-    if (loading) return;
+    if (loading1) return;
     if (admin) history.replace("/admindashboard");
-  }, [admin, loading]);
+  }, [admin, loading1]);
 
   return (
     <form>
@@ -100,6 +102,18 @@ function AdminRegisterForm() {
             </div>
 
             <div>
+              <p className="asterik">Company's Name</p>
+              <input
+                type="name"
+                name="companyname"
+                id="companyname"
+                placeholder="Company's name"
+                onChange={(e) => setCompanyName(e.target.value)}
+                value={companyname}
+              />
+            </div>
+
+            <div>
               <p className="asterik">Phone Number</p>
               <input
                 type="phonenumber"
@@ -115,7 +129,7 @@ function AdminRegisterForm() {
               <Link
                 className="button_login1"
                 to="/admindashboard"
-                value="Register"
+                value="Register1"
                 onClick={register}
               >
                 Register
