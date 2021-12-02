@@ -34,8 +34,9 @@ function DashboardComponent(props) {
             <ol>
               <li className="test_li">
                 1. DevOps
+                job
                 <div>
-                  <Link className="button_apply" to="/dashboard" value="Login">
+                  <Link className="button_apply" to="/job" value="Login">
                     Apply
                   </Link>
                 </div>

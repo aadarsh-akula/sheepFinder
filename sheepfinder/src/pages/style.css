@@ -184,6 +184,28 @@ footer {
   opacity: 60%;
 }
 
+.job_component {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  margin-top: 0%;
+  justify-content: center;
+}
+
+.job_component::before {
+  content: "";
+  background-image: url("../cloud.png");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 60%;
+}
+
+
 .joblist {
   position: relative;
   height: 600px;

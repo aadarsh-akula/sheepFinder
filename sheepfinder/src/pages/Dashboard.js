@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import "./style.css";
 import "./nav.css";
 import DashboardComponent from "./DashboardComponent";
+import Job from "./Job";//derrik branch add
 
 function Dashboard({ history }) {
   return (

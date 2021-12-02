@@ -24,8 +24,30 @@ function Test(props) {
   const [phonenumber, setPhoneNumber] = useState("");
   const [jobList, setJobList] = useState([]);
   const [testingadd, setTestingAdd] = useState([]);
-
+  const [jobs, setJobs] = useState("");// from derrik branch -- state for resume scanner
   const history = useHistory();
+
+  // from derrik branch -- resume scanner functionality
+  const fetchAppliedJobs = async() => {
+
+    try {
+
+      const query = await db.collection("userAppliedJobs").where("email", "==", user?.email).get();
+      const data = await query.docs[0].data();
+      setJobs(data.jobId);
+
+      //alert(data.jobId);
+
+
+    } catch (err) {
+
+      console.error(err);
+      alert("An error occured while fetching user data");
+
+    }
+
+  };
+  //---
 
   const fetchUserName = async () => {
     try {
@@ -59,7 +81,7 @@ function Test(props) {
       setJobList(data);
     } catch (err) {
       console.error(err);
-      alert("An error occured while fetching user data");
+      alert("Error 001: You havent applied to any jobs ye");// Error 001 = An error occured while fetching user data
     }
   };
 

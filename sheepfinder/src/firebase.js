@@ -147,13 +147,13 @@ export const changeProfileParts = async (
   }
 };
 
-export const testingAdding = async (jobTitle) => {
+export const testingAdding = async (jobName) => {
   try {
     const res = await auth.currentUser;
     const query = await db.collection("jobList").get();
     const data = await query.docs[0].id;
     await db.collection("jobList").doc(data).update({
-      jobTitle: jobTitle,
+      jobTitle: jobName,
     });
   } catch (err) {
     console.error(err);
@@ -208,6 +208,51 @@ export const sendPasswordResetEmail = async (email) => {
     alert(err.message);
   }
 };
+
+//method added from derrik branch
+export const sendApplication = async (email, score, resume, jobId) => {
+
+  try {
+
+    await db.collection("applicationList").add({
+
+      email,
+      score,
+      resume,
+      jobId,
+
+
+    });
+
+  } catch (err) {
+
+    console.error(err);
+    alert(err.message);
+
+  }
+
+};
+
+//method added from derrik branch
+export const appliedJobs = async (email, jobId) => {
+
+  try {
+
+    await db.collection("userAppliedJobs").add({
+
+      email,
+      jobId,
+
+    });
+
+  } catch (err) {
+
+    console.error(err);
+    alert(err.message);
+
+  }
+
+}
 
 export const logout = () => {
   auth.signOut();
