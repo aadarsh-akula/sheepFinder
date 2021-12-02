@@ -57,9 +57,7 @@ function ManageUserProfile() {
                 <div>Name</div>
                 <div>
                   {firstname + " " + lastname}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
+             
                 </div>
               </div>
               <div className="example_account2">
@@ -69,9 +67,7 @@ function ManageUserProfile() {
                 <div>Email</div>
                 <div>
                   {email}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
+              
                 </div>
               </div>
               <div className="example_account2">
@@ -81,9 +77,7 @@ function ManageUserProfile() {
                 <div>Age</div>
                 <div>
                   {correctYear}
-                  <Link className="button_edit" to="/editprofile" vlaue="Login">
-                    Edit
-                  </Link>
+              
                 </div>
               </div>
               <div className="example_account2">
@@ -93,19 +87,23 @@ function ManageUserProfile() {
                 <div>Phone Number</div>
                 <div>
                   {phonenumber}
-                  <Link className="button_edit" to="/editprofile" value="Login">
-                    Edit
-                  </Link>
+               
                 </div>
               </div>
               <div className="example_account2">
                 ___________________________________________________________________________
               </div>
               <div className="user_profile_button">
-                <div>
+             
+                <div className="edit_return">
+                  <div><Link className="button_edit" to="/editprofile" value="Login">
+                    Edit
+                  </Link>
+                    </div>
+                    <div className="bigD">
                   <Link className="button_manage" to="/profile" value="Login">
                     Return
-                  </Link>
+                  </Link></div>
                 </div>
               </div>
             </div>

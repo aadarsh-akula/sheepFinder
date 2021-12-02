@@ -46,6 +46,35 @@ function DashboardComponent(props) {
                 </Link>
               </div>
             </li>
+            <li className="jobs">
+              <span
+                class="hovertext"
+                data-hover="Front Developer is responsible for targeting the front end wireframe and make sure everything is coordinated."
+              >
+                Front End Dev
+              </span>
+
+              <div className="serouesly">
+                <Link className="button_apply" to="/job" value="Login">
+                  Apply
+                </Link>
+              </div>
+            </li>
+            <li className="jobs">
+              <span
+                class="hovertext"
+                data-hover="Testing the water with Senior Operator
+                  world's most precious cargo seriously."
+              >
+                Senior Op
+              </span>
+
+              <div className="serouesly">
+                <Link className="button_apply" to="/job" value="Login">
+                  Apply
+                </Link>
+              </div>
+            </li>
           </div>
         </div>
       </div>

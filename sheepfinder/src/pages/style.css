@@ -60,6 +60,11 @@ footer {
   color: transparent;
 }
 
+
+.bigD {
+  margin-top: 20px;
+}
+
 .button {
   width: 200px;
   height: 80px;
@@ -103,6 +108,19 @@ footer {
   margin-right: 10px;
   text-align: center;
 }
+
+.button_login9 {
+  width: 60px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #1f8fff;
+  margin-right: 10px;
+  text-align: center;
+  color: black;
+}
+
+
 .button_login2 {
   width: 60px;
   height: 20px;
@@ -388,7 +406,7 @@ footer {
 
 .joblist_user_profile1 {
   position: relative;
-  height: 500px;
+  height: 560px;
   width: 500px;
   display: flex;
   border-radius: 25px;

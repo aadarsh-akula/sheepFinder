@@ -149,17 +149,20 @@ function EditProfile() {
                 ___________________________________________________________________________
               </div>
               <div className="user_profile_button">
+                <div>
                 <Link
-                  className="button_login1"
+                  className="button_login9"
                   to="/profile"
                   value="Change"
                   onClick={updateProfile}
                 >
                   Change
-                </Link>
+                </Link></div> 
+                <div>
                 <Link className="button_manage" to="/profile" value="Login">
                   Return
                 </Link>
+                </div>
               </div>
             </div>
           </div>
