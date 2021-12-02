@@ -15,13 +15,14 @@ function AdminRegisterForm() {
   const [companyname, setCompanyName] = useState("");
 
   const history = useHistory();
-  const register = () => {
+  const register1 = () => {
     if (!firstname1) alert("Please enter your first name");
     if (!lastname1) alert("Please enter your last name");
     if (!email1) alert("Please enter your first name");
     if (!password1) alert("Please enter your last name");
     if (!cpassword1) alert("Please enter your first name");
     if (!phonenumber1) alert("Please enter your last name");
+    if (!companyname) alert("Please enter eyour Company's name");
 
     adminRegisterWithEmailAndPassword(
       firstname1,
@@ -50,7 +51,7 @@ function AdminRegisterForm() {
               <p className="asterik">First Name</p>
               <input
                 type="name"
-                name="name"
+                name="name1"
                 id="name"
                 placeholder="First Name"
                 onChange={(e) => setFirstName1(e.target.value)}
@@ -62,7 +63,7 @@ function AdminRegisterForm() {
               <p className="asterik">Last Name</p>
               <input
                 type="name"
-                name="name"
+                name="name1"
                 id="name"
                 placeholder="Last Name"
                 onChange={(e) => setLastName1(e.target.value)}
@@ -73,7 +74,7 @@ function AdminRegisterForm() {
               <p className="asterik">Email</p>
               <input
                 type="email"
-                name="email"
+                name="email1"
                 id="email"
                 onChange={(e) => setEmail1(e.target.value)}
                 value={email1}
@@ -84,7 +85,7 @@ function AdminRegisterForm() {
               <p className="asterik">Password</p>
               <input
                 type="password"
-                name="password"
+                name="password1"
                 id="password"
                 onChange={(e) => setPassword1(e.target.value)}
                 value={password1}
@@ -94,7 +95,7 @@ function AdminRegisterForm() {
               <p className="asterik">Confirm Password</p>
               <input
                 type="password"
-                name="password"
+                name="password1"
                 id="cPassword"
                 onChange={(e) => setCPassword1(e.target.value)}
                 value={cpassword1}
@@ -105,7 +106,7 @@ function AdminRegisterForm() {
               <p className="asterik">Company's Name</p>
               <input
                 type="name"
-                name="companyname"
+                name="companyname1"
                 id="companyname"
                 placeholder="Company's name"
                 onChange={(e) => setCompanyName(e.target.value)}
@@ -129,8 +130,8 @@ function AdminRegisterForm() {
               <Link
                 className="button_login1"
                 to="/admindashboard"
-                value="Register1"
-                onClick={register}
+                value="RegisterAdmin"
+                onClick={register1}
               >
                 Register
               </Link>

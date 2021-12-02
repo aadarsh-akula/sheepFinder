@@ -16,7 +16,7 @@ function NavBar() {
         .collection("users")
         .where("uid", "==", user?.uid)
         .get();
-      const data = await query.docs[0].data();
+      const data = query.docs[0].data();
       setFirstName(data.firstname);
       setLastName(data.lastname);
     } catch (err) {
@@ -35,10 +35,7 @@ function NavBar() {
       <div className="nav-content">
         {" "}
         <div className="bar">
-          <h3>
-            Welcome {firstname}
-            {lastname},
-          </h3>
+          <h3>Welcome {firstname},</h3>
           <NavLink
             className="tabs"
             to="/dashboard"
