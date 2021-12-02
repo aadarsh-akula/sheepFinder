@@ -1,7 +1,29 @@
 import NavBar from "./AdminNavBar";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { auth, db, jobCreation } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+//import {getDocs} from "firebase.firestore.Firestore";
 
 function AdminAdministeredJob() {
+  const [user, loading, error] = useAuthState(auth);
+  // const [jobName, setJobName] = useState("");
+  const [jobName, setName] = useState("");
+  const [pjobDesc, setDesc] = useState("");
+
+  const createJob = async () => {
+    //await db.collection( "applicantionList",{jobName: newTitle, jobDesc: newDesc});
+    await jobCreation(jobName, pjobDesc);
+  };
+
+  /*
+const data = {
+  jobName: newTitle, jobDesc: newDesc
+}
+
+const res =  db.collection('applicationList').set(data);
+
+*/
   return (
     <>
       <NavBar />
@@ -13,10 +35,10 @@ function AdminAdministeredJob() {
           <div className="joblist_admin_profile">
             {
               <ol className="first_ol">
-                <h3>Jobs you administrate</h3>
+                =<h3>Jobs you administrate</h3>
                 <li>
                   <Link className="active_job1" to="/busdriver" value="Login">
-                    Bus Driver
+                    {jobName}
                   </Link>
                 </li>
                 <li>
@@ -26,13 +48,20 @@ function AdminAdministeredJob() {
                 </li>
                 <li>Cocaine Dealer</li>
                 <div className="adminster_job">
-                  <Link
-                    className="adminster_job_button"
-                    to="/dashboard"
-                    value="Login"
-                  >
-                    Adminster Job
-                  </Link>
+                  Create a new job
+                  <input
+                    placeholder="Type Job Title"
+                    onChange={(e) => {
+                      setName(e.target.value);
+                    }}
+                  />
+                  <input
+                    placeholder="Paste Job Description"
+                    onChange={(e) => {
+                      setDesc(e.target.value);
+                    }}
+                  />
+                  <button onClick={createJob}> Post! </button>
                 </div>
               </ol>
             }

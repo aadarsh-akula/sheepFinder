@@ -160,6 +160,17 @@ export const testingAdding = async (jobTitle) => {
     alert(err.message);
   }
 };
+export const jobCreation = async (jobName, jobDesc) => {
+  try {
+    await db.collection("joblist").add({
+      jobName,
+      jobDesc,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
 
 export const changeAdminProfileParts = async (
   firstname3,
