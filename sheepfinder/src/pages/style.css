@@ -181,6 +181,15 @@ footer {
   width: 750px;
 }
 
+.addjobs_button {
+  margin-top: 0px;
+  display: flex;
+  justify-content: center;
+  width: 750px;
+  grid-column: 3;
+  grid-row: 4;
+}
+
 .dashboard_component {
   position: relative;
   height: 100vh;
@@ -323,6 +332,96 @@ footer {
   align-items: center;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
+}
+
+.addjob_background {
+  position: relative;
+  height: 1000px;
+  width: 1500px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 5;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+}
+.one {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.two {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.three {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.four {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.five {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.six {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.seven {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.eight {
+  grid-column: 5;
+  grid-row: 2;
+}
+
+.nine {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.ten {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.eleven {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.twelve {
+  grid-column: 4;
+  grid-row: 3;
+}
+
+.thirteen {
+  grid-column: 5;
+  grid-row: 3;
+}
+
+.fourteen {
+  grid-column: 2;
+  grid-row: 4;
+}
+
+.fifteen {
+  grid-column: 4;
+  grid-row: 4;
 }
 
 .login_background {

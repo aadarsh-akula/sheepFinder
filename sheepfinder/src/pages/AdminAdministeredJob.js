@@ -35,7 +35,7 @@ const res =  db.collection('applicationList').set(data);
           <div className="joblist_admin_profile">
             {
               <ol className="first_ol">
-                =<h3>Jobs you administrate</h3>
+                <h3>Jobs you administrate</h3>
                 <li>
                   <Link className="active_job1" to="/busdriver" value="Login">
                     {jobName}QA Part Timer
@@ -47,7 +47,7 @@ const res =  db.collection('applicationList').set(data);
                   </Link>
                 </li>
                 <li>Cocaine Dealer</li>
-                <div className="adminster_job">
+                {/* <div className="adminster_job">
                   Create a new job
                   <input
                     placeholder="Type Job Title"
@@ -62,7 +62,7 @@ const res =  db.collection('applicationList').set(data);
                     }}
                   />
                   <button onClick={createJob}> Post! </button>
-                </div>
+                </div> */}
               </ol>
             }
             {
@@ -90,8 +90,11 @@ const res =  db.collection('applicationList').set(data);
                   unloading passengers.{" "}
                 </li>
                 <div className="adminster_job_description">
-                  <Link className="adminster_job_button" value="Login">
-                    Add description
+                  <Link className="adminster_job_button" to="/createjob" value="Login">
+                  Add
+                  </Link>
+                  <Link className="adminster_job_button" to="/createjob" value="Login">
+                    Edit
                   </Link>
                 </div>
               </ol>
