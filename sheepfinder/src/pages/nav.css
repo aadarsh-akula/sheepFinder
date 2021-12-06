@@ -40,6 +40,7 @@ a > b {
 
 .container_dashboard {
   display: flex;
+  width: 100%;
 }
 
 .tabs:hover {
