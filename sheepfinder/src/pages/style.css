@@ -353,9 +353,9 @@ footer {
 }
 
 .addjob_background {
-  position: relative;
+  position: relative; 
   height: 650px;
-  width: 1136px;
+  width: 100%;
   display: grid;
   gap: 10px;
   grid-template-columns: 5;
