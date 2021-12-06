@@ -237,6 +237,92 @@ export const jobCreation = async (jobname,
   }
 };
 
+export const updatingJob = async (
+  jobname,
+  jobdescription,
+  keywords,
+  Personq1,
+  Personq2,
+  Personq3,
+  Personq4,
+  Personq5,
+  Aptq1,
+  Aptq2,
+  Aptq3,
+  Aptq4,
+  Aptq5,
+  Aptq1c1,
+  Aptq1c2,
+  Aptq1c3,
+  Aptq1c4,
+  Aptq2c1,
+  Aptq2c2,
+  Aptq2c3,
+  Aptq2c4,
+  Aptq3c1,
+  Aptq3c2,
+  Aptq3c3,
+  Aptq3c4,
+  Aptq4c1,
+  Aptq4c2,
+  Aptq4c3,
+  Aptq4c4,
+  Aptq5c1,
+  Aptq5c2,
+  Aptq5c3,
+  Aptq5c4
+) => {
+  try {
+    const res = await auth.currentUser;
+    const query = await db
+      .collection("joblist")
+      .where("uid", "==", res.uid)
+      .get();
+    const data = await query.docs[0].id;
+    await db.collection("joblist").doc(data).update({
+      jobname: jobname,
+      jobdescription: jobdescription,
+      keywords: keywords,
+      Personq1: Personq1,
+      Personq2: Personq2,
+      Personq3: Personq3,
+      Personq4: Personq4,
+      Personq5: Personq5,
+      Aptq1: Aptq1,
+      Aptq2: Aptq2,
+      Aptq3: Aptq3,
+      Aptq4: Aptq4,
+      Aptq5: Aptq5,
+      Aptq1c1: Aptq1c1,
+      Aptq1c2: Aptq1c2,
+      Aptq1c3: Aptq1c3,
+      Aptq1c4: Aptq1c4,
+      Aptq2c1: Aptq2c1,
+      Aptq2c2: Aptq2c2,
+      Aptq2c3: Aptq2c3,
+      Aptq2c4: Aptq2c4,
+      Aptq3c1: Aptq3c1,
+      Aptq3c2: Aptq3c2,
+      Aptq3c3: Aptq3c3,
+      Aptq3c4: Aptq3c4,
+      Aptq4c1: Aptq4c1,
+      Aptq4c2: Aptq4c2,
+      Aptq4c3: Aptq4c3,
+      Aptq4c4: Aptq4c4,
+      Aptq5c1: Aptq5c1,
+      Aptq5c2: Aptq5c2,
+      Aptq5c3: Aptq5c3,
+      Aptq5c4: Aptq5c4
+
+
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
+
 export const changeAdminProfileParts = async (
   firstname3,
   lastname3,

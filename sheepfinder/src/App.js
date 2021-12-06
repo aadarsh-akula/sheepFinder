@@ -27,7 +27,7 @@ import AdminLoginForm from "./pages/AdminLoginForm";
 import EditAdminProfile from "./pages/editAdminProfile";
 import Job from "./pages/Job";
 import CreateJob from "./pages/CreateJob";
-import editjob from "./pages/editjob"
+import EditJob from "./pages/EditJob"
 
 const history = createBrowserHistory();
 
@@ -69,11 +69,6 @@ function App() {
           <Route exact path="/profile">
             <Container className="container_dashboard">
               <Profile />
-            </Container>
-          </Route>
-          <Route exact path="/editjob">
-            <Container className="container_dashboard">
-              <editjob />
             </Container>
           </Route>
           <Route exact path="/editprofile">
@@ -149,6 +144,11 @@ function App() {
           <Route exact path="/job">
             <Container className="container_job">
               <Job />
+            </Container>
+          </Route>
+          <Route exact path="/editjob">
+            <Container className="container_dashboard">
+              <EditJob />
             </Container>
           </Route>
         </Switch>

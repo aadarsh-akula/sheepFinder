@@ -1,10 +1,10 @@
 import NavBar from "./AdminNavBar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, jobCreation } from "../firebase";
+import { auth, db, updatingJob } from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-function CreateJob() {
+function EditJob() {
   const [admin, loading1, error] = useAuthState(auth);
   const [jobname, setJobName] = useState("");
   const [keywords, setKeyWords] = useState("");
@@ -41,42 +41,10 @@ function CreateJob() {
   const [Aptq5c4, setAptQ5C4] = useState("");
 
   const history = useHistory();
-  const creatingJob = () => {
-    if (!jobname) alert("Please enter your job name");
-    if (!jobdescription) alert("Please enter your job decription");
-    if(!keywords) alert("Please enter keywords");
-    if (!Personq1) alert("Please enter your first name");
-    if (!Personq2) alert("Please enter your last name");
-    if (!Personq3) alert("Please enter your first name");
-    if (!Personq4) alert("Please enter your last name");
-    if (!Personq5) alert("Please enter your last name");
-    if (!Aptq1) alert("Please enter your last name");
-    if (!Aptq2) alert("Please enter your last name");
-    if (!Aptq3) alert("Please enter your last name");
-    if (!Aptq4) alert("Please enter your last name");
-    if (!Aptq5) alert("Please enter your last name");
-    if (!Aptq1c1) alert("Please enter your last name");
-    if (!Aptq1c2) alert("Please enter your last name");
-    if (!Aptq1c3) alert("Please enter your last name");
-    if (!Aptq1c4) alert("Please enter your last name");
-    if (!Aptq2c1) alert("Please enter your last name");
-    if (!Aptq2c2) alert("Please enter your last name");
-    if (!Aptq2c3) alert("Please enter your last name");
-    if (!Aptq2c4) alert("Please enter your last name");
-    if (!Aptq3c1) alert("Please enter your last name");
-    if (!Aptq3c2) alert("Please enter your last name");
-    if (!Aptq3c3) alert("Please enter your last name");
-    if (!Aptq3c4) alert("Please enter your last name");
-    if (!Aptq4c1) alert("Please enter your last name");
-    if (!Aptq4c2) alert("Please enter your last name");
-    if (!Aptq4c3) alert("Please enter your last name");
-    if (!Aptq4c4) alert("Please enter your last name");
-    if (!Aptq5c1) alert("Please enter your last name");
-    if (!Aptq5c2) alert("Please enter your last name");
-    if (!Aptq5c3) alert("Please enter your last name");
-    if (!Aptq5c4) alert("Please enter your last name");
+  const updateJob = () => {
 
-    jobCreation(
+
+    updatingJob(
       jobname,
       jobdescription,
       keywords,
@@ -114,7 +82,6 @@ function CreateJob() {
   };
   const fetchUserName = async () => {
     try {
-        const admin = await db.cur
       const query = await db
         .collection("joblist")
         .where("uid", "==", admin?.uid)
@@ -129,7 +96,7 @@ function CreateJob() {
       setPersonQ4(data.Personq4);
       setPersonQ5(data.Personq5);
       setAptQ1(data.Aptq1);
-      setAptQ2(data.aptq2);
+      setAptQ2(data.Aptq2);
       setAptQ3(data.Aptq3);
       setAptQ4(data.Aptq4);
       setAptQ5(data.Aptq5);
@@ -153,6 +120,9 @@ function CreateJob() {
       setAptQ5C2(data.Aptq5c2);
       setAptQ5C3(data.Aptq5c3);
       setAptQ5C4(data.Aptq5c4);
+
+    
+
     } catch (err) {
       console.error(err);
       alert("An error occured while fetching user data");
@@ -166,10 +136,10 @@ function CreateJob() {
   return (
       <>
         <NavBar />
-        <form>
-      <div className="sheep-body">
-        <h1 className="welcome-text">Create Job</h1>
-        <div className="dashboard_component">
+        <form >
+      <div className="sheep-body2">
+        <h1 className="welcome-text">Edit Job</h1>
+        <div className="create_job">
         <div className="addjob_background">
             
             <div className="one">
@@ -551,25 +521,25 @@ function CreateJob() {
             <div className="fourteen">
               <Link
                 className="button_login1"
-                to="/admindashboard"
+                to="/adminadministeredjob"
                 value="Register"
-                onClick={creatingJob}
+                onClick={updateJob}
               >
-                Create Job
+                Update Job
               </Link>
               </div>
               <div className="fifteen">
-              <Link className="button_login2" to="/adminloginform" value="Login">
+              <Link className="button_login2" to="/adminadministeredjob" value="Login">
                 Return
               </Link>
               </div>
             </div>
           </div>
-        <footer className="footer_register">&copy;Copyright 2021</footer>
+        
       </div>
     </form>
         </>
   );
 }
 
-export default CreateJob;
+export default EditJob;
