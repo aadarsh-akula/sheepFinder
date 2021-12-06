@@ -112,9 +112,55 @@ function CreateJob() {
       Aptq5c4
     );
   };
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("joblist")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setJobName(data.jobname);
+      setJobDescription(data.jobdescription);
+      setKeyWords(data.keywords);
+      setPersonQ1(data.Personq1);
+      setPersonQ2(data.Personq2);
+      setPersonQ3(data.Personq3);
+      setPersonQ4(data.Personq4);
+      setPersonQ5(data.Personq5);
+      setAptQ1(data.Aptq1);
+      setAptQ2(data.aptq2);
+      setAptQ3(data.Aptq3);
+      setAptQ4(data.Aptq4);
+      setAptQ5(data.Aptq5);
+      setAptQ1C1(data.Aptq1c1);
+      setAptQ1C2(data.Aptq1c2);
+      setAptQ1C3(data.Aptq1c3);
+      setAptQ1C4(data.Aptq1c4);
+      setAptQ2C1(data.Aptq2c1);
+      setAptQ2C2(data.Aptq2c2);
+      setAptQ2C3(data.Aptq2c3);
+      setAptQ2C4(data.Aptq2c4);
+      setAptQ3C1(data.Aptq3c1);
+      setAptQ3C2(data.Aptq3c2);
+      setAptQ3C3(data.Aptq3c3);
+      setAptQ3C4(data.Aptq3c4);
+      setAptQ4C1(data.Aptq4c1);
+      setAptQ4C2(data.Aptq4c2);
+      setAptQ4C3(data.Aptq4c3);
+      setAptQ4C4(data.Aptq4c4);
+      setAptQ5C1(data.Aptq5c1);
+      setAptQ5C2(data.Aptq5c2);
+      setAptQ5C3(data.Aptq5c3);
+      setAptQ5C4(data.Aptq5c4);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
   useEffect(() => {
     if (loading1) return;
     if (!admin) return history.replace("/");
+    fetchUserName();
   }, [admin, loading1]);
   return (
       <>
