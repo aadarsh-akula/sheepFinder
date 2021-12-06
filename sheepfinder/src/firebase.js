@@ -170,6 +170,29 @@ export const atributeAnswer = async (
   }
 }
 
+export const personalityAnswer = async (
+      Persona1,
+      Persona2,
+      Persona3,
+      Persona4,
+      Persona5
+) => {
+  try {
+    const res = await auth.currentUser;
+    await db.collection("PersonalityTest").add({
+      uid: res.uid,
+      Persona1,
+      Persona2,
+      Persona3,
+      Persona4,
+      Persona5
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+}
+
 export const testingAdding = async (jobName) => {
   try {
     const res = await auth.currentUser;

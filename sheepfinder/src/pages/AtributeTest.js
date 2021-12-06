@@ -4,7 +4,7 @@ import { auth, db, atributeAnswer } from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
-function CreateJob() {
+function AtributeTest() {
   const [user, loading1, error] = useAuthState(auth);
   const [Apta1, setAptA1] = useState("");
   const [Apta2, setAptA2] = useState("");
@@ -213,4 +213,4 @@ function CreateJob() {
   );
 }
 
-export default CreateJob;
+export default AtributeTest;
