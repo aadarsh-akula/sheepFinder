@@ -28,10 +28,7 @@ import EditAdminProfile from "./pages/editAdminProfile";
 import Job from "./pages/Job";
 import CreateJob from "./pages/CreateJob";
 import EditJob from "./pages/EditJob"
-<<<<<<< HEAD
 import AtributeTest from "./pages/AtributeTest"
-=======
->>>>>>> 299f10e1e6c38ac8b04acff350a3b95961c4a606
 
 const history = createBrowserHistory();
 

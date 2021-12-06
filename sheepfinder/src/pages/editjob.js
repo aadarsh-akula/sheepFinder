@@ -41,7 +41,6 @@ function EditJob() {
   const [Aptq5c4, setAptQ5C4] = useState("");
 
   const history = useHistory();
-<<<<<<< HEAD
   const editJob = () => {
     if (!jobname) alert("Please enter your job name");
     if (!jobdescription) alert("Please enter your job decription");
@@ -76,9 +75,6 @@ function EditJob() {
     if (!Aptq5c2) alert("Please enter your last name");
     if (!Aptq5c3) alert("Please enter your last name");
     if (!Aptq5c4) alert("Please enter your last name");
-=======
-  const updateJob = () => {
->>>>>>> 299f10e1e6c38ac8b04acff350a3b95961c4a606
 
 
     updatingJob(
@@ -560,11 +556,7 @@ function EditJob() {
                 className="button_login1"
                 to="/adminadministeredjob"
                 value="Register"
-<<<<<<< HEAD
                 onClick={EditJob}
-=======
-                onClick={updateJob}
->>>>>>> 299f10e1e6c38ac8b04acff350a3b95961c4a606
               >
                 Update Job
               </Link>
