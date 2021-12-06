@@ -386,7 +386,7 @@ function CreateJob() {
             <div>
               <p className="asterik">{Aptq5}</p>
               <input
-                type="name"
+                type="namee"
                 name="name"
                 id="name"
                 placeholder="Question 5"
