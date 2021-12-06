@@ -19,6 +19,7 @@ img {
 .sheep-body2 {
   background-image: url("../cloud.png");
   height: 100%;
+  width: 100%;
 }
 
 .middle-sheep-body {
