@@ -16,6 +16,11 @@ img {
   height: 947px;
 }
 
+.sheep-body2 {
+  background-image: url("../cloud.png");
+  height: 100%;
+}
+
 .middle-sheep-body {
   display: flex;
   justify-content: center;
@@ -199,6 +204,19 @@ footer {
   justify-content: center;
 }
 
+
+
+.create_job {
+  position: relative;
+
+  width: 100%;
+  
+  display: flex;
+
+  justify-content: center;
+ 
+}
+
 .dashboard_component::before {
   content: "";
   background-image: url("../cloud.png");
@@ -336,8 +354,8 @@ footer {
 
 .addjob_background {
   position: relative;
-  height: 1000px;
-  width: 1500px;
+  height: 650px;
+  width: 1136px;
   display: grid;
   gap: 10px;
   grid-template-columns: 5;
@@ -348,6 +366,8 @@ footer {
   align-items: center;
   background-color: rgba(64, 64, 64, 0.8);
   color: white;
+  margin-left: 50px;
+  margin-right: 40px;
 }
 .one {
   grid-column: 2;

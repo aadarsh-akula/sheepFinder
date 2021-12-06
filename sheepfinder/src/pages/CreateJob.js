@@ -119,10 +119,10 @@ function CreateJob() {
   return (
       <>
         <NavBar />
-        <form>
-      <div className="sheep-body">
+        <form >
+      <div className="sheep-body2">
         <h1 className="welcome-text">Create Job</h1>
-        <div className="dashboard_component">
+        <div className="create_job">
         <div className="addjob_background">
             
             <div className="one">
@@ -518,7 +518,7 @@ function CreateJob() {
               </div>
             </div>
           </div>
-        <footer className="footer_register">&copy;Copyright 2021</footer>
+        
       </div>
     </form>
         </>
