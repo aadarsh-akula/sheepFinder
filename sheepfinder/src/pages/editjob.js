@@ -114,9 +114,10 @@ function CreateJob() {
   };
   const fetchUserName = async () => {
     try {
+        const admin = await db.cur
       const query = await db
         .collection("joblist")
-        .where("uid", "==", user?.uid)
+        .where("uid", "==", admin?.uid)
         .get();
       const data = await query.docs[0].data();
       setJobName(data.jobname);
