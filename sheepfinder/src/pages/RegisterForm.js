@@ -38,6 +38,8 @@ function RegisterForm() {
     if (user) history.replace("/dashboard");
   }, [user, loading]);
 
+
+
   return (
     <form>
       <div className="sheep-body">
@@ -118,9 +120,7 @@ function RegisterForm() {
             <div>
               <p className="asterik">Phone Number</p>
               <input
-                type="phonenumber"
-                name="phonenumber"
-                id="phonenumber"
+                 type="text" pattern="\d*" maxlength="11"
                 placeholder="phone #"
                 onChange={(e) => setPhoneNumber(e.target.value)}
                 value={phonenumber}

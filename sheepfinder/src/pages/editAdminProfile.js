@@ -51,6 +51,8 @@ function EditAdminProfile() {
     fetchUserName();
   }, [admin, loading1]);
 
+  
+
   return (
     <>
       <NavBar />
@@ -130,9 +132,9 @@ function EditAdminProfile() {
                 <div className="asterik">Phone Number</div>
                 <div>
                   <input
-                    type="name"
-                    name="name"
-                    id="name"
+                    type="text" pattern="\d*" maxlength="11"
+                    
+
                     placeholder={phonenumber1}
                     onChange={(e) => setPhoneNumber1(e.target.value)}
                     value={phonenumber1}

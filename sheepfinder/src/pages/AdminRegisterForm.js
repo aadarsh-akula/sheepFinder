@@ -117,9 +117,7 @@ function AdminRegisterForm() {
             <div>
               <p className="asterik">Phone Number</p>
               <input
-                type="phonenumber"
-                name="phonenumber1"
-                id="phonenumber1"
+               type="text" pattern="\d*" maxlength="11"
                 placeholder="phone #"
                 onChange={(e) => setPhoneNumber1(e.target.value)}
                 value={phonenumber1}

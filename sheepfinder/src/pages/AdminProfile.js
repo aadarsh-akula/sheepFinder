@@ -41,13 +41,26 @@ function AdminProfile(props) {
 
   phonenumber = phonenumber.replace(/\D/g, "");
 
+  console.log(phonenumber.length);
+  
+  if(phonenumber.length == 11){
+  phonenumber =
+    phonenumber.slice(0, 1) +
+    "-" +
+    phonenumber.slice(1, 4) +
+    "-" +
+    phonenumber.slice(4, 7) +
+    "-" +
+    phonenumber.slice(7, 11);
+}else if(phonenumber.length == 10){
   phonenumber =
     phonenumber.slice(0, 3) +
     "-" +
     phonenumber.slice(3, 6) +
     "-" +
-    phonenumber.slice(6, 15);
-
+    phonenumber.slice(6, 10);
+ 
+}
   return (
     <>
       <NavBar />
