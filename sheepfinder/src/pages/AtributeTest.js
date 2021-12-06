@@ -1,19 +1,16 @@
-import NavBar from "./AdminNavBar";
+import NavBar from "./NavBar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, jobCreation } from "../firebase";
+import { auth, db, atributeAnswer } from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
 function CreateJob() {
-  const [admin, loading1, error] = useAuthState(auth);
-  const [jobname, setJobName] = useState("");
-  const [keywords, setKeyWords] = useState("");
-  const [jobdescription, setJobDescription] = useState("");
-  const [Personq1, setPersonQ1] = useState("");
-  const [Personq2, setPersonQ2] = useState("");
-  const [Personq3, setPersonQ3] = useState("");
-  const [Personq4, setPersonQ4] = useState("");
-  const [Personq5, setPersonQ5] = useState("");
+  const [user, loading1, error] = useAuthState(auth);
+  const [Apta1, setAptA1] = useState("");
+  const [Apta2, setAptA2] = useState("");
+  const [Apta3, setAptA3] = useState("");
+  const [Apta4, setAptA4] = useState("");
+  const [Apta5, setAptA5] = useState("");
   const [Aptq1, setAptQ1] = useState("");
   const [Aptq2, setAptQ2] = useState("");
   const [Aptq3, setAptQ3] = useState("");
@@ -41,67 +38,20 @@ function CreateJob() {
   const [Aptq5c4, setAptQ5C4] = useState("");
 
   const history = useHistory();
-  const creatingJob = () => {
-    if (!Aptq1) alert("Please enter your last name");
-    if (!Aptq2) alert("Please enter your last name");
-    if (!Aptq3) alert("Please enter your last name");
-    if (!Aptq4) alert("Please enter your last name");
-    if (!Aptq5) alert("Please enter your last name");
-    if (!Aptq1c1) alert("Please enter your last name");
-    if (!Aptq1c2) alert("Please enter your last name");
-    if (!Aptq1c3) alert("Please enter your last name");
-    if (!Aptq1c4) alert("Please enter your last name");
-    if (!Aptq2c1) alert("Please enter your last name");
-    if (!Aptq2c2) alert("Please enter your last name");
-    if (!Aptq2c3) alert("Please enter your last name");
-    if (!Aptq2c4) alert("Please enter your last name");
-    if (!Aptq3c1) alert("Please enter your last name");
-    if (!Aptq3c2) alert("Please enter your last name");
-    if (!Aptq3c3) alert("Please enter your last name");
-    if (!Aptq3c4) alert("Please enter your last name");
-    if (!Aptq4c1) alert("Please enter your last name");
-    if (!Aptq4c2) alert("Please enter your last name");
-    if (!Aptq4c3) alert("Please enter your last name");
-    if (!Aptq4c4) alert("Please enter your last name");
-    if (!Aptq5c1) alert("Please enter your last name");
-    if (!Aptq5c2) alert("Please enter your last name");
-    if (!Aptq5c3) alert("Please enter your last name");
-    if (!Aptq5c4) alert("Please enter your last name");
+  const attributeTest = () => {
+    if (!Apta1) alert("Please enter your last name");
+    if (!Apta2) alert("Please enter your last name");
+    if (!Apta3) alert("Please enter your last name");
+    if (!Apta4) alert("Please enter your last name");
+    if (!Apta5) alert("Please enter your last name");
 
-    jobCreation(
-      jobname,
-      jobdescription,
-      keywords,
-      Personq1,
-      Personq2,
-      Personq3,
-      Personq4,
-      Personq5,
-      Aptq1,
-      Aptq2,
-      Aptq3,
-      Aptq4,
-      Aptq5,
-      Aptq1c1,
-      Aptq1c2,
-      Aptq1c3,
-      Aptq1c4,
-      Aptq2c1,
-      Aptq2c2,
-      Aptq2c3,
-      Aptq2c4,
-      Aptq3c1,
-      Aptq3c2,
-      Aptq3c3,
-      Aptq3c4,
-      Aptq4c1,
-      Aptq4c2,
-      Aptq4c3,
-      Aptq4c4,
-      Aptq5c1,
-      Aptq5c2,
-      Aptq5c3,
-      Aptq5c4
+
+    atributeAnswer(
+      Apta1,
+      Apta2,
+      Apta3,
+      Apta4,
+      Apta5
     );
   };
   const fetchUserName = async () => {
@@ -143,9 +93,9 @@ function CreateJob() {
   };
   useEffect(() => {
     if (loading1) return;
-    if (!admin) return history.replace("/");
+    if (!user) return history.replace("/");
     fetchUserName();
-  }, [admin, loading1]);
+  }, [user, loading1]);
   return (
       <>
         <NavBar />
@@ -153,289 +103,89 @@ function CreateJob() {
       <div className="sheep-body">
         <h1 className="welcome-text">Atribute Job</h1>
         <div className="dashboard_component">
-        <div className="addjob_background">
-            <div className="nine">
+        <div className="attribute_background">
+            <div className="aq1">
             <div>
-              <p className="asterik">{Aptq1}</p>
+              <p className="asterik">1. {Aptq1}</p>
+              <p className="example_account">a. {Aptq1c1}</p>
+              <p className="example_account">b. {Aptq1c2}</p>
+              <p className="example_account">c. {Aptq1c3}</p>
+              <p className="example_account">d. {Aptq1c4}</p>
               <input
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Question 1"
-                onChange={(e) => setAptQ1(e.target.value)}
-                value={Aptq1}
+                placeholder="Enter answer"
+                onChange={(e) => setAptA1(e.target.value)}
+                value={Apta1}
               />
             </div>
+            </div>
+            <div className="aq2">
             <div>
-              <p className="asterik">{Aptq1c1}</p>
+              <p className="asterik">2. {Aptq2}</p>
+              <p className="example_account">a. {Aptq2c1}</p>
+              <p className="example_account">b. {Aptq2c2}</p>
+              <p className="example_account">c. {Aptq2c3}</p>
+              <p className="example_account">d. {Aptq2c4}</p>
               <input
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ1C1(e.target.value)}
-                value={Aptq1c1}
+                placeholder="Enter answer"
+                onChange={(e) => setAptA2(e.target.value)}
+                value={Apta2}
               />
             </div>
+            </div>
+            <div className="aq3">
             <div>
-              <p className="asterik">{Aptq1c2}</p>
+              <p className="asterik">3. {Aptq3}</p>
+              <p className="example_account">a. {Aptq3c1}</p>
+              <p className="example_account">b. {Aptq3c2}</p>
+              <p className="example_account">c. {Aptq3c3}</p>
+              <p className="example_account">d. {Aptq3c4}</p>
               <input
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ1C2(e.target.value)}
-                value={Aptq1c2}
+                placeholder="Enter answer"
+                onChange={(e) => setAptA3(e.target.value)}
+                value={Apta3}
               />
             </div>
+            </div>
+            <div className="aq4">
             <div>
-              <p className="asterik">{Aptq1c3}</p>
+              <p className="asterik">4. {Aptq4}</p>
+              <p className="asterik">a. {Aptq4c1}</p>
+              <p className="asterik">b. {Aptq4c2}</p>
+              <p className="asterik">c. {Aptq4c3}</p>
+              <p className="asterik">d. {Aptq4c4}</p>
               <input
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ1C3(e.target.value)}
-                value={Aptq1c3}
+                placeholder="Enter answer"
+                onChange={(e) => setAptA4(e.target.value)}
+                value={Apta4}
               />
             </div>
+            </div>
+            <div className="aq5">
             <div>
-              <p className="asterik">{Aptq1c4}</p>
+              <p className="asterik">5. {Aptq5}</p>
+              <p className="asterik">a. {Aptq5c1}</p>
+              <p className="asterik">b. {Aptq5c2}</p>
+              <p className="asterik">c. {Aptq5c3}</p>
+              <p className="asterik">d. {Aptq5c4}</p>
               <input
                 type="name"
                 name="name"
                 id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ1C4(e.target.value)}
-                value={Aptq1c4}
-              />
-            </div>
-            </div>
-            <div className="ten">
-            <div>
-              <p className="asterik">{Aptq2}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 2"
-                onChange={(e) => setAptQ2(e.target.value)}
-                value={Aptq2}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq2c1}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ2C1(e.target.value)}
-                value={Aptq2c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq2c2}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ2C2(e.target.value)}
-                value={Aptq2c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq2c3}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ2C3(e.target.value)}
-                value={Aptq2c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq2c4}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ2C4(e.target.value)}
-                value={Aptq2c4}
-              />
-            </div>
-            </div>
-            <div className="eleven">
-            <div>
-              <p className="asterik">{Aptq3}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 3"
-                onChange={(e) => setAptQ3(e.target.value)}
-                value={Aptq3}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq3c1}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ3C1(e.target.value)}
-                value={Aptq3c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq3c2}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ3C2(e.target.value)}
-                value={Aptq3c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq3c3}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ3C3(e.target.value)}
-                value={Aptq3c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq3c4}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ3C4(e.target.value)}
-                value={Aptq3c4}
-              />
-            </div>
-            </div>
-            <div className="twelve">
-            <div>
-              <p className="asterik">{Aptq4}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 4"
-                onChange={(e) => setAptQ4(e.target.value)}
-                value={Aptq4}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq4c1}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ4C1(e.target.value)}
-                value={Aptq4c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq4c2}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ4C2(e.target.value)}
-                value={Aptq4c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq4c3}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ4C3(e.target.value)}
-                value={Aptq4c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq4c4}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ4C4(e.target.value)}
-                value={Aptq4c4}
-              />
-            </div>
-            </div>
-            <div className="thirteen">
-            <div>
-              <p className="asterik">{Aptq5}</p>
-              <input
-                type="namee"
-                name="name"
-                id="name"
-                placeholder="Question 5"
-                onChange={(e) => setAptQ5(e.target.value)}
-                value={Aptq5}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq5c1}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ5C1(e.target.value)}
-                value={Aptq5c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq5c2}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ5C2(e.target.value)}
-                value={Aptq5c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq5c3}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ5C3(e.target.value)}
-                value={Aptq5c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">{Aptq5c4}</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ5C4(e.target.value)}
-                value={Aptq5c4}
+                placeholder="Enter answer"
+                onChange={(e) => setAptA5(e.target.value)}
+                value={Apta5}
               />
             </div>
             </div>
@@ -444,7 +194,7 @@ function CreateJob() {
                 className="button_login1"
                 to="/personalitytest"
                 value="Register"
-                onClick={creatingJob}
+                onClick={attributeTest}
               >
                 Submit
               </Link>

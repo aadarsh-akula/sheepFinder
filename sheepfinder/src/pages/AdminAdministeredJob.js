@@ -1,20 +1,12 @@
 import NavBar from "./AdminNavBar";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { auth, db, jobCreation } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, updatingJob } from "../firebase";
+import { Link, useHistory } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 //import {getDocs} from "firebase.firestore.Firestore";
 
 function AdminAdministeredJob() {
-  const [user, loading, error] = useAuthState(auth);
-  // const [jobName, setJobName] = useState("");
-  const [jobName, setName] = useState("");
-  const [pjobDesc, setDesc] = useState("");
 
-  const createJob = async () => {
-    //await db.collection( "applicantionList",{jobName: newTitle, jobDesc: newDesc});
-    await jobCreation(jobName, pjobDesc);
-  };
 
   /*
 const data = {
@@ -24,6 +16,104 @@ const data = {
 const res =  db.collection('applicationList').set(data);
 
 */
+const [admin, loading1, error] = useAuthState(auth);
+const [jobname, setJobName] = useState("");
+const [keywords, setKeyWords] = useState("");
+const [jobdescription, setJobDescription] = useState("");
+const [Personq1, setPersonQ1] = useState("");
+const [Personq2, setPersonQ2] = useState("");
+const [Personq3, setPersonQ3] = useState("");
+const [Personq4, setPersonQ4] = useState("");
+const [Personq5, setPersonQ5] = useState("");
+const [Aptq1, setAptQ1] = useState("");
+const [Aptq2, setAptQ2] = useState("");
+const [Aptq3, setAptQ3] = useState("");
+const [Aptq4, setAptQ4] = useState("");
+const [Aptq5, setAptQ5] = useState("");
+const [Aptq1c1, setAptQ1C1] = useState("");
+const [Aptq1c2, setAptQ1C2] = useState("");
+const [Aptq1c3, setAptQ1C3] = useState("");
+const [Aptq1c4, setAptQ1C4] = useState("");
+const [Aptq2c1, setAptQ2C1] = useState("");
+const [Aptq2c2, setAptQ2C2] = useState("");
+const [Aptq2c3, setAptQ2C3] = useState("");
+const [Aptq2c4, setAptQ2C4] = useState("");
+const [Aptq3c1, setAptQ3C1] = useState("");
+const [Aptq3c2, setAptQ3C2] = useState("");
+const [Aptq3c3, setAptQ3C3] = useState("");
+const [Aptq3c4, setAptQ3C4] = useState("");
+const [Aptq4c1, setAptQ4C1] = useState("");
+const [Aptq4c2, setAptQ4C2] = useState("");
+const [Aptq4c3, setAptQ4C3] = useState("");
+const [Aptq4c4, setAptQ4C4] = useState("");
+const [Aptq5c1, setAptQ5C1] = useState("");
+const [Aptq5c2, setAptQ5C2] = useState("");
+const [Aptq5c3, setAptQ5C3] = useState("");
+const [Aptq5c4, setAptQ5C4] = useState("");
+
+
+const history = useHistory();
+
+
+const fetchUserName = async () => {
+  try {
+    const query = await db
+      .collection("joblist")
+      .where("uid", "==", admin?.uid)
+      .get();
+    const data = await query.docs[0].data();
+    setJobName(data.jobname);
+    setJobDescription(data.jobdescription);
+    setKeyWords(data.keywords);
+    setPersonQ1(data.Personq1);
+    setPersonQ2(data.Personq2);
+    setPersonQ3(data.Personq3);
+    setPersonQ4(data.Personq4);
+    setPersonQ5(data.Personq5);
+    setAptQ1(data.Aptq1);
+    setAptQ2(data.Aptq2);
+    setAptQ3(data.Aptq3);
+    setAptQ4(data.Aptq4);
+    setAptQ5(data.Aptq5);
+    setAptQ1C1(data.Aptq1c1);
+    setAptQ1C2(data.Aptq1c2);
+    setAptQ1C3(data.Aptq1c3);
+    setAptQ1C4(data.Aptq1c4);
+    setAptQ2C1(data.Aptq2c1);
+    setAptQ2C2(data.Aptq2c2);
+    setAptQ2C3(data.Aptq2c3);
+    setAptQ2C4(data.Aptq2c4);
+    setAptQ3C1(data.Aptq3c1);
+    setAptQ3C2(data.Aptq3c2);
+    setAptQ3C3(data.Aptq3c3);
+    setAptQ3C4(data.Aptq3c4);
+    setAptQ4C1(data.Aptq4c1);
+    setAptQ4C2(data.Aptq4c2);
+    setAptQ4C3(data.Aptq4c3);
+    setAptQ4C4(data.Aptq4c4);
+    setAptQ5C1(data.Aptq5c1);
+    setAptQ5C2(data.Aptq5c2);
+    setAptQ5C3(data.Aptq5c3);
+    setAptQ5C4(data.Aptq5c4);
+    const data1 = query.docs[1].data().jobname;
+ 
+    
+  
+
+  } catch (err) {
+    console.error(err);
+    alert("An error occured while fetching user data");
+  }
+};
+useEffect(() => {
+  if (loading1) return;
+  if (!admin) return history.replace("/");
+  fetchUserName();
+}, [admin, loading1]);
+
+
+
+
   return (
     <>
       <NavBar />
@@ -38,7 +128,7 @@ const res =  db.collection('applicationList').set(data);
                 <h3>Jobs you administrate</h3>
                 <li>
                   <Link className="active_job1" to="/busdriver" value="Login">
-                    {jobName}QA Part Timer
+                    {jobname}
                   </Link>
                 </li>
                 <li>
@@ -69,31 +159,13 @@ const res =  db.collection('applicationList').set(data);
               <ol className="seccond_ol">
                 <h3>Job description</h3>
                 <li>
-                  Student Transit takes the responsibility of transporting the
-                  world's most precious cargo seriously. We employ individuals
-                  with integrity who possess the ability to be trusted to make
-                  decisions without supervision. We expect you to take pride in
-                  your job, care of our equipment, and precautions for safety.
-                  Excellent part-time jobs! Competitive Hourly Pay 401K Weekends
-                  and Holidays Off Optional Summer Work On-Site Fitness Room
-                  School Bus driver Do you have a good driving record? Student
-                  Transit, the state of Wisconsin, and our insurance carrier
-                  require it. Would you like your summers, weekends, and
-                  holidays off with your children? Would you like to save money
-                  on day care costs by bringing your own children with you on
-                  the route? Become a school bus driver! Under general
-                  supervision, school bus drivers transport passengers safely
-                  between assigned stops and schools according to specified
-                  routes and time schedules. They may transport students and
-                  adults on field trips and outings. Bus drivers always maintain
-                  order during trips and adhere to safety rules when loading and
-                  unloading passengers.{" "}
+                  {jobdescription}{" "}
                 </li>
                 <div className="adminster_job_description">
                   <Link className="adminster_job_button" to="/createjob" value="Login">
                   Add
                   </Link>
-                  <Link className="adminster_job_button" to="/createjob" value="Login">
+                  <Link className="adminster_job_button" to="/editjob" value="Login">
                     Edit
                   </Link>
                 </div>

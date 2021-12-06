@@ -43,6 +43,7 @@ function CreateJob() {
 
   const history = useHistory();
   const creatingJob = () => {
+    /*
     if (!jobname) alert("Please enter your job name");
     if (!jobdescription) alert("Please enter your job decription");
     if(!keywords) alert("Please enter keywords");
@@ -76,6 +77,7 @@ function CreateJob() {
     if (!Aptq5c2) alert("Please enter your last name");
     if (!Aptq5c3) alert("Please enter your last name");
     if (!Aptq5c4) alert("Please enter your last name");
+    */
 
     jobCreation(
       jobname,
@@ -118,7 +120,6 @@ function CreateJob() {
   useEffect(() => {
     if (loading1) return;
     if (!admin) return history.replace("/");
-
   }, [admin, loading1]);
   return (
       <>
@@ -508,7 +509,7 @@ function CreateJob() {
             <div className="fourteen">
               <Link
                 className="button_login1"
-                to="/admindashboard"
+                to="/adminadministeredjob"
                 value="Register"
                 onClick={creatingJob}
               >
@@ -516,7 +517,7 @@ function CreateJob() {
               </Link>
               </div>
               <div className="fifteen">
-              <Link className="button_login2" to="/adminloginform" value="Login">
+              <Link className="button_login2" to="/adminadministeredjob" value="Login">
                 Return
               </Link>
               </div>

@@ -445,6 +445,49 @@ footer {
   grid-row: 4;
 }
 
+.attribute_background {
+  position: relative; 
+  height: 650px;
+  width: 100%;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 5;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 25px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(64, 64, 64, 0.8);
+  color: white;
+  margin-left: 50px;
+  margin-right: 40px;
+}
+
+.aq1 {
+grid-column: 1;
+grid-row: 1;
+}
+
+.aq2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.aq3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.aq4 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.aq5 {
+  grid-column: 2;
+  grid-row: 3;
+}
+
 .login_background {
   position: relative;
   height: 300px;
