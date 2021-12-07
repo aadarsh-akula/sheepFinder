@@ -1,31 +1,48 @@
-import React from "react";
+
 import NavBar from "./AdminNavBar";
-import { withRouter } from "react-router-dom";
+
 import "./style.css";
 import "./nav.css";
 import DashboardComponent from "./DashboardComponent";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, doc, arrayUnion, testingAdding } from "../firebase";
+import { Link, useHistory, withRouter } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-function AdminDashboard({ history }) {
-  /* const authenticated = useSelector((state) => state.authenticated);
+function AdminDashboard() {
+
+  const [admin, loading1, error] = useAuthState(auth);
+  const [jobName, setJobName] = useState("");
+  const [jobdescription, setJobDescription] = useState("");
+
+  const history = useHistory();
+
+  const fetchUserName = async () => {
+    try {
+      const query = await db
+        .collection("joblist")
+        .where("providerId", "==", admin?.providerId)
+        .get();
+      const data = await query.docs[0].data();
+      setJobName(data.jobname);
+      setJobDescription(data.jobdescription);
+
+      console.log();
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
 
   useEffect(() => {
-    if (!authenticated) {
-      history.push("/");
-    }
-  });
-*/
+    if (loading1) return;
+    if (!admin) return history.replace("/");
+    fetchUserName();
+  }, [admin, loading1]);
+
 const jobList = [
-    { description: "Bus Driver", key: 0 },
-    { description: "Weed Seller", key: 1 },
-    { description: "Cocaine Dealer", key: 2 },
-    { description: "..............................", key: 3 },
-    { description: "..............................", key: 4 },
-    { description: "..............................", key: 5 },
-    { description: "..............................", key: 6 },
-    { description: "..............................", key: 7 },
-    { description: "..............................", key: 8 },
-    { description: "..............................", key: 9 },
-    { description: "..............................", key: 10 },
+    { description: jobName, key: 0 },
+    
   ];
 
   const applicants = [
@@ -35,6 +52,8 @@ const jobList = [
     { description: "Derik Beardshear", key: 3 },
     { description: "Bailey LaBerge", key: 4 },
   ];
+
+
 
   return (
     <>
@@ -48,6 +67,7 @@ const jobList = [
                               <li key={joblist.key}>{joblist.description}</li>
                           ))}
                       </ol>}
+                      <h4>Job Description:</h4> {jobdescription}
                   </div>
               </div>
               <div className="test_box2">

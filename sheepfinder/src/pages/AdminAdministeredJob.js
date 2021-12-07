@@ -131,12 +131,8 @@ useEffect(() => {
                     {jobname}
                   </Link>
                 </li>
-                <li>
-                  <Link className="active_job2" to="/weedseller" value="Login">
-                    Weed Seller
-                  </Link>
-                </li>
-                <li>Cocaine Dealer</li>
+              
+                
                 {/* <div className="adminster_job">
                   Create a new job
                   <input
