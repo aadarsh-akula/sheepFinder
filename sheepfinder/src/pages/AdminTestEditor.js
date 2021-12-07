@@ -12,10 +12,10 @@ function Profile() {
           <div>
           <ol>
           <li>
-          Cociane Dealer - Personality Test
+          Graveyard Operator - Personality Test
           </li>
           <li>
-          Cociane Dealer - Aptitude Test
+          Computer Tech - Aptitude Test
           </li>
           </ol>
           </div>
@@ -23,19 +23,19 @@ function Profile() {
           <div>
           <ol className="apply_button_ol">
           <li>
-          <Link className="button_apply" to="/dashboard" value="Login">
+          <Link className="button_apply" value="Login">
             Edit
           </Link>
           
-          <Link className="button_apply" to="/dashboard" value="Login">
+          <Link className="button_apply" value="Login">
             Send
           </Link>
           </li>
           <li>
-          <Link className="button_apply" to="/dashboard" value="Login">
+          <Link className="button_apply"  value="Login">
             Edit
           </Link>
-          <Link className="button_apply" to="/dashboard" value="Login">
+          <Link className="button_apply" value="Login">
             Send
           </Link>
           </li>
@@ -44,7 +44,7 @@ function Profile() {
           
         </div>
         <div className="joblist_admin_add">
-        <Link className="button_add" to="/dashboard" value="Login">
+        <Link className="button_add"  value="Login">
             Add
           </Link>
         </div>
