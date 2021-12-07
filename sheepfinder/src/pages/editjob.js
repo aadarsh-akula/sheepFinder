@@ -41,42 +41,7 @@ function EditJob() {
   const [Aptq5c4, setAptQ5C4] = useState("");
 
   const history = useHistory();
-  const editJob = () => {
-    if (!jobname) alert("Please enter your job name");
-    if (!jobdescription) alert("Please enter your job decription");
-    if(!keywords) alert("Please enter keywords");
-    if (!Personq1) alert("Please enter your first name");
-    if (!Personq2) alert("Please enter your last name");
-    if (!Personq3) alert("Please enter your first name");
-    if (!Personq4) alert("Please enter your last name");
-    if (!Personq5) alert("Please enter your last name");
-    if (!Aptq1) alert("Please enter your last name");
-    if (!Aptq2) alert("Please enter your last name");
-    if (!Aptq3) alert("Please enter your last name");
-    if (!Aptq4) alert("Please enter your last name");
-    if (!Aptq5) alert("Please enter your last name");
-    if (!Aptq1c1) alert("Please enter your last name");
-    if (!Aptq1c2) alert("Please enter your last name");
-    if (!Aptq1c3) alert("Please enter your last name");
-    if (!Aptq1c4) alert("Please enter your last name");
-    if (!Aptq2c1) alert("Please enter your last name");
-    if (!Aptq2c2) alert("Please enter your last name");
-    if (!Aptq2c3) alert("Please enter your last name");
-    if (!Aptq2c4) alert("Please enter your last name");
-    if (!Aptq3c1) alert("Please enter your last name");
-    if (!Aptq3c2) alert("Please enter your last name");
-    if (!Aptq3c3) alert("Please enter your last name");
-    if (!Aptq3c4) alert("Please enter your last name");
-    if (!Aptq4c1) alert("Please enter your last name");
-    if (!Aptq4c2) alert("Please enter your last name");
-    if (!Aptq4c3) alert("Please enter your last name");
-    if (!Aptq4c4) alert("Please enter your last name");
-    if (!Aptq5c1) alert("Please enter your last name");
-    if (!Aptq5c2) alert("Please enter your last name");
-    if (!Aptq5c3) alert("Please enter your last name");
-    if (!Aptq5c4) alert("Please enter your last name");
-
-
+  const UpdateJob = () => {
     updatingJob(
       jobname,
       jobdescription,
@@ -556,7 +521,7 @@ function EditJob() {
                 className="button_login1"
                 to="/adminadministeredjob"
                 value="Register"
-                onClick={EditJob}
+                onClick={UpdateJob}
               >
                 Update Job
               </Link>

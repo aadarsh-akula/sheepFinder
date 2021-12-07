@@ -30,6 +30,7 @@ import CreateJob from "./pages/CreateJob";
 import PersonalityTest from "./pages/PersonalityTest";
 import EditJob from "./pages/EditJob";
 import AtributeTest from "./pages/AtributeTest";
+import Rank from "./pages/Rank";
 
 const history = createBrowserHistory();
 
@@ -56,6 +57,11 @@ function App() {
           <Route exact path="/dashboard">
             <Container className="container_dashboard">
               <Dashboard />
+            </Container>
+          </Route>
+          <Route exact path="/rank">
+            <Container className="container_dashboard">
+              <Rank />
             </Container>
           </Route>
           <Route exact path="/personalitytest">

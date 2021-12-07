@@ -168,6 +168,9 @@ useEffect(() => {
                   <Link className="adminster_job_button" to="/editjob" value="Login">
                     Edit
                   </Link>
+                  <Link className="adminster_job_button" to="/rank" value="Login">
+                    Rank
+                  </Link>
                 </div>
               </ol>
             }
