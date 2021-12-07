@@ -66,7 +66,6 @@ footer {
   color: transparent;
 }
 
-
 .bigD {
   margin-top: 20px;
 }
@@ -125,7 +124,6 @@ footer {
   text-align: center;
   color: black;
 }
-
 
 .button_login2 {
   width: 60px;
@@ -205,17 +203,14 @@ footer {
   justify-content: center;
 }
 
-
-
 .create_job {
   position: relative;
 
   width: 100%;
-  
+
   display: flex;
 
   justify-content: center;
- 
 }
 
 .dashboard_component::before {
@@ -354,7 +349,7 @@ footer {
 }
 
 .addjob_background {
-  position: relative; 
+  position: relative;
   height: 650px;
   width: 100%;
   display: grid;
@@ -370,6 +365,11 @@ footer {
   margin-left: 50px;
   margin-right: 40px;
 }
+
+.auto_id {
+  width: 0;
+}
+
 .one {
   grid-column: 2;
   grid-row: 1;
@@ -446,7 +446,7 @@ footer {
 }
 
 .attribute_background {
-  position: relative; 
+  position: relative;
   height: 650px;
   width: 100%;
   display: grid;
@@ -464,8 +464,8 @@ footer {
 }
 
 .aq1 {
-grid-column: 1;
-grid-row: 1;
+  grid-column: 1;
+  grid-row: 1;
 }
 
 .aq2 {

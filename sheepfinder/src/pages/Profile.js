@@ -5,6 +5,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, app, doc, arrayUnion, testingAdding } from "../firebase";
 
 function Test(props) {
+  const [user, loading, error] = useAuthState(auth);
   const hiddenFileInput = React.useRef(null);
 
   const handleClick = (event) => {
@@ -16,7 +17,6 @@ function Test(props) {
     props.handleFile(fileUploaded);
   };
 
-  const [user, loading, error] = useAuthState(auth);
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,28 +24,24 @@ function Test(props) {
   const [phonenumber, setPhoneNumber] = useState("");
   const [jobList, setJobList] = useState([]);
   const [testingadd, setTestingAdd] = useState([]);
-  const [jobs, setJobs] = useState("");// from derrik branch -- state for resume scanner
+  const [jobs, setJobs] = useState(""); // from derrik branch -- state for resume scanner
   const history = useHistory();
 
   // from derrik branch -- resume scanner functionality
-  const fetchAppliedJobs = async() => {
-
+  const fetchAppliedJobs = async () => {
     try {
-
-      const query = await db.collection("userAppliedJobs").where("email", "==", user?.email).get();
+      const query = await db
+        .collection("userAppliedJobs")
+        .where("email", "==", user?.email)
+        .get();
       const data = await query.docs[0].data();
       setJobs(data.jobId);
 
       //alert(data.jobId);
-
-
     } catch (err) {
-
       console.error(err);
       alert("An error occured while fetching user data");
-
     }
-
   };
   //---
 
@@ -81,7 +77,7 @@ function Test(props) {
       setJobList(data);
     } catch (err) {
       console.error(err);
-      alert("Error 001: You haven't applied to any jobs yet !");// Error 001 = An error occured while fetching user data
+      alert("Error 001: You haven't applied to any jobs yet !"); // Error 001 = An error occured while fetching user data
     }
   };
 
@@ -122,25 +118,34 @@ function Test(props) {
   };
   var phoneNumber = phonenumber;
 
-  phoneNumber = phonenumber.replace(/\D/g, "");
+  phoneNumber = phoneNumber.replace(/\D/g, "");
 
-  phoneNumber =
-    phoneNumber.slice(0, 3) +
-    "-" +
-    phoneNumber.slice(3, 6) +
-    "-" +
-    phoneNumber.slice(6, 15);
+  if (phoneNumber.length == 11) {
+    phoneNumber =
+      phoneNumber.slice(0, 1) +
+      "-" +
+      phoneNumber.slice(1, 4) +
+      "-" +
+      phoneNumber.slice(4, 7) +
+      "-" +
+      phoneNumber.slice(7, 11);
+  } else if (phoneNumber.length == 10) {
+    phoneNumber =
+      phoneNumber.slice(0, 3) +
+      "-" +
+      phoneNumber.slice(3, 6) +
+      "-" +
+      phoneNumber.slice(6, 10);
+  }
 
   console.log(jobList.toString());
 
-  /*
-  doc.update({
-    jobName: arrayUnion(testingadd),
-  });
-
   const testing = () => {
+    doc.update({
+      jobName: arrayUnion(testingadd),
+    });
     testingAdding(testingadd);
-  };*/
+  };
 
   return (
     <>
@@ -248,4 +253,17 @@ export default Test;
               </div>
               <Link className="button_login1" onClick={testing}>
                 add job name
-              </Link>*/
+              </Link>
+ <div>
+              <p>Test Adding</p>
+              <input
+                value={testingadd}
+                type="name1"
+                name="name1"
+                id="nam1e"
+                onChange={(e) => setTestingAdd(e.target.value)}
+              />
+              <Link className="button_manage" value="Login" onClick={testing}>
+                Add
+              </Link>
+            </div>*/

@@ -147,13 +147,7 @@ export const changeProfileParts = async (
   }
 };
 
-export const atributeAnswer = async (
-  Apta1,
-  Apta2,
-  Apta3,
-  Apta4,
-  Apta5
-) => {
+export const atributeAnswer = async (Apta1, Apta2, Apta3, Apta4, Apta5) => {
   try {
     const res = await auth.currentUser;
     await db.collection("AttributeTest").add({
@@ -162,20 +156,20 @@ export const atributeAnswer = async (
       Apta2,
       Apta3,
       Apta4,
-      Apta5
+      Apta5,
     });
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
-}
+};
 
 export const personalityAnswer = async (
-      Persona1,
-      Persona2,
-      Persona3,
-      Persona4,
-      Persona5
+  Persona1,
+  Persona2,
+  Persona3,
+  Persona4,
+  Persona5
 ) => {
   try {
     const res = await auth.currentUser;
@@ -185,28 +179,46 @@ export const personalityAnswer = async (
       Persona2,
       Persona3,
       Persona4,
-      Persona5
-    });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-}
-
-export const testingAdding = async (jobName) => {
-  try {
-    const res = await auth.currentUser;
-    const query = await db.collection("jobList").get();
-    const data = await query.docs[0].id;
-    await db.collection("jobList").doc(data).update({
-      jobTitle: jobName,
+      Persona5,
     });
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
-export const jobCreation = async (jobname,
+
+/*export const testingAdding = async (jobName) => {
+  try {
+    const res = await auth.currentUser;
+    const query = await db.collection("users").get();
+    const data = await query.docs[0].id;
+    await db.collection("users").doc(data).update({
+      jobTitle: jobName,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};*/
+
+export const testingAdding = async (autoId) => {
+  try {
+    const res = await auth.currentUser;
+    const query = await db
+      .collection("users")
+      .where("uid", "==", res?.uid)
+      .get();
+    const data = await query.docs[0].id;
+    await db.collection("users").doc(data).update({
+      autoId,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+export const jobCreation = async (
+  jobname,
   jobdescription,
   keywords,
   Personq1,
@@ -238,13 +250,16 @@ export const jobCreation = async (jobname,
   Aptq5c1,
   Aptq5c2,
   Aptq5c3,
-  Aptq5c4) => {
+  Aptq5c4,
+  autoId
+) => {
   try {
     const res = await auth.currentUser;
     await db.collection("joblist").add({
       jobname,
       jobdescription,
       uid: res.uid,
+      providerId: res.providerId,
       keywords,
       Personq1,
       Personq2,
@@ -275,7 +290,8 @@ export const jobCreation = async (jobname,
       Aptq5c1,
       Aptq5c2,
       Aptq5c3,
-      Aptq5c4
+      Aptq5c4,
+      autoId,
     });
   } catch (err) {
     console.error(err);
@@ -358,16 +374,13 @@ export const updatingJob = async (
       Aptq5c1: Aptq5c1,
       Aptq5c2: Aptq5c2,
       Aptq5c3: Aptq5c3,
-      Aptq5c4: Aptq5c4
-
-
+      Aptq5c4: Aptq5c4,
     });
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
-
 
 export const changeAdminProfileParts = async (
   firstname3,
@@ -408,48 +421,31 @@ export const sendPasswordResetEmail = async (email) => {
 
 //method added from derrik branch
 export const sendApplication = async (email, score, resume, jobId) => {
-
   try {
-
     await db.collection("applicationList").add({
-
       email,
       score,
       resume,
       jobId,
-
-
     });
-
   } catch (err) {
-
     console.error(err);
     alert(err.message);
-
   }
-
 };
 
 //method added from derrik branch
 export const appliedJobs = async (email, jobId) => {
-
   try {
-
     await db.collection("userAppliedJobs").add({
-
       email,
       jobId,
-
     });
-
   } catch (err) {
-
     console.error(err);
     alert(err.message);
-
   }
-
-}
+};
 
 export const logout = () => {
   auth.signOut();

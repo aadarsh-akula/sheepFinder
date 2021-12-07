@@ -18,7 +18,7 @@ import {
   testingAdding,
 } from "../firebase";
 
-function Job(props) {
+function Job2(props) {
   const [admin, loading1, error] = useAuthState(auth);
   const hiddenFileInput = React.useRef(null);
 
@@ -43,7 +43,7 @@ function Job(props) {
         .collection("joblist")
         .where("providerId", "==", admin?.providerId)
         .get();
-      const data = await query.docs[0].data();
+      const data = await query.docs[2].data();
       setJobName(data.jobname);
       console.log(data);
     } catch (err) {
@@ -146,4 +146,4 @@ function Job(props) {
   );
 }
 
-export default Job;
+export default Job2;

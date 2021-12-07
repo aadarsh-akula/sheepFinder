@@ -52,7 +52,7 @@ class Profile extends Component {
                       className="button_apply"
                       to="/atributetest"
                       value="Login"
-                    >   
+                    >
                       Start
                     </Link>
                   </li>

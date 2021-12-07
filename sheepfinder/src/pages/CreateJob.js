@@ -1,6 +1,13 @@
 import NavBar from "./AdminNavBar";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, jobCreation } from "../firebase";
+import {
+  auth,
+  db,
+  jobCreation,
+  testingAdding,
+  arrayUnion,
+  doc,
+} from "../firebase";
 import { Link, useHistory } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 
@@ -39,7 +46,16 @@ function CreateJob() {
   const [Aptq5c2, setAptQ5C2] = useState("");
   const [Aptq5c3, setAptQ5C3] = useState("");
   const [Aptq5c4, setAptQ5C4] = useState("");
+  const [jobids, setJobIds] = useState("");
 
+  const CHARS =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  var auto_Id = "";
+
+  for (let i = 0; i < 20; i++) {
+    auto_Id += CHARS.charAt(Math.floor(Math.random() * CHARS.length));
+  }
 
   const history = useHistory();
   const creatingJob = () => {
@@ -112,422 +128,445 @@ function CreateJob() {
       Aptq5c1,
       Aptq5c2,
       Aptq5c3,
-      Aptq5c4
+      Aptq5c4,
+      auto_Id
     );
   };
-
 
   useEffect(() => {
     if (loading1) return;
     if (!admin) return history.replace("/");
   }, [admin, loading1]);
+
+  const testing = () => {
+    doc.update({
+      autoId: arrayUnion(auto_Id),
+    });
+    testingAdding(auto_Id);
+  };
+
   return (
-      <>
-        <NavBar />
-        <form >
-      <div className="sheep-body2">
-        <h1 className="welcome-text">Create Job</h1>
-        <div className="create_job">
-        <div className="addjob_background">
-            
-            <div className="one">
-              <p className="asterik">Job Name</p>
-              <input
-                value={jobname}
-                type="name"
-                name="name"
-                id="name"
-                placeholder="job name"
-                onChange={(e) => setJobName(e.target.value)}
-              />
-            </div>
+    <>
+      <NavBar />
+      <form>
+        <div className="sheep-body2">
+          <h1 className="welcome-text">Create Job</h1>
+          <div className="create_job">
+            <div className="addjob_background">
+              <div className="one">
+                <p className="asterik">Job Name</p>
+                <input
+                  value={jobname}
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="job name"
+                  onChange={(e) => setJobName(e.target.value)}
+                />
+              </div>
 
-            <div className="two">
-              <p className="asterik">Job Description</p>
-              <input
-                value={jobdescription}
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Job Description"
-                onChange={(e) => setJobDescription(e.target.value)}
-              />
-            </div>
+              <div className="two">
+                <p className="asterik">Job Description</p>
+                <input
+                  value={jobdescription}
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Job Description"
+                  onChange={(e) => setJobDescription(e.target.value)}
+                />
+              </div>
 
-            <div className="three">
-              <p className="asterik">Key Words</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                onChange={(e) => setKeyWords(e.target.value)}
-                value={keywords}
-                placeholder="Key Words"
-              />
-            
-            </div>
-            <div className="four">
-              <p className="asterik">Personality Question 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                onChange={(e) => setPersonQ1(e.target.value)}
-                value={Personq1}
-                placeholder="Question 1"
-              />
-            </div>
-            <div className="five">
-              <p className="asterik">Personality Question 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 2"
-                onChange={(e) => setPersonQ2(e.target.value)}
-                value={Personq2}
-              />
-            </div>
-            <div className="six">
-              <p className="asterik">Personality Question 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 3"
-                onChange={(e) => setPersonQ3(e.target.value)}
-                value={Personq3}
-              />
-            </div>
-            <div className="seven">
-              <p className="asterik">Personality Question 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 4"
-                onChange={(e) => setPersonQ4(e.target.value)}
-                value={Personq4}
-              />
-            </div>
-            <div className="eight">
-              <p className="asterik">Personality Question 5</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 5"
-                onChange={(e) => setPersonQ5(e.target.value)}
-                value={Personq5}
-              />
-            </div>
-            <div className="nine">
-            <div>
-              <p className="asterik">Aptitude Question 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 1"
-                onChange={(e) => setAptQ1(e.target.value)}
-                value={Aptq1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 1 Choice 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ1C1(e.target.value)}
-                value={Aptq1c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 1 Choice 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ1C2(e.target.value)}
-                value={Aptq1c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 1 Choice 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ1C3(e.target.value)}
-                value={Aptq1c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 1 Choice 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ1C4(e.target.value)}
-                value={Aptq1c4}
-              />
-            </div>
-            </div>
-            <div className="ten">
-            <div>
-              <p className="asterik">Aptitude Question 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 2"
-                onChange={(e) => setAptQ2(e.target.value)}
-                value={Aptq2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 2 Choice 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ2C1(e.target.value)}
-                value={Aptq2c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 2 Choice 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ2C2(e.target.value)}
-                value={Aptq2c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 2 Choice 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ2C3(e.target.value)}
-                value={Aptq2c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 2 Choice 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ2C4(e.target.value)}
-                value={Aptq2c4}
-              />
-            </div>
-            </div>
-            <div className="eleven">
-            <div>
-              <p className="asterik">Aptitude Question 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 3"
-                onChange={(e) => setAptQ3(e.target.value)}
-                value={Aptq3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 3 Choice 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ3C1(e.target.value)}
-                value={Aptq3c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 3 Choice 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ3C2(e.target.value)}
-                value={Aptq3c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 3 Choice 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ3C3(e.target.value)}
-                value={Aptq3c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 3 Choice 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ3C4(e.target.value)}
-                value={Aptq3c4}
-              />
-            </div>
-            </div>
-            <div className="twelve">
-            <div>
-              <p className="asterik">Aptitude Question 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 4"
-                onChange={(e) => setAptQ4(e.target.value)}
-                value={Aptq4}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 4 Choice 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ4C1(e.target.value)}
-                value={Aptq4c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 4 Choice 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ4C2(e.target.value)}
-                value={Aptq4c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 4 Choice 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ4C3(e.target.value)}
-                value={Aptq4c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 4 Choice 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ4C4(e.target.value)}
-                value={Aptq4c3}
-              />
-            </div>
-            </div>
-            <div className="thirteen">
-            <div>
-              <p className="asterik">Aptitude Question 5</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Question 5"
-                onChange={(e) => setAptQ5(e.target.value)}
-                value={Aptq5}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 5 Choice 1</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 1"
-                onChange={(e) => setAptQ5C1(e.target.value)}
-                value={Aptq5c1}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 5 Choice 2</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 2"
-                onChange={(e) => setAptQ5C2(e.target.value)}
-                value={Aptq5c2}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 5 Choice 3</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 3"
-                onChange={(e) => setAptQ5C3(e.target.value)}
-                value={Aptq5c3}
-              />
-            </div>
-            <div>
-              <p className="asterik">Aptitude Question 2 Choice 4</p>
-              <input
-                type="name"
-                name="name"
-                id="name"
-                placeholder="Choice 4"
-                onChange={(e) => setAptQ5C4(e.target.value)}
-                value={Aptq5c4}
-              />
-            </div>
-            </div>
-            <div className="fourteen">
-              <Link
-                className="button_login1"
-                to="/adminadministeredjob"
-                value="Register"
-                onClick={creatingJob}
-              >
-                Create Job
-              </Link>
+              <div className="three">
+                <p className="asterik">Key Words</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  onChange={(e) => setKeyWords(e.target.value)}
+                  value={keywords}
+                  placeholder="Key Words"
+                />
+              </div>
+              <div className="four">
+                <p className="asterik">Personality Question 1</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  onChange={(e) => setPersonQ1(e.target.value)}
+                  value={Personq1}
+                  placeholder="Question 1"
+                />
+              </div>
+              <div className="five">
+                <p className="asterik">Personality Question 2</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Question 2"
+                  onChange={(e) => setPersonQ2(e.target.value)}
+                  value={Personq2}
+                />
+              </div>
+              <div className="six">
+                <p className="asterik">Personality Question 3</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Question 3"
+                  onChange={(e) => setPersonQ3(e.target.value)}
+                  value={Personq3}
+                />
+              </div>
+              <div className="seven">
+                <p className="asterik">Personality Question 4</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Question 4"
+                  onChange={(e) => setPersonQ4(e.target.value)}
+                  value={Personq4}
+                />
+              </div>
+              <div className="eight">
+                <p className="asterik">Personality Question 5</p>
+                <input
+                  type="name"
+                  name="name"
+                  id="name"
+                  placeholder="Question 5"
+                  onChange={(e) => setPersonQ5(e.target.value)}
+                  value={Personq5}
+                />
+              </div>
+              <div className="nine">
+                <div>
+                  <p className="asterik">Aptitude Question 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Question 1"
+                    onChange={(e) => setAptQ1(e.target.value)}
+                    value={Aptq1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 1 Choice 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 1"
+                    onChange={(e) => setAptQ1C1(e.target.value)}
+                    value={Aptq1c1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 1 Choice 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 2"
+                    onChange={(e) => setAptQ1C2(e.target.value)}
+                    value={Aptq1c2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 1 Choice 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 3"
+                    onChange={(e) => setAptQ1C3(e.target.value)}
+                    value={Aptq1c3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 1 Choice 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 4"
+                    onChange={(e) => setAptQ1C4(e.target.value)}
+                    value={Aptq1c4}
+                  />
+                </div>
+              </div>
+              <div className="ten">
+                <div>
+                  <p className="asterik">Aptitude Question 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Question 2"
+                    onChange={(e) => setAptQ2(e.target.value)}
+                    value={Aptq2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 2 Choice 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 1"
+                    onChange={(e) => setAptQ2C1(e.target.value)}
+                    value={Aptq2c1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 2 Choice 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 2"
+                    onChange={(e) => setAptQ2C2(e.target.value)}
+                    value={Aptq2c2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 2 Choice 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 3"
+                    onChange={(e) => setAptQ2C3(e.target.value)}
+                    value={Aptq2c3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 2 Choice 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 4"
+                    onChange={(e) => setAptQ2C4(e.target.value)}
+                    value={Aptq2c4}
+                  />
+                </div>
+              </div>
+              <div className="eleven">
+                <div>
+                  <p className="asterik">Aptitude Question 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Question 3"
+                    onChange={(e) => setAptQ3(e.target.value)}
+                    value={Aptq3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 3 Choice 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 1"
+                    onChange={(e) => setAptQ3C1(e.target.value)}
+                    value={Aptq3c1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 3 Choice 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 2"
+                    onChange={(e) => setAptQ3C2(e.target.value)}
+                    value={Aptq3c2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 3 Choice 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 3"
+                    onChange={(e) => setAptQ3C3(e.target.value)}
+                    value={Aptq3c3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 3 Choice 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 4"
+                    onChange={(e) => setAptQ3C4(e.target.value)}
+                    value={Aptq3c4}
+                  />
+                </div>
+              </div>
+              <div className="twelve">
+                <div>
+                  <p className="asterik">Aptitude Question 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Question 4"
+                    onChange={(e) => setAptQ4(e.target.value)}
+                    value={Aptq4}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 4 Choice 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 1"
+                    onChange={(e) => setAptQ4C1(e.target.value)}
+                    value={Aptq4c1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 4 Choice 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 2"
+                    onChange={(e) => setAptQ4C2(e.target.value)}
+                    value={Aptq4c2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 4 Choice 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 3"
+                    onChange={(e) => setAptQ4C3(e.target.value)}
+                    value={Aptq4c3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 4 Choice 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 4"
+                    onChange={(e) => setAptQ4C4(e.target.value)}
+                    value={Aptq4c3}
+                  />
+                </div>
+              </div>
+              <div className="thirteen">
+                <div>
+                  <p className="asterik">Aptitude Question 5</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Question 5"
+                    onChange={(e) => setAptQ5(e.target.value)}
+                    value={Aptq5}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 5 Choice 1</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 1"
+                    onChange={(e) => setAptQ5C1(e.target.value)}
+                    value={Aptq5c1}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 5 Choice 2</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 2"
+                    onChange={(e) => setAptQ5C2(e.target.value)}
+                    value={Aptq5c2}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 5 Choice 3</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 3"
+                    onChange={(e) => setAptQ5C3(e.target.value)}
+                    value={Aptq5c3}
+                  />
+                </div>
+                <div>
+                  <p className="asterik">Aptitude Question 2 Choice 4</p>
+                  <input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Choice 4"
+                    onChange={(e) => setAptQ5C4(e.target.value)}
+                    value={Aptq5c4}
+                  />
+                </div>
+              </div>
+              <div className="fourteen">
+                <Link
+                  className="button_login1"
+                  to="/adminadministeredjob"
+                  value="Register"
+                  onClick={() => {
+                    creatingJob();
+                    testing();
+                  }}
+                >
+                  Create Job
+                </Link>
               </div>
               <div className="fifteen">
-              <Link className="button_login2" to="/adminadministeredjob" value="Login">
-                Return
-              </Link>
+                <Link
+                  className="button_login2"
+                  to="/adminadministeredjob"
+                  value="Login"
+                >
+                  Return
+                </Link>
               </div>
             </div>
           </div>
-        
-      </div>
-    </form>
-        </>
+        </div>
+      </form>
+    </>
   );
 }
 
 export default CreateJob;
+/*
+<div className="auto_id">
+              <p>autId</p>
+              <input
+                value={auto_Id}
+                type="name"
+                name="name"
+                id="name"
+                onChange={(e) => setJobIds(e.target.value)}
+              />
+            </div>*/
