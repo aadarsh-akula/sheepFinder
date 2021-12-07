@@ -27,9 +27,9 @@ import AdminLoginForm from "./pages/AdminLoginForm";
 import EditAdminProfile from "./pages/editAdminProfile";
 import Job from "./pages/Job";
 import CreateJob from "./pages/CreateJob";
-import EditJob from "./pages/EditJob"
-import AtributeTest from "./pages/AtributeTest"
-import PersonalityTest from "./pages/PersonalityTest"
+import PersonalityTest from "./pages/PersonalityTest";
+import EditJob from "./pages/EditJob";
+import AtributeTest from "./pages/AtributeTest";
 
 const history = createBrowserHistory();
 
