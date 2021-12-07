@@ -217,6 +217,32 @@ export const testingAdding = async (autoId) => {
     alert(err.message);
   }
 };
+
+export const testingAddingPersonality = async (
+  answers1,
+  answers2,
+  answers3,
+  answers4,
+  answers5
+) => {
+  try {
+    const res = await auth.currentUser;
+    const query = await db.collection("PersonalityTest").get();
+    const data = await query.docs[0].id;
+    await db.collection("PersonalityTest").doc(data).update({
+      Persona1: answers1,
+      Persona2: answers2,
+      Persona3: answers3,
+      Persona4: answers4,
+      Persona5: answers5,
+      answerid: res.uid,
+    });
+  } catch (err) {
+    console.error(err);
+    alert(err.message);
+  }
+};
+
 export const jobCreation = async (
   jobname,
   jobdescription,

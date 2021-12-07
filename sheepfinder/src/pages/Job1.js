@@ -32,6 +32,7 @@ function Job1(props) {
   };
   const history = useHistory();
 
+  const [user, loading, userError] = useAuthState(auth);
   const [email, setEmail] = useState("");
   const [YOB, setYOB] = useState("");
 
@@ -40,10 +41,30 @@ function Job1(props) {
   const fetchUserName = async () => {
     try {
       const query = await db
+        .collection("users")
+        .where("uid", "==", user?.uid)
+        .get();
+      const data = await query.docs[0].data();
+      setEmail(data.email);
+      setYOB(data.YOB);
+    } catch (err) {
+      console.error(err);
+      alert("An error occured while fetching user data");
+    }
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return history.replace("/");
+    fetchUserName();
+  }, [user, loading]);
+
+  const fetchJobName = async () => {
+    try {
+      const query = await db
         .collection("joblist")
         .where("providerId", "==", admin?.providerId)
         .get();
-      const data = await query.docs[1].data();
+      const data = await query.docs[0].data();
       setJobName(data.jobname);
       console.log(data);
     } catch (err) {
@@ -54,7 +75,7 @@ function Job1(props) {
   useEffect(() => {
     if (loading1) return;
     if (!admin) return history.replace("/");
-    fetchUserName();
+    fetchJobName();
   }, [admin, loading1]);
 
   const currentYear = new Date().getFullYear();
@@ -125,7 +146,7 @@ function Job1(props) {
                     to="/dashboard"
                     value="Login"
                     onClick={() => {
-                      sendApplication();
+                      //sendApplication();
                       testing();
                     }}
                   >
