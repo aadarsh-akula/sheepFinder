@@ -109,7 +109,7 @@ function Job(props) {
                   </div>
                 </div>
                 <div className="return_button_div">
-                  <Link className="button_apply" to="/atributetest" value="Login">
+                  <Link className="button_apply" to="/dashboard" value="Login">
                     Apply
                   </Link>
                 </div>

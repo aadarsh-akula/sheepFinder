@@ -192,7 +192,7 @@ function AtributeTest() {
             <div className="fourteen">
               <Link
                 className="button_login1"
-                to="/personalitytest"
+                to="/dashboard"
                 value="Register"
                 onClick={attributeTest}
               >
@@ -200,7 +200,7 @@ function AtributeTest() {
               </Link>
               </div>
               <div className="fifteen">
-              <Link className="button_login2" to="/adminloginform" value="Login">
+              <Link className="button_login2" to="/dashboard" value="Login">
                 Return
               </Link>
               </div>

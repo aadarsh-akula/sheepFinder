@@ -39,7 +39,7 @@ class Profile extends Component {
                   <li>
                     <Link
                       className="button_apply"
-                      to="/test"
+                      to="/personalitytest"
                       value="Login"
                       style={{ backgroundColor: this.state.onChange_color }}
                       onClick={this.complete_onClick}
@@ -50,7 +50,7 @@ class Profile extends Component {
                   <li>
                     <Link
                       className="button_apply"
-                      to="/dashboard"
+                      to="/atributetest"
                       value="Login"
                     >   
                       Start

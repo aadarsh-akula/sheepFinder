@@ -61,7 +61,7 @@ function PersonalityTest() {
         <NavBar />
         <form>
       <div className="sheep-body">
-        <h1 className="welcome-text">Atribute Job</h1>
+        <h1 className="welcome-text">Personality Test</h1>
         <div className="dashboard_component">
         <div className="attribute_background">
             <div className="aq1">
@@ -132,15 +132,15 @@ function PersonalityTest() {
             <div className="fourteen">
               <Link
                 className="button_login1"
-                to="/personalitytest"
+                to="/dashboard"
                 value="Register"
                 onClick={personalityTeststore}
               >
-                Submit
+                Finish
               </Link>
               </div>
               <div className="fifteen">
-              <Link className="button_login2" to="/adminloginform" value="Login">
+              <Link className="button_login2" to="/dashboard" value="Login">
                 Return
               </Link>
               </div>
